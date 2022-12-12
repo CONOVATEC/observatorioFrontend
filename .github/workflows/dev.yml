@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - prodV*
+      - dev-v*
 jobs:
   deploy-prod:
     name: deploy prod
