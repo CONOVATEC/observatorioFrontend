@@ -1,0 +1,24 @@
+{
+  "images":[
+    { 
+      "id": 1,
+      "src": "https://assets.pokemon.com/static2/_ui/img/chrome/external_link_bumper.png",
+      "alt": "pikachu"
+    },
+    { 
+      "id": 2,
+      "src": "https://assets.pokemon.com/static2/_ui/img/chrome/external_link_bumper.png",
+      "alt": "pikachu"
+    },
+    { 
+      "id": 3,
+      "src": "https://assets.pokemon.com/static2/_ui/img/chrome/external_link_bumper.png",
+      "alt": "pikachu"
+    },
+    { 
+      "id": 4,
+      "src": "https://assets.pokemon.com/static2/_ui/img/chrome/external_link_bumper.png",
+      "alt": "pikachu"
+    }
+  ]
+}
