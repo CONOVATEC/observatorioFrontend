@@ -1,8 +1,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import Hero from "../src/containers/CustomHero";
 import Head from "next/head";
 import Image from "next/image";
-import Hero from "../src/containers/CustomHero";
 import CustomNavBar from "../src/containers/CustomNavBar";
+import Form from "../src/containers/Form";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -14,9 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ChakraProvider>
-        <CustomNavBar />
         <Hero />
       </ChakraProvider>
+      <Form onSubmit={console.log} />
+      <CustomNavBar />
     </div>
   );
 }
