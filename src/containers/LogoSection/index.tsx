@@ -13,7 +13,7 @@ const LogoSection = ({ data }: {data: ILogoData[] | undefined;})=> {
           ?.map(({ url_image }, index)=> <Image
             alt="asdsad"
             key={`sponsor-${index}`}
-            boxSize={`calc(100%/${data.length})`}
+            boxSize={`calc(96%/${data.length})`}
             objectFit='cover'
             height='100%'
             title='aaaa'

@@ -33,7 +33,7 @@ const CustomNavBar = ()=> {
       </HStack>
       <CustomMenu menuItems={
         menuItems
-          .map(({label, isCollapsable, href}, index)=> 
+          .map(({label, isCollapsable, href, subLabels}, index)=> 
             <MenuItem as={isCollapsable ? 'div': 'button'} key={`nav-bar-item-${index}`}>
               {!isCollapsable && <Link key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
 
@@ -41,15 +41,17 @@ const CustomNavBar = ()=> {
                 <AccordionItem width='100%'>
                     <AccordionButton width='100%' onClick={_handleClickAccordion}>
                       <Box as='span' flex='1' textAlign='left'>
-                        Section 1 title
+                        {label}
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
                   <AccordionPanel pb={4}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.
+                  {subLabels?.map(({label, href}, index)=> <MenuItem
+                    key={`sub-label-${index}`}
+                    >
+                    <Link href={href}>{label}</Link>
+                  </MenuItem>
+                  )}
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion> }

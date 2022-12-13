@@ -16,20 +16,14 @@ const CustomMenu = ({menuItems}: CustomMenuProps)=>{
           <HamburgerIcon 
             height='3rem'
             width='3rem'
-            color='black'
             />
           }
         variant='outline'
-        background='none'
-        border='none'
         aria-label='Options' 
         as={IconButton} 
       />
       <MenuList
         display={{md:'none'}} width='100vw'
-        className="menu-list"
-        margin='20px'
-        gap='10px'
       >
         {menuItems}
       </MenuList>
