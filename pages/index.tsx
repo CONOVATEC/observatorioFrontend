@@ -1,6 +1,7 @@
 import Hero from "../src/containers/CustomHero";
 import Head from "next/head";
 import CustomNavBar from "../src/containers/CustomNavBar";
+import LogoSection from "../src/containers/LogoSection";
 import styles from "../styles/Home.module.css";
 import CaptionCarousel from "../src/views/Carousel";
 import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react";
@@ -79,6 +80,7 @@ export default function Home() {
         </Box>
       ))
       }/>
+      <LogoSection/>
     </div>
   );
 }
