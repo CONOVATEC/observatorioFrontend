@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import CustomNavBar from '../src/containers/CustomNavBar'
+import Form from '../src/containers/Form'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
