@@ -9,7 +9,6 @@ import {
 import { hero } from "./config";
 const { title, content, img_hero_url } = hero;
 const Hero = () => {
-  console.log("🚀 ~ file: index.tsx:11 ~ title", img_hero_url);
   return (
     <Flex
       w={"full"}
