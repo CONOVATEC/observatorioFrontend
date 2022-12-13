@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import CustomNavBar from '../src/containers/CustomNavBar'
-import Form from '../src/containers/Form'
-import styles from '../styles/Home.module.css'
+import Hero from "../src/containers/CustomHero";
+import Head from "next/head";
+import CustomNavBar from "../src/containers/CustomNavBar";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CustomNavBar />
+      <Hero />
     </div>
-  )
+  );
 }
