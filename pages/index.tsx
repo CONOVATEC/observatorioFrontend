@@ -1,36 +1,19 @@
-import Hero from "../src/containers/CustomHero";
-import Head from "next/head";
-import CustomNavBar from "../src/containers/CustomNavBar";
-import LogoSection from "../src/containers/LogoSection";
-import styles from "../styles/Home.module.css";
-import CaptionCarousel from "../src/views/Carousel";
-import { Box, Container, Heading, Stack, Text } from "@chakra-ui/react";
+import Hero from '../src/containers/CustomHero';
+import Head from 'next/head';
+import CustomNavBar from '../src/containers/CustomNavBar';
+import LogoSection from '../src/containers/LogoSection';
+import styles from '../styles/Home.module.css';
+import CaptionCarousel from '../src/views/Carousel';
+import { Box, Heading, Stack, Text } from '@chakra-ui/react';
+import { useGetSponsorImagesQuery } from '../src/redux/sponsors/slice';
+import { memo, useMemo } from 'react';
+import { ILogoData } from '../src/types';
 
-const cards = [
-  {
-    title: 'Design Projects 1',
-    text:
-      "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-    image:
-      'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-  },
-  {
-    title: 'Design Projects 2',
-    text:
-      "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-    image:
-      'https://images.unsplash.com/photo-1438183972690-6d4658e3290e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2274&q=80',
-  },
-  {
-    title: 'Design Projects 3',
-    text:
-      "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
-    image:
-      'https://images.unsplash.com/photo-1507237998874-b4d52d1dd655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-  },
-];
+export default memo(function Home() {
+  const { data, error } = useGetSponsorImagesQuery(null)
 
-export default function Home() {
+  const logosData: ILogoData[] | undefined  = useMemo(()=> data?.data , [data?.data])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -52,35 +35,19 @@ export default function Home() {
       <CustomNavBar />
       <Hero />
       <CaptionCarousel cards={
-       cards.map((card, index) => (
+       logosData?.map(({url_image}, index) => (
         <Box
           key={index}
-          height={'6xl'}
+          height={{base:'50vh', md:'1xl'}}
+          backgroundSize='50%'
           position="relative"
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
-          backgroundSize="cover"
-          backgroundImage={`url(${card.image})`}>
-          <Container size="container.lg" height="600px" position="relative">
-            <Stack
-              spacing={6}
-              w={'full'}
-              maxW={'lg'}
-              position="absolute"
-              top="50%"
-              transform="translate(0, -50%)">
-              <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                {card.title}
-              </Heading>
-              <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                {card.text}
-              </Text>
-            </Stack>
-          </Container>
+          backgroundImage={`url(${url_image})`}>
         </Box>
       ))
       }/>
-      <LogoSection/>
+      <LogoSection data={logosData}/>
     </div>
   );
-}
+})

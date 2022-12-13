@@ -23,24 +23,22 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function CaptionCarousel( {cards}: {cards: JSX.Element[];}) {
-  const [slider, setSlider] = useState<Slider | null>(null);
-
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30%', md: '40px' });
+export default function CaptionCarousel( {cards}: {cards?: JSX.Element[] ;}) {
+  const [ slider, setSlider ] = useState<Slider | null>(null);
 
   return (
     <Box
+      display={{lg:'none'}}
       position={'relative'}
-      height={'600px'}
+      height={'480px'}
       width={'full'}
       overflow={'hidden'}>     
       <IconButton
         aria-label="left-arrow"
         variant="ghost"
         position="absolute"
-        left={side}
-        top={top}
+        left={'1rem'}
+        top={'50%'}
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
@@ -50,8 +48,8 @@ export default function CaptionCarousel( {cards}: {cards: JSX.Element[];}) {
         aria-label="right-arrow"
         variant="ghost"
         position="absolute"
-        right={side}
-        top={top}
+        right={'1rem'}
+        top={'50%'}
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}>
