@@ -1,6 +1,7 @@
 import Hero from "../src/containers/CustomHero";
 import Head from "next/head";
 import CustomNavBar from "../src/containers/CustomNavBar";
+import LogoSection from "../src/containers/LogoSection";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <CustomNavBar />
       <Hero />
+      <LogoSection/>
     </div>
   );
 }
