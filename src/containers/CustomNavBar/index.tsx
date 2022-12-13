@@ -18,7 +18,7 @@ const CustomNavBar = ()=> {
           objectFit='cover'
           height='100%' 
           alt="logo observatorio"
-          src="http://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7"/>
+          src="https://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7"/>
       </Box>
       <HStack display={{base: 'none', md:'flex'}}>
         {
