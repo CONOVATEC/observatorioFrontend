@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { createWrapper } from "next-redux-wrapper";
+import { createWrapper } from 'next-redux-wrapper';
 import { sponsorImagesApi } from './sponsors/slice'
 
 export const makeStore = () => configureStore({

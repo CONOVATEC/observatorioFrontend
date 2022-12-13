@@ -1,32 +1,17 @@
-import Link from "next/link"
-import { ChevronDownIcon } from "@chakra-ui/icons"
-import { Box, HStack, Image, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
-import { memo } from "react"
-import CustomMenu from "../../components/CustomMenu"
+import { memo, MouseEventHandler } from 'react'
+import Link from 'next/link'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Image, MenuItem } from '@chakra-ui/react'
+import CustomMenu from '../../components/CustomMenu'
+import { menuItems } from './config'
 
-const menuItems = [
-  {label: 'Inicio', isCollapsable: false, href:'' },
-  {
-    label: 'Nosotros',
-    isCollapsable: true ,
-    href:'',
-    subLabels: [{label:'option1', href: ''}, {label:'option2', href: ''}] 
-  },
-  {label: 'Boletín', isCollapsable: false, href:'' },
-  {label: 'Politicas Juventudes', isCollapsable: false, href:'' },
-  {label: 'Capacitaciones', isCollapsable: true , href:'' },
-  {label: 'Contáctenos', isCollapsable: false, href:'' }
-]
+const CustomNavBar = ()=> {
+  const _handleClickAccordion: MouseEventHandler = (event) => {
+    event.stopPropagation()
+  } 
 
-const CustomNavBar = ()=> { 
   return (
-    <HStack
-      justifyContent="space-between"
-      margin="20px"
-    >
-      <Box
-        className="image-container"
-      >
+    <HStack justifyContent='space-between' position="sticky" top={0} backgroundColor='white'>
+      <Box>
         <Image
           boxSize='200px'
           objectFit='cover'
@@ -34,58 +19,41 @@ const CustomNavBar = ()=> {
           alt="logo observatorio"
           src="http://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7"/>
       </Box>
-      <CustomMenu 
-        
-        menuItems={
+      <HStack display={{base: 'none', md:'flex'}}>
+        {
+          menuItems
+            .map(({label, isCollapsable, href}, index) => {
+              return (
+                <>
+                  {!isCollapsable && <Link key={`desktop-${index}`} href={href}>{label}</Link>}
+                </>
+              )
+            })
+        }
+      </HStack>
+      <CustomMenu menuItems={
         menuItems
-          .map( ({label, isCollapsable, href, subLabels}, index)=> <MenuItem
-            className="menu-item"
-            key={`nav-bar-item-${index}`}
-            background='none'
-            color='black'
-            border='none'
-            fontWeight='500'
-            fontSize='20px'
-          >
-            
-            
-            {isCollapsable ?
-              <Menu>
-                <MenuButton
-                  color='black'
-                  background='none'
-                  border='none'
-                  aria-label='Options'
-                  fontSize="20px"
-                >
-                  {label}
-                  <ChevronDownIcon/>
-                </MenuButton>
-                <MenuList
-                  display='grid'
-                  gap='15px'
-                  margin='10px'
-                >
-                  {subLabels?.map(({label, href}, index)=> <MenuItem
-                    key={`sub-label-${index}`}
-                    background='none'
-                    color='black'
-                    border='none'
-                    fontWeight='500'
-                    fontSize='20px'
-                    >
-                    <Link href={href}>{label}</Link>
-                  </MenuItem>
-                  )}
+          .map(({label, isCollapsable, href}, index)=> 
+            <MenuItem as={isCollapsable ? 'div': 'button'} key={`nav-bar-item-${index}`}>
+              {!isCollapsable && <Link key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
 
-                </MenuList>
-              </Menu>:
-              <Link href={href}>{label}</Link>
-              
-            }
-
-            
-          </MenuItem>)
+              {isCollapsable && <Accordion width='100%' allowToggle>
+                <AccordionItem width='100%'>
+                    <AccordionButton width='100%' onClick={_handleClickAccordion}>
+                      <Box as='span' flex='1' textAlign='left'>
+                        Section 1 title
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion> }
+            </MenuItem>)
       }/>
     </HStack>
   )

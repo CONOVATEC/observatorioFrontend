@@ -1,5 +1,5 @@
-import { HamburgerIcon } from "@chakra-ui/icons"
-import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react"
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { IconButton, Menu, MenuButton, MenuList } from '@chakra-ui/react'
 
 interface CustomMenuProps {
   menuItems: JSX.Element | JSX.Element[]
@@ -9,7 +9,7 @@ const CustomMenu = ({menuItems}: CustomMenuProps)=>{
   return (
     <Menu>
       <MenuButton
-        className="menu-button"
+        display={{base:'block', md:'none'}}
         height='4rem'
         width='4em'
         icon={
@@ -26,10 +26,9 @@ const CustomMenu = ({menuItems}: CustomMenuProps)=>{
         as={IconButton} 
       />
       <MenuList
+        display={{md:'none'}} width='100vw'
         className="menu-list"
-        width='100vw'
         margin='20px'
-        display='grid'
         gap='10px'
       >
         {menuItems}
