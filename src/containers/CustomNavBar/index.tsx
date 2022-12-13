@@ -1,13 +1,8 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Image, MenuItem } from '@chakra-ui/react'
-import Link from 'next/link'
 import { memo, MouseEventHandler } from 'react'
+import Link from 'next/link'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Image, MenuItem } from '@chakra-ui/react'
 import CustomMenu from '../../components/CustomMenu'
-
-const menuItems = [
-  {label: 'Incio', isCollapsable: false, href:'' },
-  {label: 'Nosotros', isCollapsable: true , href:'/about' },
-  {label: 'Boletin', isCollapsable: false, href:'' }
-]
+import { menuItems } from './config'
 
 const CustomNavBar = ()=> {
   const _handleClickAccordion: MouseEventHandler = (event) => {
@@ -40,7 +35,7 @@ const CustomNavBar = ()=> {
         menuItems
           .map(({label, isCollapsable, href}, index)=> 
             <MenuItem as={isCollapsable ? 'div': 'button'} key={`nav-bar-item-${index}`}>
-              {!isCollapsable && <Link href={href}>{label}</Link>}
+              {!isCollapsable && <Link key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
 
               {isCollapsable && <Accordion width='100%' allowToggle>
                 <AccordionItem width='100%'>

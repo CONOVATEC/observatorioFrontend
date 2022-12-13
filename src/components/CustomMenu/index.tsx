@@ -1,5 +1,5 @@
-import { HamburgerIcon } from "@chakra-ui/icons"
-import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react"
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { IconButton, Menu, MenuButton, MenuList } from '@chakra-ui/react'
 
 interface CustomMenuProps {
   menuItems: JSX.Element | JSX.Element[]
