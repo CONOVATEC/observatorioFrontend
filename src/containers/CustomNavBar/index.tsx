@@ -1,10 +1,11 @@
 import { Box, HStack, Image, MenuItem } from "@chakra-ui/react"
+import Link from "next/link"
 import { memo } from "react"
 import CustomMenu from "../../components/CustomMenu"
 
 const menuItems = [
   {label: 'Incio', isCollapsable: false, href:'' },
-  {label: 'Nosotros', isCollapsable: true , href:'' },
+  {label: 'Nosotros', isCollapsable: true , href:'/about' },
   {label: 'Boletin', isCollapsable: false, href:'' }
 ]
 
@@ -21,8 +22,8 @@ const CustomNavBar = ()=> {
       </Box>
       <CustomMenu menuItems={
         menuItems
-          .map( ({label}, index)=> <MenuItem key={`nav-bar-item-${index}`}>
-            {label}
+          .map( ({label, href}, index)=> <MenuItem key={`nav-bar-item-${index}`}>
+            <Link href={href}>{label}</Link>
           </MenuItem>)
       }/>
     </HStack>
