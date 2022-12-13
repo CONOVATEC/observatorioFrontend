@@ -4,7 +4,7 @@ import { sponsorImagesApi } from './sponsors/slice'
 
 export const makeStore = () => configureStore({
   reducer: {
-    [sponsorImagesApi.reducerPath]: sponsorImagesApi.reducer
+    [sponsorImagesApi.reducerPath]: sponsorImagesApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(sponsorImagesApi.middleware)
