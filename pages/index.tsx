@@ -15,7 +15,7 @@ export default memo(function Home() {
   const logosData: ILogoData[] | undefined  = useMemo(()=> data?.data , [data?.data])
 
   return (
-    <div >
+    <div className={styles.body}>
       <Head>
         <title>Observatorio</title>
         <link

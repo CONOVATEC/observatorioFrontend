@@ -8,7 +8,7 @@ export const menuItems = [
   },
   {label: 'Boletín', isCollapsable: false, href:'' },
   {label: 'Politicas Juventudes', isCollapsable: false, href:'' },
-  {label: 'Capacitaciones', isCollapsable: true , href:'' },
+  {label: 'Capacitaciones', isCollapsable: true , href:'', subLabels: [{label:'option a', href: ''}, {label:'option b', href: ''}]  },
   {label: 'Contáctenos', isCollapsable: false, href:'' }
 ]
 

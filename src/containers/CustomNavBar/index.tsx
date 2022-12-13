@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Image, MenuItem } from '@chakra-ui/react'
 import CustomMenu from '../../components/CustomMenu'
 import { menuItems } from './config'
+import style from './style.module.css'
 
 const CustomNavBar = ()=> {
   const _handleClickAccordion: MouseEventHandler = (event) => {
@@ -10,7 +11,7 @@ const CustomNavBar = ()=> {
   } 
 
   return (
-    <HStack justifyContent='space-between' position="sticky" top={0} backgroundColor='white'>
+    <HStack padding="1rem" minHeight={100} as="nav" justifyContent='space-between' position="sticky" top={0} backgroundColor='white'>
       <Box>
         <Image
           boxSize='200px'
@@ -35,21 +36,21 @@ const CustomNavBar = ()=> {
         menuItems
           .map(({label, isCollapsable, href, subLabels}, index)=> 
             <MenuItem as={isCollapsable ? 'div': 'button'} key={`nav-bar-item-${index}`}>
-              {!isCollapsable && <Link key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
+              {!isCollapsable && <Link className={style.a} key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
 
               {isCollapsable && <Accordion width='100%' allowToggle>
-                <AccordionItem width='100%'>
-                    <AccordionButton width='100%' onClick={_handleClickAccordion}>
+                <AccordionItem width='100%' >
+                    <AccordionButton pl={0} width='100%' onClick={_handleClickAccordion}>
                       <Box as='span' flex='1' textAlign='left'>
                         {label}
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
-                  <AccordionPanel pb={4}>
+                  <AccordionPanel  pb={4}>
                   {subLabels?.map(({label, href}, index)=> <MenuItem
                     key={`sub-label-${index}`}
                     >
-                    <Link href={href}>{label}</Link>
+                    <Link className={style.a}  href={href}>{label}</Link>
                   </MenuItem>
                   )}
                   </AccordionPanel>
