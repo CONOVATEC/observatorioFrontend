@@ -1,4 +1,4 @@
-import { FormLabel, Input, Select } from "@chakra-ui/react"
+import { FormLabel, Input, Select } from '@chakra-ui/react'
 
 export const genres = [
   {
@@ -27,10 +27,10 @@ const roles = [
 ]
 
 export const config = [
-  { name: 'name', label:"Nombre", type: "text" },
-  { name: 'last-name', label:"Apellido", type: "text" } ,
-  { name: 'birthday', label:"Cumpleanios", type: "date" } ,
-  { name: 'email', label:"Correo electornico", type: "email" },
+  { name: 'name', label:'Nombre', type: 'text' },
+  { name: 'last-name', label:'Apellido', type: 'text' } ,
+  { name: 'birthday', label:'Cumpleanios', type: 'date' } ,
+  { name: 'email', label:'Correo electornico', type: 'email' },
   { 
     name: 'genre', 
     label: 'Genero', 

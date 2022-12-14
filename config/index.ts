@@ -15,3 +15,4 @@ export const APIS_URLS = {
   ...(process.env.NEXT_PUBLIC_OBSERVATORIO_BACK ? { OBSERVATORIO_BACK : process.env.NEXT_PUBLIC_OBSERVATORIO_BACK }:{})
 }
 
+
