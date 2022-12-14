@@ -13,10 +13,10 @@ import style from './style.module.css'
 // Settings for the slider
 const settings = {
   dots: true,
-  arrows: false,
+  arrows: true,
   fade: true,
   infinite: true,
-  autoplay: true,
+  autoplay: false,
   speed: 500,
   autoplaySpeed: 5000,
   slidesToShow: 1,
