@@ -5,18 +5,55 @@ import {
   AccordionIcon, AccordionItem,
   AccordionPanel, Box,
   HStack, Image,
-  MenuItem, useColorModeValue } from '@chakra-ui/react'
+  Menu,
+  MenuButton,
+  MenuItem, MenuList, useColorModeValue } from '@chakra-ui/react'
 import CustomMenu from '../../components/CustomMenu'
 import { menuItems } from './config'
 import style from './style.module.css'
 import ModeSwitcher from '../../components/ModeSwitcher'
+import { ChevronDownIcon } from '@chakra-ui/icons'
+
+interface IMenuItem{
+  label: string,
+  isCollapsable: boolean,
+  href: string,
+  subLabels?:  ISubMenuItem[]
+}
+
+interface ISubMenuItem{
+  label: string,
+  href: string
+}
 
 const CustomNavBar = ()=> {
   const value = useColorModeValue('none','invert(1)')
 
   const _handleClickAccordion: MouseEventHandler = (event) => {
     event.stopPropagation()
-  } 
+  }
+
+  const DesktopMenuItems = ( {label, isCollapsable, href, subLabels}: IMenuItem)=>{
+    return (
+      <>
+        {
+          isCollapsable?
+            <Menu>
+              <MenuButton>{label} <ChevronDownIcon/> </MenuButton>
+                <MenuList>
+                { subLabels?.map(({label, href}, index)=><MenuItem
+                    key={`sub-menu-item-${index}`}
+                  >
+                    <Link href={href}>{label}</Link>
+                </MenuItem>
+                )}
+              </MenuList>
+            </Menu>
+            :<Link href={href}>{label}</Link>
+        }
+      </>
+    )
+  }
 
   return (
     <HStack 
@@ -40,13 +77,7 @@ const CustomNavBar = ()=> {
       <HStack display={{base: 'none', md:'flex'}}>
         {
           menuItems
-            .map(({label, isCollapsable, href}, index) => {
-              return (
-                <>
-                  {!isCollapsable && <Link key={`desktop-${index}`} href={href}>{label}</Link>}
-                </>
-              )
-            })
+            .map((menuItem, index) => <DesktopMenuItems key={`data-index-${index}`} {...menuItem}/> )
         }
       <ModeSwitcher />
       </HStack>
