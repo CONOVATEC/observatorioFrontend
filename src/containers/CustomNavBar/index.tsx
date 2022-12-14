@@ -1,19 +1,36 @@
 import { memo, MouseEventHandler } from 'react'
 import Link from 'next/link'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, HStack, Image, MenuItem } from '@chakra-ui/react'
+import { 
+  Accordion, AccordionButton,
+  AccordionIcon, AccordionItem,
+  AccordionPanel, Box,
+  HStack, Image,
+  MenuItem, useColorModeValue } from '@chakra-ui/react'
 import CustomMenu from '../../components/CustomMenu'
 import { menuItems } from './config'
 import style from './style.module.css'
+import ModeSwitcher from '../../components/ModeSwitcher'
 
 const CustomNavBar = ()=> {
+  const value = useColorModeValue('none','invert(1)')
+
   const _handleClickAccordion: MouseEventHandler = (event) => {
     event.stopPropagation()
   } 
 
   return (
-    <HStack padding="1rem" minHeight={100} as="nav" justifyContent='space-between' position="sticky" top={0} backgroundColor='white'>
+    <HStack 
+      padding="1rem" 
+      minHeight={100} 
+      as="nav" 
+      justifyContent='space-between'
+      position="sticky" 
+      top={0} 
+      backgroundColor='Background'
+    >
       <Box>
         <Image
+          filter={value}
           boxSize='200px'
           objectFit='cover'
           height='100%' 
@@ -31,7 +48,10 @@ const CustomNavBar = ()=> {
               )
             })
         }
+      <ModeSwitcher />
       </HStack>
+      <HStack display={{base:'flex', md:'none'}}>
+      <ModeSwitcher />
       <CustomMenu menuItems={
         menuItems
           .map(({label, isCollapsable, href, subLabels}, index)=> 
@@ -58,6 +78,7 @@ const CustomNavBar = ()=> {
               </Accordion> }
             </MenuItem>)
       }/>
+      </HStack>
     </HStack>
   )
 }
