@@ -23,7 +23,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function CaptionCarousel( {cards}: {cards?: JSX.Element[] ;}) {
+export default function CaptionCarousel({cards}: {cards?: JSX.Element[] ;}) {
   const [ slider, setSlider ] = useState<Slider | null>(null);
 
   return (

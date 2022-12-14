@@ -3,8 +3,6 @@ import { memo } from 'react'
 import { sponsorImagesApi } from '../../redux/sponsors/slice'
 import { ILogoData } from '../../types';
 
-const logoItems = sponsorImagesApi;
-
 const LogoSection = ({ data }: {data: ILogoData[] | undefined;})=> {
   return (
     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between">
