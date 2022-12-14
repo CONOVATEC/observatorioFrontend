@@ -1,7 +1,7 @@
-import { memo } from "react"
-import { Button, Card, CardBody, Spinner, VStack } from "@chakra-ui/react"
-import { FieldValues, SubmitHandler, useForm} from "react-hook-form"
-import { config, CustomInput, CustomSelect } from "./config"
+import { memo } from 'react'
+import { Button, Card, CardBody, Spinner, VStack } from '@chakra-ui/react'
+import { FieldValues, SubmitHandler, useForm} from 'react-hook-form'
+import { config, CustomInput, CustomSelect } from './config'
 
 interface FormProps {
   onSubmit: SubmitHandler<FieldValues>
