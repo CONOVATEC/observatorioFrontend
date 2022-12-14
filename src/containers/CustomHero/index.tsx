@@ -1,12 +1,11 @@
 import {
-  Stack,
-  Flex,
-  Button,
-  Text,
-  VStack,
-  useBreakpointValue,
+  Stack, Flex,
+  Button, Text,
+  VStack, useBreakpointValue,
 } from '@chakra-ui/react';
+
 import { hero } from './config';
+
 const { title, content, img_hero_url } = hero;
 const Hero = () => {
   return (
