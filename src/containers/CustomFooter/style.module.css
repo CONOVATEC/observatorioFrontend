@@ -1,0 +1,7 @@
+.footer{
+    background: #1D1D1B;
+    padding: 2rem;
+    color: white;
+    display: grid;
+    gap: 2rem;
+}

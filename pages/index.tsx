@@ -8,6 +8,7 @@ import { ILogoData } from '../src/types';
 
 import styles from '../styles/Home.module.css';
 import { Box } from '@chakra-ui/react';
+import CustomFooter from '../src/containers/CustomFooter';
 
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
@@ -64,6 +65,7 @@ export default memo(function Home() {
         carouselRenderItems={_handleCarouselRender}
         stackRenderItems={_handleStackRender}
       />
+      <CustomFooter/>
     </div>
   );
 })
