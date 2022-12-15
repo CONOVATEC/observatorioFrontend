@@ -8,6 +8,7 @@ import { ILogoData } from '../src/types';
 
 import styles from '../styles/Home.module.css';
 import { Box } from '@chakra-ui/react';
+import SectionFirstCarousel from '../src/containers/SectionFirstCarousel';
 
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
@@ -36,7 +37,7 @@ export default memo(function Home() {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize='contain'
-      backgroundImage={`url(${url_image})`}/ >
+      backgroundImage={`url(${url_image})`} />
     , [])
     
   return (
@@ -59,7 +60,8 @@ export default memo(function Home() {
       </Head>
       <CustomNavBar />
       <Hero />
-     <ResponsiveGalleryWithCarousel 
+      <SectionFirstCarousel />
+      <ResponsiveGalleryWithCarousel 
         data={logosData}
         carouselRenderItems={_handleCarouselRender}
         stackRenderItems={_handleStackRender}
