@@ -2,21 +2,21 @@ import { HStack } from '@chakra-ui/react'
 import { memo } from 'react'
 import CaptionCarousel from '../Carousel'
 
-// type RenderPropGallery<T> = 
-
 interface ResponsiveGalleryProps<T> {
   data?: T[];
-  carouselRenderItems: (dataItem?: T, index?: number, array?: T[]) => JSX.Element;
-  stackRenderItems: (dataItem?: T, index?: number, array?: T[]) => JSX.Element;
+  carouselRenderItems(dataItem?: T, index?: number, array?: T[]): JSX.Element;
+  stackRenderItems(dataItem?: T, index?: number, array?: T[]):JSX.Element;
+  carouselProps?: any;
+  stackProps?: any
 }
 
-function ResponsiveGallery<T>({data, carouselRenderItems, stackRenderItems}: ResponsiveGalleryProps<T>){
+function ResponsiveGallery<T>({data, carouselRenderItems, stackRenderItems, stackProps, carouselProps}: ResponsiveGalleryProps<T>){
   return (
     <>
-      <CaptionCarousel cards={
+      <CaptionCarousel carouselProps={carouselProps} cards={
         data?.map(carouselRenderItems)
       }/>
-     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between">
+     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between" {...stackProps}>
         {
          data?.map(stackRenderItems)
         }
