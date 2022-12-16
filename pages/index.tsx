@@ -7,17 +7,58 @@ import { memo, useMemo } from 'react';
 import styles from '../styles/Home.module.css';
 import { dataCards } from '../src/config';
 import { useRenderPropsLogosCards, useRenderPropsMainCards } from '../src/hooks';
+import { Box, Image, Stack, Text } from '@chakra-ui/react';
+
+
+type textProp = string | JSX.Element;
+interface FunctionsCardProps {
+  primary: textProp;
+  secondary?: textProp;
+  href: string
+}
+
+const FunctionsCard = ({primary, secondary, href}: FunctionsCardProps)=>(
+  <Box>
+    <Image alt={String(primary)} href={href} />
+    <Text color={'purple.900'}>
+      {primary}
+    </Text>
+    <Text variant='b2'>
+      {secondary}
+    </Text>
+  </Box>
+)
+
+const functions = [
+  {
+    primary: 'Brindar data regional',
+    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
+    href: 'http://placeimg.com/640/480'
+  },
+  {
+    primary: 'Brindar data regional',
+    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
+    href: 'http://placeimg.com/640/480'
+  },
+  {
+    primary: 'Brindar data regional',
+    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
+    href: 'http://placeimg.com/640/480'
+  },
+]
 
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
+
+  const logosData  = useMemo(()=> 
+    data?.data , [data?.data]
+  )
 
   const [ _handleRenderLogosCarousuel, _handleRenderLogosStack ] = useRenderPropsLogosCards();
 
   const [ _handleMainCardsRender ] = useRenderPropsMainCards()
 
-  const logosData  = useMemo(()=> 
-    data?.data , [data?.data]
-  )
+
     
   return (
     <div className={styles.container}>
@@ -56,6 +97,12 @@ export default memo(function Home() {
         carouselRenderItems={_handleRenderLogosCarousuel}
         stackRenderItems={_handleRenderLogosStack}
       />
+      <Stack flexDir={{base: 'column', md: 'row'}}>
+        {
+          functions
+            .map((functionData, index) => (<FunctionsCard key={`function-${index}`} {...functionData}/>))
+        }
+      </Stack>
     </div>
   );
 })
