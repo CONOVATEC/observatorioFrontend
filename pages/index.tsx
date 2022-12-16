@@ -57,9 +57,7 @@ export default memo(function Home() {
 
   const [_handleRenderLogosCarousuel, _handleRenderLogosStack] = useRenderPropsLogosCards();
 
-  const [_handleMainCardsRender] = useRenderPropsMainCards()
-
-
+  const [_handleMainCardsRender, _handleMainCardsCarouselRender] = useRenderPropsMainCards()
 
   return (
     <div className={styles.container}>
@@ -83,14 +81,21 @@ export default memo(function Home() {
         <Hero />
         <ResponsiveGalleryWithCarousel
           data={dataCards}
-          carouselRenderItems={_handleRenderLogosCarousuel}
+          carouselRenderItems={_handleMainCardsCarouselRender}
           stackRenderItems={_handleMainCardsRender}
+          carouselProps={{
+            height: {base: '50vh', md: '40vh'},
+            top: -45,
+            pl: 16,
+            pr: 16
+          }}
           stackProps={{
             height: 180,
             position: 'relative',
-            top: -90,
+            top: -25,
             pl: 8,
-            pr: 8
+            pr: 8,
+            mb: 16
           }}
         />
         <ResponsiveGalleryWithCarousel
