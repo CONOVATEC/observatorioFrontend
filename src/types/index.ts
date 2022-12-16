@@ -17,6 +17,6 @@ export interface IMenuItem{
   label: string,
   isCollapsable: boolean,
   href: string,
-  subLabels?:  ISubMenuItem[]
+  listProp?: JSX.Element
 }
 
