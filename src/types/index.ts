@@ -8,7 +8,12 @@ export interface ILogoData {
   }
 }
 
-
+export interface IMenuItem{
+  label: string,
+  isCollapsable: boolean,
+  href: string,
+  listProp?: JSX.Element
+}
 export interface SectionProps {
   title: string;
   image: string;
