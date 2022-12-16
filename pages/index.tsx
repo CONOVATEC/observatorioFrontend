@@ -5,6 +5,7 @@ import ResponsiveGalleryWithCarousel from '../src/views/ResponsiveGalleryWithCar
 import { useGetSponsorImagesQuery } from '../src/redux/sponsors/slice';
 import { memo, useMemo } from 'react';
 import styles from '../styles/Home.module.css';
+import DefaultLayout from '../src/views/DefaultLayout'
 import { dataCards } from '../src/config';
 import { useRenderPropsLogosCards, useRenderPropsMainCards } from '../src/hooks';
 import { Box, Image, Stack, Text } from '@chakra-ui/react';
@@ -14,12 +15,12 @@ type textProp = string | JSX.Element;
 interface FunctionsCardProps {
   primary: textProp;
   secondary?: textProp;
-  href: string
+  src: string
 }
 
-const FunctionsCard = ({primary, secondary, href}: FunctionsCardProps)=>(
+const FunctionsCard = ({ primary, secondary, src }: FunctionsCardProps) => (
   <Box>
-    <Image alt={String(primary)} href={href} />
+    <Image alt={String(primary)} src={src} />
     <Text color={'purple.900'}>
       {primary}
     </Text>
@@ -33,42 +34,42 @@ const functions = [
   {
     primary: 'Brindar data regional',
     secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    href: 'http://placeimg.com/640/480'
+    src: 'http://placeimg.com/640/480'
   },
   {
     primary: 'Brindar data regional',
     secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    href: 'http://placeimg.com/640/480'
+    src: 'http://placeimg.com/640/480'
   },
   {
     primary: 'Brindar data regional',
     secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    href: 'http://placeimg.com/640/480'
+    src: 'http://placeimg.com/640/480'
   },
 ]
 
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
 
-  const logosData  = useMemo(()=> 
-    data?.data , [data?.data]
+  const logosData = useMemo(() =>
+    data?.data, [data?.data]
   )
 
-  const [ _handleRenderLogosCarousuel, _handleRenderLogosStack ] = useRenderPropsLogosCards();
+  const [_handleRenderLogosCarousuel, _handleRenderLogosStack] = useRenderPropsLogosCards();
 
-  const [ _handleMainCardsRender ] = useRenderPropsMainCards()
+  const [_handleMainCardsRender] = useRenderPropsMainCards()
 
 
-    
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Observatorio de jovenes en Peru</title>
         <link
-        rel="stylesheet"
-        type="text/css"
-        charSet="UTF-8"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
           rel="stylesheet"
@@ -78,31 +79,32 @@ export default memo(function Home() {
         <meta name="description" content="Observatorio de jovenes" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CustomNavBar />
-      <Hero />
-      <ResponsiveGalleryWithCarousel 
-        data={dataCards}
-        carouselRenderItems={_handleRenderLogosCarousuel}
-        stackRenderItems={_handleMainCardsRender}
-        stackProps={{
-          height: 180,
-          position: 'relative',
-          top: -90,
-          pl:8,
-          pr: 8
-        }}
-      />
-      <ResponsiveGalleryWithCarousel 
-        data={logosData}
-        carouselRenderItems={_handleRenderLogosCarousuel}
-        stackRenderItems={_handleRenderLogosStack}
-      />
-      <Stack flexDir={{base: 'column', md: 'row'}}>
-        {
-          functions
-            .map((functionData, index) => (<FunctionsCard key={`function-${index}`} {...functionData}/>))
-        }
-      </Stack>
+      <DefaultLayout>
+        <Hero />
+        <ResponsiveGalleryWithCarousel
+          data={dataCards}
+          carouselRenderItems={_handleRenderLogosCarousuel}
+          stackRenderItems={_handleMainCardsRender}
+          stackProps={{
+            height: 180,
+            position: 'relative',
+            top: -90,
+            pl: 8,
+            pr: 8
+          }}
+        />
+        <ResponsiveGalleryWithCarousel
+          data={logosData}
+          carouselRenderItems={_handleRenderLogosCarousuel}
+          stackRenderItems={_handleRenderLogosStack}
+        />
+        <Stack flexDir={{ base: 'column', md: 'row' }}>
+          {
+            functions
+              .map((functionData, index) => (<FunctionsCard key={`function-${index}`} {...functionData} />))
+          }
+        </Stack>
+      </DefaultLayout>
     </div>
   );
 })
