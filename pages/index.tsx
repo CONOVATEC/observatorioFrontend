@@ -13,7 +13,7 @@ import SectionFirstCarousel from '../src/containers/SectionFirstCarousel';
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
 
-  const logosData: ILogoData[] | undefined  = useMemo<ILogoData[] | undefined>(()=> 
+  const logosData  = useMemo(()=> 
     data?.data , [data?.data]
   )
 
@@ -63,8 +63,8 @@ export default memo(function Home() {
       <SectionFirstCarousel />
       <ResponsiveGalleryWithCarousel 
         data={logosData}
-        carouselRenderItems={_handleCarouselRender}
-        stackRenderItems={_handleStackRender}
+        carouselRenderItems={_handleCarouselRender as any}
+        stackRenderItems={_handleStackRender as any}
       />
     </div>
   );
