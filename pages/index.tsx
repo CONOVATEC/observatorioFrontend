@@ -7,7 +7,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { ILogoData } from '../src/types';
 
 import styles from '../styles/Home.module.css';
-import { Box } from '@chakra-ui/react';
+import { Box, Stack, Text } from '@chakra-ui/react';
 import SectionFirstCarousel from '../src/containers/SectionFirstCarousel';
 
 export default memo(function Home() {
