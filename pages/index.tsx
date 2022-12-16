@@ -69,8 +69,8 @@ export default memo(function Home() {
           stackRenderItems={_handleRenderLogosStack}
         />
         
-        <Heading textAlign="center">Nuestras</Heading>
-        <Heading textAlign="center">Funciones</Heading>
+        <Heading textAlign='center'>Nuestras</Heading>
+        <Heading textAlign='center'>Funciones</Heading>
         <Stack 
           flexDir={{ base: 'column', md: 'row' }}
           justifyContent={{base: 'center', md: 'space-between'}}
@@ -84,12 +84,12 @@ export default memo(function Home() {
           }
         </Stack>
         
-        <Heading textAlign="center">Nuestras</Heading>
-        <Heading textAlign="center">Temáticas</Heading>
+        <Heading textAlign='center'>Nuestras</Heading>
+        <Heading textAlign='center'>Temáticas</Heading>
         <Stack 
           flexDir={{ base: 'column', md: 'row' }}
           justifyContent={{base: 'center', md: 'space-between'}}
-          alignItems="center" 
+          alignItems='center'
           gap={8}
           px={8}
         >
@@ -98,13 +98,13 @@ export default memo(function Home() {
               .map((tematicsByTwo, index)=>{
                 const [firstItem, secondItem] = tematicsByTwo;
                 return(
-                  <HStack key={index} width="100%" justifyContent={{base: "space-evenly", md:'space-around'}} >
+                  <HStack key={index} width='100%' justifyContent={{base: 'space-evenly', md:'space-around'}} >
                     <VStack>
-                      <Image boxSize='75' src={firstItem.src}/>
+                      <Image boxSize='75'alt={firstItem.title} src={firstItem.src}/>
                       <Heading as='h5' size='sm'>{firstItem.title}</Heading >
                     </VStack>
                     <VStack>
-                      <Image boxSize='75' src={secondItem.src}/>
+                      <Image boxSize='75' alt={secondItem.title} src={secondItem.src}/>
                       <Heading as='h5' size='sm'>{secondItem.title}</Heading >
                     </VStack>
                   </HStack>
