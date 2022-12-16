@@ -1,52 +1,23 @@
 import Hero from '../src/containers/CustomHero';
 import Head from 'next/head';
-import CustomNavBar from '../src/containers/CustomNavBar';
 import ResponsiveGalleryWithCarousel from '../src/views/ResponsiveGalleryWithCarousel';
 import { useGetSponsorImagesQuery } from '../src/redux/sponsors/slice';
 import { memo, useMemo } from 'react';
 import styles from '../styles/Home.module.css';
 import DefaultLayout from '../src/views/DefaultLayout'
-import { dataCards } from '../src/config';
+import { dataCards, functions, POWER_BI_LINK, tematics, tematicsByTwo } from '../src/config';
 import { useRenderPropsLogosCards, useRenderPropsMainCards } from '../src/hooks';
-import { Box, Image, Stack, Text } from '@chakra-ui/react';
+import { AspectRatio, Box, Heading, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react';
+import FunctionsCard from '../src/components/FunctionCard';
 
 
-type textProp = string | JSX.Element;
-interface FunctionsCardProps {
-  primary: textProp;
-  secondary?: textProp;
-  src: string
+const TematicCard = ()=>{
+   return(
+     <Box>
+       
+     </Box>
+   )
 }
-
-const FunctionsCard = ({ primary, secondary, src }: FunctionsCardProps) => (
-  <Box>
-    <Image alt={String(primary)} src={src} />
-    <Text color={'purple.900'}>
-      {primary}
-    </Text>
-    <Text variant='b2'>
-      {secondary}
-    </Text>
-  </Box>
-)
-
-const functions = [
-  {
-    primary: 'Brindar data regional',
-    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    src: 'http://placeimg.com/640/480'
-  },
-  {
-    primary: 'Brindar data regional',
-    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    src: 'http://placeimg.com/640/480'
-  },
-  {
-    primary: 'Brindar data regional',
-    secondary: 'Voluptatem harum autem doloribus rerum incidunt voluptatem officiis voluptates enim.',
-    src: 'http://placeimg.com/640/480'
-  },
-]
 
 export default memo(function Home() {
   const { data, error } = useGetSponsorImagesQuery(null)
@@ -58,8 +29,6 @@ export default memo(function Home() {
   const [_handleRenderLogosCarousuel, _handleRenderLogosStack] = useRenderPropsLogosCards();
 
   const [_handleMainCardsRender] = useRenderPropsMainCards()
-
-
 
   return (
     <div className={styles.container}>
@@ -94,15 +63,64 @@ export default memo(function Home() {
           }}
         />
         <ResponsiveGalleryWithCarousel
+          stackProps={{px: 8}}
           data={logosData}
           carouselRenderItems={_handleRenderLogosCarousuel}
           stackRenderItems={_handleRenderLogosStack}
         />
-        <Stack flexDir={{ base: 'column', md: 'row' }}>
+        
+        <Heading textAlign="center">Nuestras</Heading>
+        <Heading textAlign="center">Funciones</Heading>
+        <Stack 
+          flexDir={{ base: 'column', md: 'row' }}
+          justifyContent={{base: 'center', md: 'space-between'}}
+          alignItems="center" 
+          gap={8}
+          px={8}
+        >
           {
             functions
               .map((functionData, index) => (<FunctionsCard key={`function-${index}`} {...functionData} />))
           }
+        </Stack>
+        
+        <Heading textAlign="center">Nuestras</Heading>
+        <Heading textAlign="center">Temáticas</Heading>
+        <Stack 
+          flexDir={{ base: 'column', md: 'row' }}
+          justifyContent={{base: 'center', md: 'space-between'}}
+          alignItems="center" 
+          gap={8}
+          px={8}
+        >
+          {
+            tematicsByTwo
+              .map((tematicsByTwo, index)=>{
+                const [firstItem, secondItem] = tematicsByTwo;
+                return(
+                  <HStack key={index} width="100%" justifyContent={{base: "space-evenly", md:'space-around'}} >
+                    <VStack>
+                      <Image boxSize='75' src={firstItem.src}/>
+                      <Heading as='h5' size='sm'>{firstItem.title}</Heading >
+                    </VStack>
+                    <VStack>
+                      <Image boxSize='75' src={secondItem.src}/>
+                      <Heading as='h5' size='sm'>{secondItem.title}</Heading >
+                    </VStack>
+                  </HStack>
+                )
+              })
+          }
+        </Stack>
+        <Stack padding="2rem" gap={8}>
+          <Heading textAlign="center" as="h2">Situación de la población joven en el Perú</Heading>
+          <AspectRatio ratio={16 / 7}>
+            <iframe
+              title="Report Section"
+              allowFullScreen
+              src={POWER_BI_LINK} >
+            </iframe>
+          </AspectRatio>
         </Stack>
       </DefaultLayout>
     </div>
