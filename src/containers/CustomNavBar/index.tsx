@@ -64,6 +64,7 @@ const CustomNavBar = ()=> {
       position="sticky" 
       top={0} 
       backgroundColor='Background'
+      zIndex={100}
     >
       <Box>
         <Image
