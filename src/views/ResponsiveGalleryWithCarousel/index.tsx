@@ -1,26 +1,25 @@
-import { Box, HStack } from '@chakra-ui/react'
+import { HStack } from '@chakra-ui/react'
 import { memo } from 'react'
-import { ILogoData } from '../../types'
 import CaptionCarousel from '../Carousel'
 
-type RenderPropGallery = (dataItem: ILogoData, index: number, array: ILogoData[]) => JSX.Element
-
-interface ResponsiveGalleryProps {
-  data?: ILogoData[];
-  carouselRenderItems: RenderPropGallery
-  stackRenderItems: RenderPropGallery
+interface ResponsiveGalleryProps<T> {
+  data?: T[];
+  carouselRenderItems(dataItem?: T, index?: number, array?: T[]): JSX.Element;
+  stackRenderItems(dataItem?: T, index?: number, array?: T[]):JSX.Element;
+  carouselProps?: any;
+  stackProps?: any
 }
 
-const ResponsiveGallery = ({ data, carouselRenderItems, stackRenderItems }: ResponsiveGalleryProps) =>{
+function ResponsiveGallery<T>({data, carouselRenderItems, stackRenderItems, stackProps, carouselProps}: ResponsiveGalleryProps<T>){
   return (
     <>
-    <CaptionCarousel cards={
+      <CaptionCarousel carouselProps={carouselProps} cards={
         data?.map(carouselRenderItems)
-     }/>
-     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between">
-       {
-          data?.map(stackRenderItems)
-       }
+      }/>
+     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between" {...stackProps}>
+        {
+         data?.map(stackRenderItems)
+        }
      </HStack>
     </>
   )

@@ -7,3 +7,12 @@ export interface ILogoData {
       description: string
   }
 }
+
+
+export interface SectionProps {
+  title: string;
+  image: string;
+  alt_image: string;
+  content_body: string;
+}
+
