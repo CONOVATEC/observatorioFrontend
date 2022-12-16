@@ -3,6 +3,7 @@ import {
   Button, Text,
   VStack, useBreakpointValue,
 } from '@chakra-ui/react';
+import { memo } from 'react';
 
 import { hero } from './config';
 
@@ -19,7 +20,8 @@ const Hero = () => {
       <VStack
         w={'full'}
         align={'left'}
-        justify={'center'}
+        justify={'top'}
+        padding={4}
         px={useBreakpointValue({ base: 4, md: 8 })}
         bgGradient={'linear(to-r, blackAlpha.600, transparent)'}
       >
@@ -59,4 +61,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);

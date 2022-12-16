@@ -10,7 +10,6 @@ import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 
 import style from './style.module.css'
 
-// Settings for the slider
 const settings = {
   dots: true,
   arrows: true,
@@ -23,11 +22,17 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function CaptionCarousel({cards}: {cards?: JSX.Element[] ;}) {
+interface CaptionCarouselProps {
+  cards?: JSX.Element[];
+  carouselProps: any
+}
+
+export default function CaptionCarousel({cards, carouselProps}: CaptionCarouselProps) {
   const [ slider, setSlider ] = useState<Slider | null>(null);
 
   return (
     <Box
+      {...carouselProps}
       display={{lg:'none'}}
       position={'relative'}
       height={'480px'}
