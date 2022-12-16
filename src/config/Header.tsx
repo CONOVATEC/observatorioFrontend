@@ -1,4 +1,4 @@
-export const data_cards = [
+export const dataCards = [
   {
     title: 'Demografía',
     image:
