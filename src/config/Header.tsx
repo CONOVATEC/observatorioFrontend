@@ -2,7 +2,7 @@ export const dataCards = [
   {
     title: 'Demografía',
     image:
-      'http://drive.google.com/uc?export=view&id=1i4kfKt5ecIca3YxvycGHQXW2XRGHBALf',
+      'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075065/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/%C3%8DCONOS%20DE%20DATOS%20RELEVANTES%20-%20SAB%C3%8DAS%20QU%C3%89/Demograf%C3%ADa_kr9tix.png',
     alt_image: 'demography-slide-image',
     content_body:
       'El 22% de jóvenes en el ámbito rural viven en condición de probeza y pobreza extrema.',
@@ -10,7 +10,7 @@ export const dataCards = [
   {
     title: 'Empleo',
     image:
-      'http://drive.google.com/uc?export=view&id=1ArdK5RbAyVg1FC92sZEQibbTJ4Ftax0C',
+      'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075065/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/%C3%8DCONOS%20DE%20DATOS%20RELEVANTES%20-%20SAB%C3%8DAS%20QU%C3%89/Empleo_lejyff.png',
     alt_image: 'job-slide-image',
     content_body:
       'La participación de jóvenes, en los espacios públicos, es en promedio un 6.4%.',
@@ -18,7 +18,7 @@ export const dataCards = [
   {
     title: 'Salud',
     image:
-      'http://drive.google.com/uc?export=view&id=13-FWsxiULg32j5RzjUvA3xndJ8UNHns_',
+      'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075066/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/%C3%8DCONOS%20DE%20DATOS%20RELEVANTES%20-%20SAB%C3%8DAS%20QU%C3%89/Salud_gccqxz.png',
     alt_image: 'health-slide-image',
     content_body:
       'El 32.90% de jóvenes, aprobaron la secundaria completa como máximo nivel educativo.',
@@ -26,7 +26,7 @@ export const dataCards = [
   {
     title: 'Violencia',
     image:
-      'http://drive.google.com/uc?export=view&id=1ysNzWjQHPSl1_dpmIi-U_bK5_YaZPa5o',
+      'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075067/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/%C3%8DCONOS%20DE%20DATOS%20RELEVANTES%20-%20SAB%C3%8DAS%20QU%C3%89/Violencia_cqqeax.png',
 
     alt_image: 'violence-slide-image',
     content_body:
