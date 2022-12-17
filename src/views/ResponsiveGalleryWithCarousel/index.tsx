@@ -4,8 +4,8 @@ import CaptionCarousel from '../Carousel'
 
 interface ResponsiveGalleryProps<T> {
   data?: T[];
-  carouselRenderItems(dataItem?: T, index?: number, array?: T[]): JSX.Element;
-  stackRenderItems(dataItem?: T, index?: number, array?: T[]):JSX.Element;
+  carouselRenderItems(dataItem?: T, index?: number, array?: T[]): JSX.Element | null;
+  stackRenderItems(dataItem?: T, index?: number, array?: T[]):JSX.Element | null;
   carouselProps?: any;
   stackProps?: any
 }

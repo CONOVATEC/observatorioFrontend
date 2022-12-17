@@ -28,3 +28,10 @@ export interface FunctionsCardProps {
   secondary?: textProp;
   src: string
 }
+
+export interface SectionAboutCarouselProps {
+  image: string;
+  alt: string;
+  fullName: string;
+  position: string;
+}

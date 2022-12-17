@@ -5,6 +5,7 @@ const Contact =() =>{
   return (
     <DefaultLayout>
       <Form onSubmit={console.log}/>
+
     </DefaultLayout>
   )
 }
