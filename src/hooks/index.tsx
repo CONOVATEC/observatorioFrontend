@@ -38,7 +38,7 @@ export const useRenderPropsMainCards = () =>{
     return (
       <Card 
         key={`card-carousel-first-${index}`}
-        maxW={'250px'} 
+        maxW={'250px'}
         rounded={0} 
         height={'200%'}
         backgroundColor='Background'>
@@ -50,10 +50,31 @@ export const useRenderPropsMainCards = () =>{
           </Stack>
         </CardBody>
         <Box bg="purple.500" h="5px" />
-        <Divider />
       </Card>
     )
   }, [])
 
-  return [_handleMainCardsRender]
+  const _handleStackMainCardsRender = useCallback((data: SectionProps, index: number)=>{
+    const { title, image, content_body, alt_image } = data
+    return (
+      <Box height={{base: '50vh', md: '40vh'}} key={`render-card-carousel-first-${index}`}>
+        <Card
+          height={'100%'} 
+          rounded={0} 
+          backgroundColor='Background'>
+          <CardBody backgroundColor='Background'>
+            <Image src={image} alt={alt_image} borderRadius="lg" boxSize="100px" />
+            <Stack mt="6" spacing="3">
+              <Heading size="md">{title}</Heading>
+              <Text size="xs">{content_body} </Text>
+            </Stack>
+          </CardBody>
+          <Box bg="purple.500" h="5px" />
+          <Divider />
+        </Card>
+      </Box>
+    )
+  }, [])
+
+  return [_handleMainCardsRender, _handleStackMainCardsRender]
 }

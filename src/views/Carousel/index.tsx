@@ -32,10 +32,10 @@ export default function CaptionCarousel({cards, carouselProps}: CaptionCarouselP
 
   return (
     <Box
-      {...carouselProps}
       display={{lg:'none'}}
       position={'relative'}
       height={'480px'}
+      {...carouselProps}
       width={'full'}
       overflow={'hidden'}>     
       <IconButton
