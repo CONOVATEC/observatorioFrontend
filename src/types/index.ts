@@ -21,3 +21,17 @@ export interface SectionProps {
   content_body: string;
 }
 
+export type textProp = string | JSX.Element;
+
+export interface FunctionsCardProps {
+  primary: textProp;
+  secondary?: textProp;
+  src: string
+}
+
+export interface SectionAboutCarouselProps {
+  image: string;
+  alt: string;
+  fullName: string;
+  position: string;
+}

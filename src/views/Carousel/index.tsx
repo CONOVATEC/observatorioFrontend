@@ -12,10 +12,10 @@ import style from './style.module.css'
 
 const settings = {
   dots: true,
-  arrows: true,
+  arrows: false,
   fade: true,
   infinite: true,
-  autoplay: false,
+  autoplay: true,
   speed: 500,
   autoplaySpeed: 5000,
   slidesToShow: 1,
@@ -23,7 +23,7 @@ const settings = {
 };
 
 interface CaptionCarouselProps {
-  cards?: JSX.Element[];
+  cards?: (JSX.Element | null)[];
   carouselProps: any
 }
 

@@ -1,8 +1,11 @@
-import Form from '../src/containers/Form'
+import DirectiveSection from '../src/containers/DirectiveSection'
+import DefaultLayout from '../src/views/DefaultLayout'
 
 const About =() =>{
   return (
-    <Form onSubmit={console.log}/>
+  <DefaultLayout>
+    <DirectiveSection />
+  </ DefaultLayout>
   )
 }
 

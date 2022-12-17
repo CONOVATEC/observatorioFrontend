@@ -1,8 +1,12 @@
 import Form from '../src/containers/Form'
+import DefaultLayout from '../src/views/DefaultLayout'
 
 const Contact =() =>{
   return (
-    <Form onSubmit={console.log}/>
+    <DefaultLayout>
+      <Form onSubmit={console.log}/>
+
+    </DefaultLayout>
   )
 }
 
