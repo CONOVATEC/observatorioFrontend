@@ -21,3 +21,10 @@ export interface SectionProps {
   content_body: string;
 }
 
+export type textProp = string | JSX.Element;
+
+export interface FunctionsCardProps {
+  primary: textProp;
+  secondary?: textProp;
+  src: string
+}

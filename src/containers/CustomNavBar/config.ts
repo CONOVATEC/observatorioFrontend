@@ -1,5 +1,5 @@
 export const menuItems = [
-  {label: 'Inicio', isCollapsable: false, href:'' },
+  {label: 'Inicio', isCollapsable: false, href:'/' },
   {
     label: 'Nosotros',
     isCollapsable: true ,
