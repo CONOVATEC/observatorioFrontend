@@ -7,7 +7,16 @@ interface DefaultProps {
   children: JSX.Element | JSX.Element[]
 }
 
-const DefaultLayout = ({children}: DefaultProps)=>{
+const keywords = ['Sociodemográfico',
+  'Participación Ciudadana',
+  'Educación',
+  'Violencia de género',
+  'Salud',
+  'Empleabilidad'
+]
+
+const DefaultLayout = ({ children }: DefaultProps) => {
+  
   return (
     <>
       <Head>
@@ -23,11 +32,12 @@ const DefaultLayout = ({children}: DefaultProps)=>{
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <meta name="description" content="Observatorio de jovenes" />
+        <meta name="description" content="Somos un proyecto del Consejo Metropolitano Participación de la Juventud de Lima, que busca proporcionar datos actualizados sobre las condiciones sociodemográficas, socioeconómicas y realizar una vigilancia a la implementación de las políticas públicas en materia de juventud en el Perú." />
+        <meta name="keywords" content={String(keywords)}/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CustomNavBar />
-        {children}
+      {children}
       <CustomFooter />
     </>
   )
