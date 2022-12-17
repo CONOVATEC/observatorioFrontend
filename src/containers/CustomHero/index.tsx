@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <Flex
       w={'full'}
-      h={'80vh'}
+      h={{base: '50vh', md:'70vh', lg: '80vh'}}
       backgroundImage={`url(${img_hero_url})`}
       backgroundSize={'cover'}
       backgroundPosition={'center left'}
@@ -34,7 +34,7 @@ const Hero = () => {
           >
             {title}
           </Text>
-          <Stack direction={'row'}>
+          <Stack direction={'row'} maxW={{ base: '68%', lg: '100%' }}>
             <Text
               color={'white'}
               fontWeight={300}
