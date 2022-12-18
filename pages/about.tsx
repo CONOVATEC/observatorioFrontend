@@ -10,7 +10,9 @@ const About = () => {
       <BannerAboutSection />
       <GoalAboutSection />
       <VStack spacing={4} my={10}>
-        <Text fontWeight={'bold'} fontSize={'2xl'}>Organigrama</Text>
+        <Text fontWeight={'bold'} fontSize={'2xl'}>
+          Organigrama
+        </Text>
       </VStack>
       <Image src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/Organigrama_wrqzae.png'
         alt='organidrama-observatorio' boxSize='full'
