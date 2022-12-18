@@ -1,6 +1,8 @@
-import { Box, Card, CardBody, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
+import { ChevronDownIcon } from '@chakra-ui/icons'
+import { Box, Card, CardBody, Divider, Heading, Image, Menu, MenuButton, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react'
+import Link from 'next/link'
 import { useCallback } from 'react'
-import { ILogoData, SectionProps } from '../types'
+import { ILogoData, IMenuItem, SectionProps } from '../types'
 
 export const useRenderPropsLogosCards = ()=>{
 
@@ -77,4 +79,25 @@ export const useRenderPropsMainCards = () =>{
   }, [])
 
   return [_handleMainCardsRender, _handleStackMainCardsRender]
+}
+
+export const useRenderPropsMenuItems = ()=> {
+  const handlerRenderMenuItems = useCallback((menuItem: IMenuItem, index: number) =>{
+    const { subLabels, label, href } = menuItem
+    if(!subLabels?.length)
+     return <Link key={`menu-item-${index}`} href={href}>{label}</Link>
+    
+    return  (<Menu key={`menu-item-${index}`}>
+      <MenuButton>{label} <ChevronDownIcon /> </MenuButton>
+      <MenuList >
+          {menuItem.subLabels?.map(({ label, href }, index) => <MenuItem
+            key={`sub-menu-item-${index}`}
+          >
+            <Link href={href}>{label}</Link>
+          </MenuItem>
+          )}
+        </MenuList>
+    </Menu>)
+  }, [])
+  return [handlerRenderMenuItems]
 }

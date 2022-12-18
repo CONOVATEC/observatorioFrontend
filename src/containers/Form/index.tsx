@@ -8,10 +8,10 @@ interface FormProps {
 }
 
 const Form = ({ onSubmit }: FormProps )=>{
-  const {handleSubmit, register, formState: {isSubmitting}} =  useForm<FieldValues>()
+  const { handleSubmit, register, formState: {isSubmitting} } =  useForm<FieldValues>()
 
   return (
-    <Card>
+    <Card width={'80%'}>
       <CardBody>
         {isSubmitting && <Spinner />}
         {!isSubmitting && 

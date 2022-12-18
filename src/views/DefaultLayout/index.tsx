@@ -1,11 +1,8 @@
 import CustomNavBar from '../../containers/CustomNavBar';
 import CustomFooter from '../../containers/CustomFooter';
-import React, { memo } from 'react';
+import { memo, PropsWithChildren } from 'react';
 import Head from 'next/head';
 
-interface DefaultProps {
-  children: JSX.Element | JSX.Element[]
-}
 
 const keywords = ['Sociodemográfico',
   'Participación Ciudadana',
@@ -15,7 +12,7 @@ const keywords = ['Sociodemográfico',
   'Empleabilidad'
 ]
 
-const DefaultLayout = ({ children }: DefaultProps) => {
+const DefaultLayout = ({ children }: PropsWithChildren) => {
   
   return (
     <>

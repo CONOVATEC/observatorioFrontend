@@ -4,8 +4,8 @@ import { IMenuItem } from '../../types'
 import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
-const DesktopMenuItem = ({ label, isCollapsable, href, listProp}: IMenuItem) => {
-  if (!isCollapsable) 
+const DesktopMenuItem = ({ label, href, listProp }: IMenuItem) => {
+  if (!listProp) 
     return <Link href={href}>{label}</Link>
 
   return (
