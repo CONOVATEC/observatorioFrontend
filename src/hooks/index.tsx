@@ -72,7 +72,6 @@ export const useRenderPropsMainCards = () =>{
             </Stack>
           </CardBody>
           <Box bg="purple.500" h="5px" />
-          <Divider />
         </Card>
       </Box>
     )

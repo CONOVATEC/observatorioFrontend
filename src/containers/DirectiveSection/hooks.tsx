@@ -1,25 +1,50 @@
-import { Image, Stack, Text, VStack } from '@chakra-ui/react'
+import { Box, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react'
 import { SectionAboutCarouselProps } from '../../types'
 
-export const useDirectiveHandleProps = ()=>{
-  const handleRenderCarousel = ({image, alt, fullName, position} : SectionAboutCarouselProps, index: number)=>(
-    <VStack
-      mt={'25%'} 
-      key={`directiva-${index}`} 
-      alignItems='center'
-      height='100%' 
-      justifyContent='center'>
-      <Image 
-        alt={alt}
-        boxSize={200}
-        src={image}
-        margin='auto'/>
-      <Stack justifyContent='center' textAlign='center'>
-        <Text>{fullName}</Text>
-        <Text>{position}</Text>
-      </Stack>
-    </VStack>
+export const useDirectiveHandleProps = () => {
+  const handleRenderCarousel = ({ image, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
+    <HStack
+      as={Box}
+      key={`directiva-carousel-${index}`}
+      height={{ base: '45vh' }}
+      >
+      <VStack
+        maxW={'200px'}
+        height={'100%'}
+        marginLeft={'auto'}
+        marginRight={'auto'}
+      >
+        <Image
+          alt={alt}
+          boxSize={200}
+          src={image} />
+        <Stack justifyContent='center' textAlign='center'>
+          <Text>{fullName}</Text>
+          <Text>{position}</Text>
+        </Stack>
+      </VStack>
+    </HStack>
   )
-  
-  return [ handleRenderCarousel ]
+
+  const handleRenderStack = ({ image, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
+    <HStack
+      as={Box}
+      key={`directiva-stask-${index}`}
+      maxW={'200px'}
+      height={'75%'}
+    >
+      <VStack backgroundColor='transparent' height={'100%'} alignItems={'center'}>
+        <Image
+          alt={alt}
+          boxSize={200}
+          src={image} />
+        <Stack justifyContent='start' mt={3} width={'full'}>
+          <Text>{fullName}</Text>
+          <Text>{position}</Text>
+        </Stack>
+      </VStack>
+    </HStack>
+  )
+
+  return [handleRenderCarousel, handleRenderStack]
 }
