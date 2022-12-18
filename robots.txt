@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://observatoriojovenperu.com.pe/observatorioFrontend/
+
+# Sitemaps
+Sitemap: https://observatoriojovenperu.com.pe/observatorioFrontend/sitemap.xml
