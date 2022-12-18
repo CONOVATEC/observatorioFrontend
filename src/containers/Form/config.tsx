@@ -38,7 +38,7 @@ export const config = [
     options: genres,
   },
   {
-    name: 'roles',
+    name: 'role',
     label: 'Ser parte del Observatorio Joven',
     type: 'select',
     options: roles,
