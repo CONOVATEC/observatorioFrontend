@@ -4,7 +4,7 @@ import { POWER_BI_LINK } from '../../config'
 
 const PoweBISection = () => {
   return (
-    <Stack as='section' padding='2rem' gap={8}>
+    <Stack as='section' padding='2rem' py={16} gap={16}>
       <Heading textAlign='center' as='h2'>Situación de la población joven en el Perú</Heading>
       <AspectRatio ratio={16 / 7}>
         <iframe
