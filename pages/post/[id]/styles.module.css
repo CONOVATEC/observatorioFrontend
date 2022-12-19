@@ -1,0 +1,11 @@
+.postContainer{
+  margin: auto
+}
+
+.postContainer img{
+  margin: auto;
+}
+
+.postContainer p{
+  padding: 1rem
+}
