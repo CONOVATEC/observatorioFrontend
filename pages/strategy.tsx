@@ -60,7 +60,7 @@ const Strategy = () => {
         <VStack maxW={1200} gap={8}>
           <Heading textAlign='center'>Estrategia Metropolitana de Juventudes</Heading>
           <Center overflow='hidden' width='95vw'>
-            <Image minWidth={600} src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/%20EMP/Rectangle_63_gy93vl.png' />
+            <Image alt='portada estategia' minWidth={600} src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/%20EMP/Rectangle_63_gy93vl.png' />
           </Center>
           <VStack textAlign='justify' gap={4} p={4}>
             <Text>
@@ -77,7 +77,7 @@ const Strategy = () => {
         <VStack p={4} gap={8}>
           <Heading>Ejes estratégicos</Heading>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={8}>
-            {ejes.map((twoGroup) => <GridItem display='flex' justifyContent='space-around' gap={8}>
+            {ejes.map((twoGroup, index) => <GridItem key={`grid-index-${index}`} display='flex' justifyContent='space-around' gap={8}>
               {twoGroup.map(({ src, title }, index) => <VStack
                 key={`eje-index-${index}`}
                 alignItems={{ base: 'center', md: 'start' }}
@@ -102,6 +102,7 @@ const Strategy = () => {
         <VStack >
           <Heading>Rendición de cuentas</Heading>
           <Image
+            alt='rendicion de cuentas'
             src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/%20EMP/Infograf%C3%ADa_de_EMJ_-01_dudove.jpg'
           />
         </VStack>
