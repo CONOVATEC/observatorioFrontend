@@ -1,7 +1,15 @@
-import { ChevronDownIcon } from '@chakra-ui/icons'
-import { Box, Card, CardBody, Divider, Heading, Image, Menu, MenuButton, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react'
+import { MouseEventHandler, useCallback } from 'react'
 import Link from 'next/link'
-import { useCallback } from 'react'
+import { ChevronDownIcon } from '@chakra-ui/icons'
+import {
+  Accordion, AccordionButton,
+  AccordionIcon, AccordionItem,
+  AccordionPanel, Box, Card,
+  CardBody, Divider, Heading,
+  Image, Menu, MenuButton,
+  MenuItem, MenuList,
+  Stack, Text
+} from '@chakra-ui/react'
 import { ILogoData, IMenuItem, SectionProps } from '../types'
 
 export const useRenderPropsLogosCards = () => {
@@ -40,7 +48,7 @@ export const useRenderPropsMainCards = () => {
     return (
       <Card
         key={`card-carousel-first-${index}`}
-        maxW={'270px'}
+        maxW={'250px'}
         rounded={0}
         height={'200%'}
         backgroundColor='Background'
@@ -89,8 +97,9 @@ export const useRenderPropsMenuItems = () => {
 
     return (<Menu key={`menu-item-${index}`}>
       <MenuButton>{label} <ChevronDownIcon /> </MenuButton>
-      <MenuList >
+      <MenuList as='ul'>
         {menuItem.subLabels?.map(({ label, href }, index) => <MenuItem
+          as='li'
           key={`sub-menu-item-${index}`}
         >
           <Link href={href}>{label}</Link>
@@ -99,5 +108,39 @@ export const useRenderPropsMenuItems = () => {
       </MenuList>
     </Menu>)
   }, [])
-  return [handlerRenderMenuItems]
+
+  const handlerRenderMobileMenuItems = useCallback((menuItem: IMenuItem, index: number) => {
+    const _handleClickAccordion: MouseEventHandler = (event) => {
+      event.stopPropagation()
+    }
+    const { label, href, subLabels, isCollapsable } = menuItem
+
+    return (
+      <MenuItem as={isCollapsable ? 'div' : 'button'} key={`nav-bar-item-${index}`}>
+        {!isCollapsable && <Link style={{ width: '100%' }} key={`nav-bar-mobile-item-${index}`} href={href}>{label}</Link>}
+        {isCollapsable && <Accordion width='100%' allowToggle>
+          <AccordionItem width='100%' >
+            <AccordionButton pl={0} width='100%' onClick={_handleClickAccordion}>
+              <Box as='span' flex='1' textAlign='left'>
+                {label}
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={4}>
+              {subLabels?.map(({ label, href }, index) => <MenuItem
+                key={`sub-label-${index}`}
+              >
+                <Link style={{ width: '100%' }} href={href}>{label}</Link>
+              </MenuItem>
+              )}
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>}
+      </MenuItem>
+    )
+
+  }, [])
+
+  return [handlerRenderMenuItems, handlerRenderMobileMenuItems]
 }
+
