@@ -1,6 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import { AspectRatio, Button, Center, Grid, GridItem, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react'
+import {
+  AspectRatio, Button,
+  Center, Grid,
+  GridItem, Heading,
+  Image, Text,
+  VStack
+} from '@chakra-ui/react'
 import { STRATEGY_YOUTUBE_URL } from '../src/config'
 import DefaultLayout from '../src/views/DefaultLayout'
 
@@ -50,7 +56,7 @@ const ejes = [
 const Strategy = () => {
   return (
     <DefaultLayout>
-      <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={16}>
+      <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={8}>
         <VStack maxW={1200} gap={8}>
           <Heading textAlign='center'>Estrategia Metropolitana de Juventudes</Heading>
           <Center overflow='hidden' width='95vw'>
@@ -74,19 +80,19 @@ const Strategy = () => {
             {ejes.map((twoGroup) => <GridItem display='flex' justifyContent='space-around' gap={8}>
               {twoGroup.map(({ src, title }, index) => <VStack
                 key={`eje-index-${index}`}
-                alignItems={{base:'center', md:'start'}}
+                alignItems={{ base: 'center', md: 'start' }}
                 width='37%'
               >
                 <Image src={src}
                   alt={title}
                   boxSize={76}
                   objectFit='cover' />
-                <Text textAlign={{base:'center', md:'start'}}>{title}</Text>
+                <Text textAlign={{ base: 'center', md: 'start' }}>{title}</Text>
               </VStack>)}
             </GridItem>)}
           </Grid>
         </VStack>
-        <AspectRatio w='80%'  ratio={10/5}>
+        <AspectRatio w='80%' ratio={10 / 5}>
           <iframe
             title='naruto'
             src={STRATEGY_YOUTUBE_URL}
