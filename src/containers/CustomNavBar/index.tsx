@@ -1,65 +1,46 @@
 import { memo, MouseEventHandler } from 'react'
 import Link from 'next/link'
 import {
-  Accordion, AccordionButton,
-  AccordionIcon, AccordionItem,
-  AccordionPanel, Box,
-  HStack, Image,
-  MenuItem, MenuList, useColorModeValue
+  Accordion, AccordionButton, AccordionIcon, AccordionItem,
+  AccordionPanel, Box, HStack, Image,
+  MenuItem, StackProps, useColorModeValue
 } from '@chakra-ui/react'
-import CustomMenu from '../../components/CustomMenu'
 import { menuItems } from './config'
-import style from './style.module.css'
+import { useRenderPropsMenuItems } from '../../hooks'
+import CustomMenu from '../../components/CustomMenu'
 import ModeSwitcher from '../../components/ModeSwitcher'
-import DesktopMenuItem from '../../components/DesktopMenuItem'
+import style from './style.module.css'
+
+const Logo = ()=>{
+  const colorLogo = useColorModeValue('none', 'invert(1)')
+
+  return (
+    <Link href={'/'}>
+      <Image
+        filter={colorLogo}
+        boxSize={200}
+        objectFit='cover'
+        height='100%'
+        alt="logo observatorio"
+        src="https://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7" />
+    </Link>
+  )
+}
 
 const CustomNavBar = () => {
-  const value = useColorModeValue('none', 'invert(1)')
-
   const _handleClickAccordion: MouseEventHandler = (event) => {
     event.stopPropagation()
   }
 
+  const [ handlerRenderMenuItems ] = useRenderPropsMenuItems()
+
   return (
-    <HStack
-      padding="1rem"
-      minHeight={100}
-      as="nav"
-      justifyContent='space-between'
-      position="sticky"
-      top={0}
-      backgroundColor='Background'
-      zIndex={1000}
-      boxShadow='0 2px 20px 0px #1D1D1B'
-    >
+    <HStack {...hstack} >
       <Box>
-        <Image
-          filter={value}
-          boxSize='200px'
-          objectFit='cover'
-          height='100%'
-          alt="logo observatorio"
-          src="https://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7" />
+       <Logo />
       </Box>
       <HStack display={{ base: 'none', md: 'flex' }}>
-        {
-          menuItems
-            .map((menuItem, index) =>
-              <DesktopMenuItem
-                listProp={
-                  <MenuList >
-                    {menuItem.subLabels?.map(({ label, href }, index) => <MenuItem
-                      key={`sub-menu-item-${index}`}
-                    >
-                      <Link href={href}>{label}</Link>
-                    </MenuItem>
-                    )}
-                  </MenuList>
-                }
-                key={`data-index-${index}`}
-                {...menuItem} />
-            )
-        }
+        {menuItems.map(handlerRenderMenuItems)}
         <ModeSwitcher />
       </HStack>
       <HStack display={{ base: 'flex', md: 'none' }}>
@@ -94,5 +75,19 @@ const CustomNavBar = () => {
     </HStack>
   )
 }
+
+const hstack : StackProps = {
+  padding:'1rem',
+  minHeight:100,
+  as:'nav',
+  justifyContent:'space-between',
+  position:'sticky',
+  top:0,
+  backgroundColor:'Background',
+  zIndex:1000,
+  boxShadow:'0 2px 20px 0px #1D1D1B'
+}
+
+
 
 export default memo(CustomNavBar)

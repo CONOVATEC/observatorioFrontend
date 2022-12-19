@@ -13,6 +13,10 @@ export interface IMenuItem{
   isCollapsable: boolean,
   href: string,
   listProp?: JSX.Element
+  subLabels?: {
+    label: string;
+    href: string;
+  }[]
 }
 export interface SectionProps {
   title: string;

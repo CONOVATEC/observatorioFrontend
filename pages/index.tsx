@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Stack } from '@chakra-ui/react';
+import { Stack, VStack } from '@chakra-ui/react';
 import styles from '../styles/Home.module.css';
 import DefaultLayout from '../src/views/DefaultLayout'
 import FunctionsSection from '../src/containers/FunctionsSection';
@@ -13,7 +13,7 @@ export default memo(function Home() {
     <div className={styles.container}>
       <DefaultLayout>
         <HeaderSection />
-        <Stack as='main' gap={50}>
+        <Stack as='main' gap={16} py={8} >
           <LogosSection />
           <FunctionsSection />
           <TematicsSection />
