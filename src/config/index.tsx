@@ -91,4 +91,4 @@ export const directiveData: SectionAboutCarouselProps[] = [
     }
   ]
   
-  
+export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
