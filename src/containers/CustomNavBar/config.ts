@@ -6,7 +6,7 @@ export const menuItems = [
     href: '',
     subLabels: [{ label: 'Sobre el Observatorio', href: '/about' }, { label: 'Sobre el CMPJ', href: '' }]
   },
-  { label: 'Boletín', isCollapsable: false, href: '' },
+  { label: 'Boletín', isCollapsable: false, href: '/listing' },
   { label: 'Politicas Juventudes', isCollapsable: false, href: '' },
   { label: 'Capacitaciones', isCollapsable: true, href: '', subLabels: [{ label: 'Estrategia Metropolitana de Juventudes', href: '' }, { label: 'Política Nacional de Juventud', href: '' }] },
   { label: 'Contáctenos', isCollapsable: false, href: '/contact' }
