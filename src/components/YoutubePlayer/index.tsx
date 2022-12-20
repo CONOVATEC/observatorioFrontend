@@ -3,10 +3,10 @@ import { AspectRatio } from "@chakra-ui/react"
 type LinkProp = {
     link: string
 }
-const  YoutubePlayer = ({link}:LinkProp )=> { 
+const YoutubePlayer = ({link}:LinkProp )=> { 
     return (
-        <AspectRatio ratio={16/8} 
-            width="40%"
+        <AspectRatio ratio={16/9} 
+            width="100%"
         >
          <iframe
             src={link}

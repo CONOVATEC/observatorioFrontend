@@ -11,7 +11,7 @@ const CustomButton = ({text}:TextProp) => {
             gap={8}
             p={8}
         >
-            <Button colorScheme='blue'>{text}</Button>
+            <Button colorScheme='purple'>{text}</Button>
         </Stack>
     )
 }

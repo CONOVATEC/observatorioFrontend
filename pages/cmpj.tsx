@@ -7,8 +7,7 @@ import CustomButton from '../src/components/CustomButton'
 const Cmpj = () => {
   return (
     <DefaultLayout>     
-        <BannerCmpjSection />
-        {/* //Instancias de direccion */}        
+        <BannerCmpjSection />   
         <CommissionSection />
         <CustomButton text="Mas informacion"/>
         <JoinUsSection/>
