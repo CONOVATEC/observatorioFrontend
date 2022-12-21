@@ -62,7 +62,7 @@ interface ITematic {
 }
 
 export const POWER_BI_LINK = process.env.NEXT_PUBLIC_POWER_BI_LINK ||
-  'https://app.powerbi.com/view?r=eyJrIjoiMDRmOGI3NDctZDgyNC00ZDkyLThjZjYtZDk1N2Y2Y2MzZmI0IiwidCI6ImY1ZWQ0MGI1LTk0ZGItNGFmMy1iNTliLThkOGM1MmFjZmYzOSJ9';
+  'https://app.powerbi.com/view?r=eyJrIjoiNThlMjRhNzItYzAwOC00YjAyLWI2ZmYtNWI3ZTk4MDQxNmM2IiwidCI6ImY1ZWQ0MGI1LTk0ZGItNGFmMy1iNTliLThkOGM1MmFjZmYzOSJ9';
 
 export const directiveData: SectionAboutCarouselProps[] = [
   {

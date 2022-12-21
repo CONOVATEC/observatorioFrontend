@@ -8,10 +8,8 @@ import { useRenderPropsMenuItems } from '../../hooks';
 import style from './style.module.css'
 
 const socialIcons = [
-  { name: <FaFacebook />, href: '' },
-  { name: <FaTiktok />, href: '' },
-  { name: <FaSpotify />, href: '' },
-  { name: <FaInstagram />, href: '' }
+  { name: <FaFacebook />, href: 'https://www.facebook.com/profile.php?id=100088447743213' },
+  { name: <FaInstagram />, href: 'https://www.instagram.com/observatoriojoven.pe/' }
 ]
 
 interface ICredit {
