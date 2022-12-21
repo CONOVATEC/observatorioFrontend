@@ -91,4 +91,21 @@ export const directiveData: SectionAboutCarouselProps[] = [
     }
   ]
   
-export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
+
+  export const comisionesCmpj = [
+    {label:"Imagen y Comunicación",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Imagen_y_comunicaciones_j5hmhh.png"},
+    {label:"Derechos Humanos Prevenvión de Violencia	",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075059/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Derechos_Humanos_y_Prevenci%C3%B3n_de_Violencia_uhhvfv.png"},
+    {label:"Ambiente y Cambio Climático",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075059/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_ambiente_y_cambio_clim%C3%A1tico_kkpjhd.png"},
+    {label:"Educación",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_educaci%C3%B3n_n4rgea.png"},
+    {label:"Emprendimiento, Innovación y Empleabilidad	",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Emprendimiento_Innovaci%C3%B3n_y_Empleabilidad_kcxhta.png"},
+    {label:"Salud	",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Salud_m7rmd2.png"},
+    {label:"Cultura y Recreación",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075059/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Cultura_y_recreaci%C3%B3n_vfnmdk.png"},
+    {label:"Fortalecimiento y Adehesiones",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Fortalecimiento_y_Adehesiones_odnxxp.png"},
+    {label:"Participación Ciudadana",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Participaci%C3%B3n_ciudadana_u3u9ew.png"}
+  
+
+  ]
+  export const joinUsImage = "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/%C3%9Anete_al_cmpj_infograf%C3%ADa_i8uetu.png"
+
+  export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
+
