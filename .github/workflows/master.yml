@@ -2,6 +2,8 @@ on:
   push:
     tags:
       - prod-V*
+env:
+  ENVIROMENT_SLUG: production
 jobs:
   deploy-prod:
     name: deploy prod
