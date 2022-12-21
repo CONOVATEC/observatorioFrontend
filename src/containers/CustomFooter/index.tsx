@@ -1,10 +1,11 @@
 import { memo } from 'react';
-import { Center, Divider, HStack, Image, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react';
-import { menuItems } from '../CustomNavBar/config';
-import DesktopMenuItem from '../../components/DesktopMenuItem';
-import style from './style.module.css'
 import Link from 'next/link';
+import { Center, Divider, HStack, Image, Stack, Text } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaSpotify, FaTiktok } from 'react-icons/fa';
+import { menuItems } from '../CustomNavBar/config';
+import Logo from '../../atoms/Logo';
+import { useRenderPropsMenuItems } from '../../hooks';
+import style from './style.module.css'
 
 const socialIcons = [
   { name: <FaFacebook />, href: '' },
@@ -14,10 +15,12 @@ const socialIcons = [
 ]
 
 interface ICredit {
-  text: string, srcImg: string
+  text: string,
+  srcImg: string
 }
 
 const CustomFooter = () => {
+  const [handlerRenderMenuItems] = useRenderPropsMenuItems()
 
   const Credit = ({ text, srcImg }: ICredit) => {
     return (
@@ -49,40 +52,20 @@ const CustomFooter = () => {
         justifyContent='space-between'
         gap='1rem'
       >
-        <Image
-          filter='invert(1)'
-          boxSize='200px'
-          objectFit='cover'
-          height='100%'
-          alt='logo observatorio'
-          src='https://drive.google.com/uc?export=view&id=1OVvy3iD6Ou-QFZIurS7S4NrqAYk9WFo7' />
+        <Logo />
         <LineCenter />
-        <HStack color='white' className={style.listItems}>
-          {
-            menuItems
-              .map((menuItem, index) =>
-                <DesktopMenuItem
-                  listProp={
-                    <MenuList bg='#1D1D1B'>
-                      {menuItem.subLabels?.map(({ label, href }, index) => <MenuItem
-                        bg='#1D1D1B'
-                        key={`sub-menu-item-${index}`}
-                      >
-                        <Link href={href}>{label}</Link>
-                      </MenuItem>
-                      )}
-                    </MenuList>
-                  }
-                  key={`data-index-${index}`}
-                  {...menuItem} />
-              )
-          }
+        <HStack color='white' className={style.flexWrap} >
+          {menuItems.map(handlerRenderMenuItems)}
         </HStack>
         <LineCenter />
-        <HStack color='white' className={style.listItems}>
+        <HStack color='white' className={style.flexWrap}>
           {
             socialIcons
-              .map(({ name, href }, index) => <Link key={`social-index${index}`} href={href}>{name}</Link>)
+              .map(({ name, href }, index) => <Link
+                key={`social-index${index}`}
+                href={href}>
+                {name}
+              </Link>)
           }
         </HStack>
       </Stack>

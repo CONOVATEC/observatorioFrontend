@@ -62,11 +62,7 @@ interface ITematic {
 }
 
 export const POWER_BI_LINK = process.env.NEXT_PUBLIC_POWER_BI_LINK ||
-  'https://app.powerbi.com' +
-  '/view?r=eyJrIjoiY2VmZWI2M' +
-  'mYtODUxMi00NjJlLTk3YmYtMmFk' +
-  'MGIwZmY4YTQ3IiwidCI6ImY1ZWQ0MG' +
-  'I1LTk0ZGItNGFmMy1iNTliLThkOGM1MmFjZmYzOSJ9';
+  'https://app.powerbi.com/view?r=eyJrIjoiMDRmOGI3NDctZDgyNC00ZDkyLThjZjYtZDk1N2Y2Y2MzZmI0IiwidCI6ImY1ZWQ0MGI1LTk0ZGItNGFmMy1iNTliLThkOGM1MmFjZmYzOSJ9';
 
 export const directiveData: SectionAboutCarouselProps[] = [
     {
@@ -85,7 +81,7 @@ export const directiveData: SectionAboutCarouselProps[] = [
       image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/adrian-1_vbabkn.png',
       alt: 'director-adrian-image',
       fullName: 'Adrian Capcha Quispe',
-      position: 'Director de arquitectura y ciencias computacionales'
+      position: 'Director de Programación Web'
     },
     {
       image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/KARLA_DD_ur7lmq.png',
@@ -95,6 +91,7 @@ export const directiveData: SectionAboutCarouselProps[] = [
     }
   ]
   
+
   export const comisionesCmpj = [
     {label:"Imagen y Comunicación",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Imagen_y_comunicaciones_j5hmhh.png"},
     {label:"Derechos Humanos Prevenvión de Violencia	",href : "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075059/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Derechos_Humanos_y_Prevenci%C3%B3n_de_Violencia_uhhvfv.png"},
@@ -109,3 +106,6 @@ export const directiveData: SectionAboutCarouselProps[] = [
 
   ]
   export const joinUsImage = "https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/%C3%9Anete_al_cmpj_infograf%C3%ADa_i8uetu.png"
+
+  export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
+
