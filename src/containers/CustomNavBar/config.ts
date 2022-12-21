@@ -4,7 +4,7 @@ export const menuItems = [
     label: 'Nosotros',
     isCollapsable: true,
     href: '',
-    subLabels: [{ label: 'Sobre el Observatorio', href: '/about' }, { label: 'Sobre el CMPJ', href: '' }]
+    subLabels: [{ label: 'Sobre el Observatorio', href: '/about' }, { label: 'Sobre el CMPJ', href: '/cmpj' }]
   },
   { label: 'Boletín', isCollapsable: false, href: '/listing' },
   { label: 'Politicas Juveniles',
