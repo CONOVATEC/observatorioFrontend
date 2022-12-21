@@ -8,7 +8,7 @@ export const menuItems = [
   },
   { label: 'Boletín', isCollapsable: false, href: '/listing' },
   { label: 'Politicas Juveniles',
-    isCollapsable: false, href: '',
+    isCollapsable: true, href: '',
     subLabels: [{ label: 'Estrategia Metropolitana de Juventudes', href: '/strategy' }, { label: 'Política Nacional de Juventud', href: '/national' }]
   },
   { label: 'Capacitaciones', isCollapsable: false, href: '/trainings' },
