@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import Link from 'next/link';
+//import Link from 'next/link';
+import { Link } from '@chakra-ui/react'
 import { Center, Divider, HStack, Image, Stack, Text } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaSpotify, FaTiktok } from 'react-icons/fa';
 import { menuItems } from '../CustomNavBar/config';
@@ -61,7 +62,7 @@ const CustomFooter = () => {
             socialIcons
               .map(({ name, href }, index) => <Link
                 key={`social-index${index}`}
-                href={href}>
+                href={href} isExternal>
                 {name}
               </Link>)
           }

@@ -3,6 +3,7 @@ import ResponsiveGalleryWithCarousel from '../../views/ResponsiveGalleryWithCaro
 import { nationalData } from '../../config'
 import { useNationalHandleProps } from './hooks'
 import CaptionCarousel from '../../views/Carousel'
+import { Link } from '@chakra-ui/react'
 
 function TimelineSection() {
   const [_handleRenderCarousel] = useNationalHandleProps()
@@ -34,9 +35,11 @@ function TimelineSection() {
         <Text paddingBottom={5} fontSize={'xl'}>
           Es la respuesta del estado que orienta las acciones e intervenciones públicas en materia de juventud a fin de promover el desarrollo integral para la efectiva participación de los jóvenes en la sociedad.
         </Text>
-        <Button borderRadius={0} colorScheme='blue' variant='outline'>
-          Descargar Política
-        </Button>
+        <Link href='https://juventud.gob.pe/wp-content/uploads/2019/12/Politica-Nacional-de-la-Juventud.pdf' isExternal>
+          <Button borderRadius={0} colorScheme='blue' variant='outline' >
+            Descargar Política
+          </Button>
+        </Link>
       </VStack>
       <VStack
         spacing={10}
@@ -48,9 +51,11 @@ function TimelineSection() {
         </Text>
         <Image src={'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075067/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/POL%C3%8DTICA%20NACIONAL%20DE%20LA%20JUVENTUD/Infograf%C3%ADa_con_iconos_de_los_objetivos_de_la_pol%C3%ADtica-01_nqsdpr.jpg'} alt={'infografia politica nacional'} />
         <Image src={'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075067/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/POL%C3%8DTICA%20NACIONAL%20DE%20LA%20JUVENTUD/IAMGEN_DE_POLITICA-03_1_gjqd17.png'} alt={'politica nacional detalle'} />
-        <Button borderRadius={0} colorScheme='blue' variant='outline'>
-          Más Información
-        </Button>
+        <Link href='https://juventud.gob.pe/' isExternal>
+          <Button borderRadius={0} colorScheme='blue' variant='outline'>
+            Más Información
+          </Button>
+        </Link>
       </VStack>
     </>
   )
