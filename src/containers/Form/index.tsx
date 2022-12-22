@@ -29,6 +29,7 @@ const Form = ({ onSubmit }: FormProps )=>{
                       key={`select-${index}`} 
                       {...basicProps} 
                       options={options}
+                      inputProps={register(name)}
                     />
                   }
                   case 'checkbox': {
