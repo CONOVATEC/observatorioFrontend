@@ -10,7 +10,7 @@ const HeaderSection = () => {
 
   return (
     <Stack as="header">
-      <CustomHero />
+      <CustomHero existButton={ true } />
       <ResponsiveGalleryWithCarousel
         data={dataCards}
         carouselRenderItems={_handleMainCardsCarouselRender}
