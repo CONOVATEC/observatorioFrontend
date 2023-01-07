@@ -23,7 +23,7 @@ const CustomFooter = () => {
 
   const Credit = ({ text, srcImg }: ICredit) => {
     return (
-      <HStack display={{ base: 'none', md: 'flex' }}>
+      <HStack>
         <Text as="p" color="white">{text}</Text>
         <Image
           boxSize='100px'
@@ -69,9 +69,15 @@ const CustomFooter = () => {
         </HStack>
       </Stack>
       <Divider display={{ base: 'none', md: 'block' }} />
-      <Credit
-        text='En asocio  con:'
-        srcImg='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671164559/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/Plan_internacional_q2nt3x.png' />
+      <HStack  flexDirection={{base: 'column', md: 'row'}} alignItems="center" gap={4}>
+        <Text  as="p" color="white">En asocio  con:</Text>
+        <Image
+          boxSize='150px'
+          objectFit='cover'
+          height='100%'
+          alt='logo conova tec'
+          src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671164559/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/Plan_internacional_q2nt3x.png'  />
+      </HStack>
       <Stack alignItems="center" >
         <Text color="white">Todos los derechos reservados-2022</Text>
         <Credit
