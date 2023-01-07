@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
+//import Link from 'next/link'
+import { Link } from '@chakra-ui/react'
 import {
   AspectRatio, Button,
   Center, Grid,
@@ -107,7 +108,7 @@ const Strategy = () => {
           />
         </VStack>
         <Center height={150}>
-          <Link href='http://emj.gpvlima.com/'>
+          <Link href='http://emj.gpvlima.com/' isExternal>
             <Button size='lg' variant='outline'>Más información</Button>
           </Link>
         </Center>

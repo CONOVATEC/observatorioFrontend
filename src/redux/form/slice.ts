@@ -9,7 +9,7 @@ export const formContactApi = createApi({
   endpoints: builder => ({
     postFormContact: builder.mutation({
       query: (body) => ({
-        url:'/Contacts_info',
+        url:'/contacts',
         body,
         method: 'POST',
         headers:{

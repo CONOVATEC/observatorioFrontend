@@ -18,8 +18,8 @@ const Form = ({ onSubmit }: FormProps )=>{
           <VStack as='form' onSubmit={handleSubmit(onSubmit)} alignItems='start' gap={4} >
           {
             config
-              .map(({label, name, type, options, placeHolder}, index)=> {
-                const basicProps = { label, name, placeHolder }
+              .map(({label, name, type, options, placeHolder, required}, index)=> {
+                const basicProps = { label, name, placeHolder, required }
 
                 switch(type){
                   case 'select':{
@@ -29,17 +29,18 @@ const Form = ({ onSubmit }: FormProps )=>{
                       key={`select-${index}`} 
                       {...basicProps} 
                       options={options}
+                      inputProps={register(name)}
                     />
                   }
                   case 'checkbox': {
-                    return <Checkbox>
+                    return <Checkbox {...register(name)}>
                       {label}
                     </Checkbox>
                   }
                   case 'textarea': {
                     return <>
                       <FormLabel>{label}</FormLabel>
-                      <Textarea placeholder={placeHolder}/>
+                      <Textarea placeholder={placeHolder} {...register(name)} />
                     </> 
                   }
                   default:{

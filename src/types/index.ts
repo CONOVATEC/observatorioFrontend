@@ -39,3 +39,11 @@ export interface SectionAboutCarouselProps {
   fullName: string;
   position: string;
 }
+
+export interface SectionNationalCarouselProps {
+  image: string;
+  alt: string;
+  year: number;
+  title: string;
+  description: string;
+}

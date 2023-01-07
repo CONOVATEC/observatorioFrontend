@@ -14,14 +14,14 @@ const roles = [
 ]
 
 export const config = [
-  { name: 'name', label: 'Nombre', type: 'text', placeHolder: 'Ingrese su nombre' },
-  { name: 'last-name', label: 'Apellido', type: 'text', placeHolder: 'Ingrese su apellido' },
+  { name: 'name', label: 'Nombre', type: 'text', placeHolder: 'Ingrese su nombre', required: true },
+  { name: 'last-name', label: 'Apellido', type: 'text', placeHolder: 'Ingrese su apellido', required: true },
   { name: 'birthday', label: 'Cumpleaños', type: 'date' },
-  { name: 'email', label: 'Correo electornico', type: 'email', placeHolder: 'ejemplo@ejemplo.com' },
+  { name: 'email', label: 'Correo electronico', type: 'email', placeHolder: 'ejemplo@ejemplo.com', required: true },
   { name: 'genre', label: 'Genero', type: 'select', options: genres },
   { name: 'role', label: 'Ser parte del Observatorio Joven', type: 'select', options: roles },
   { name: 'getData', label: 'Obtener los datos de las juventudes ', type: 'checkbox' },
-  { name: 'generateAllience', label: 'Generar alianza', type: 'checkbox' },
+  { name: 'alliance', label: 'Generar alianza', type: 'checkbox' },
   { name: 'message', label: 'Mensaje (opcional)', type: 'textarea', placeHolder: 'Escribe tu comentario...' }
 ]
 
@@ -31,6 +31,7 @@ interface CustomFormItem {
   label: string;
   name: string;
   inputProps?: any;
+  required?: boolean
 }
 interface CustomInputProps extends CustomFormItem {
   type: string;
@@ -44,7 +45,7 @@ export const CustomInput = ({ label, type, name, inputProps, placeHolder }: Cust
   return (
     <>
       <FormLabel>{label}</FormLabel>
-      <Input variant='flushed' type={type} name={name} placeholder={placeHolder}  {...inputProps} />
+      <Input  variant='flushed' type={type} name={name} placeholder={placeHolder}  {...inputProps} />
     </>
   )
 }
