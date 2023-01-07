@@ -24,7 +24,7 @@ const settings = {
 
 interface CaptionCarouselProps {
   cards?: (JSX.Element | null)[];
-  carouselProps: any
+  carouselProps?: any
 }
 
 export default function CaptionCarousel({cards, carouselProps}: CaptionCarouselProps) {

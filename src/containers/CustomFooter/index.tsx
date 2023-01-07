@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import Link from 'next/link';
+//import Link from 'next/link';
+import { Link } from '@chakra-ui/react'
 import { Center, Divider, HStack, Image, Stack, Text } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaSpotify, FaTiktok } from 'react-icons/fa';
 import { menuItems } from '../CustomNavBar/config';
@@ -8,10 +9,8 @@ import { useRenderPropsMenuItems } from '../../hooks';
 import style from './style.module.css'
 
 const socialIcons = [
-  { name: <FaFacebook />, href: '' },
-  { name: <FaTiktok />, href: '' },
-  { name: <FaSpotify />, href: '' },
-  { name: <FaInstagram />, href: '' }
+  { name: <FaFacebook />, href: 'https://www.facebook.com/profile.php?id=100088447743213' },
+  { name: <FaInstagram />, href: 'https://www.instagram.com/observatoriojoven.pe/' }
 ]
 
 interface ICredit {
@@ -24,7 +23,7 @@ const CustomFooter = () => {
 
   const Credit = ({ text, srcImg }: ICredit) => {
     return (
-      <HStack display={{ base: 'none', md: 'flex' }}>
+      <HStack>
         <Text as="p" color="white">{text}</Text>
         <Image
           boxSize='100px'
@@ -63,16 +62,22 @@ const CustomFooter = () => {
             socialIcons
               .map(({ name, href }, index) => <Link
                 key={`social-index${index}`}
-                href={href}>
+                href={href} isExternal>
                 {name}
               </Link>)
           }
         </HStack>
       </Stack>
       <Divider display={{ base: 'none', md: 'block' }} />
-      <Credit
-        text='En asocio  con:'
-        srcImg='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671164559/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/Plan_internacional_q2nt3x.png' />
+      <HStack  flexDirection={{base: 'column', md: 'row'}} alignItems="center" gap={4}>
+        <Text  as="p" color="white">En asocio  con:</Text>
+        <Image
+          boxSize='150px'
+          objectFit='cover'
+          height='100%'
+          alt='logo conova tec'
+          src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671164559/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/Plan_internacional_q2nt3x.png'  />
+      </HStack>
       <Stack alignItems="center" >
         <Text color="white">Todos los derechos reservados-2022</Text>
         <Credit
