@@ -40,3 +40,5 @@ next-env.d.ts
 
 # sitemaps
 public/sitemap*.xml
+
+.vscode
