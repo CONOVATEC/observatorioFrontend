@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Button, Card, CardBody, Spinner, VStack } from '@chakra-ui/react'
+import { Button, Card, CardBody, Checkbox, FormLabel, Spinner, Textarea, VStack } from '@chakra-ui/react'
 import { FieldValues, SubmitHandler, useForm} from 'react-hook-form'
 import { config, CustomInput, CustomSelect } from './config'
 
@@ -8,18 +8,18 @@ interface FormProps {
 }
 
 const Form = ({ onSubmit }: FormProps )=>{
-  const {handleSubmit, register, formState: {isSubmitting}} =  useForm<FieldValues>()
+  const { handleSubmit, register, formState: {isSubmitting} } =  useForm<FieldValues>()
 
   return (
-    <Card>
+    <Card width={'80%'} >
       <CardBody>
         {isSubmitting && <Spinner />}
         {!isSubmitting && 
-          <VStack as='form' onSubmit={handleSubmit(onSubmit)}>
+          <VStack as='form' onSubmit={handleSubmit(onSubmit)} alignItems='start' gap={4} >
           {
             config
-              .map(({label, name, type, options}, index)=> {
-                const basicProps = { label, name }
+              .map(({label, name, type, options, placeHolder, required}, index)=> {
+                const basicProps = { label, name, placeHolder, required }
 
                 switch(type){
                   case 'select':{
@@ -29,7 +29,19 @@ const Form = ({ onSubmit }: FormProps )=>{
                       key={`select-${index}`} 
                       {...basicProps} 
                       options={options}
+                      inputProps={register(name)}
                     />
+                  }
+                  case 'checkbox': {
+                    return <Checkbox {...register(name)}>
+                      {label}
+                    </Checkbox>
+                  }
+                  case 'textarea': {
+                    return <>
+                      <FormLabel>{label}</FormLabel>
+                      <Textarea placeholder={placeHolder} {...register(name)} />
+                    </> 
                   }
                   default:{
                     return <CustomInput 

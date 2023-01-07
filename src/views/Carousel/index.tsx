@@ -12,10 +12,10 @@ import style from './style.module.css'
 
 const settings = {
   dots: true,
-  arrows: true,
+  arrows: false,
   fade: true,
   infinite: true,
-  autoplay: false,
+  autoplay: true,
   speed: 500,
   autoplaySpeed: 5000,
   slidesToShow: 1,
@@ -23,8 +23,8 @@ const settings = {
 };
 
 interface CaptionCarouselProps {
-  cards?: JSX.Element[];
-  carouselProps: any
+  cards?: (JSX.Element | null)[];
+  carouselProps?: any
 }
 
 export default function CaptionCarousel({cards, carouselProps}: CaptionCarouselProps) {
@@ -32,10 +32,10 @@ export default function CaptionCarousel({cards, carouselProps}: CaptionCarouselP
 
   return (
     <Box
-      {...carouselProps}
       display={{lg:'none'}}
       position={'relative'}
       height={'480px'}
+      {...carouselProps}
       width={'full'}
       overflow={'hidden'}>     
       <IconButton

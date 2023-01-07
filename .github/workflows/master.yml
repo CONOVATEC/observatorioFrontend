@@ -2,6 +2,10 @@ on:
   push:
     tags:
       - prod-V*
+env:
+  ENVIROMENT_SLUG: production
+  NEXT_PUBLIC_SUPA_BASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPA_BASE_ANON_KEY }}
+  NEXT_PUBLIC_FORM_API: ${{ secrets.NEXT_PUBLIC_FORM_API }}
 jobs:
   deploy-prod:
     name: deploy prod
@@ -20,6 +24,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
+          yarn postbuild
           yarn export
 
       - name: Deploy

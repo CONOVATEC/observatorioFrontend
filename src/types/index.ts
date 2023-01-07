@@ -8,24 +8,42 @@ export interface ILogoData {
   }
 }
 
-<<<<<<< HEAD
-interface ISubMenuItem{
-  label: string,
-  href: string
-}
-
 export interface IMenuItem{
   label: string,
   isCollapsable: boolean,
   href: string,
   listProp?: JSX.Element
-=======
-
+  subLabels?: {
+    label: string;
+    href: string;
+  }[]
+}
 export interface SectionProps {
   title: string;
   image: string;
   alt_image: string;
   content_body: string;
->>>>>>> 0b5b138f1159010a7203710012f8e935b605ddb2
 }
 
+export type textProp = string | JSX.Element;
+
+export interface FunctionsCardProps {
+  primary: textProp;
+  secondary?: textProp;
+  src: string
+}
+
+export interface SectionAboutCarouselProps {
+  image: string;
+  alt: string;
+  fullName: string;
+  position: string;
+}
+
+export interface SectionNationalCarouselProps {
+  image: string;
+  alt: string;
+  year: number;
+  title: string;
+  description: string;
+}
