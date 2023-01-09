@@ -8,7 +8,14 @@ import { memo } from 'react';
 import { hero } from './config';
 
 const { title, content, img_hero_url } = hero;
-const Hero = () => {
+interface heroProps {
+  existButton : boolean
+}
+
+const Hero = ( { existButton } : heroProps) => {
+
+  const sizeButton = useBreakpointValue({ base: 'xs', md: 'sm', lg: 'lg' });
+
   return (
     <Flex
       w={'full'}
@@ -45,15 +52,17 @@ const Hero = () => {
             </Text>
           </Stack>
           <Stack direction={'row'}>
-            <Button
+          {
+          existButton && <Button
               bg={'purple.600'}
               color={'black'}
               position={'static'}
               _hover={{ bg: 'whiteAlpha.500' }}
-              size={useBreakpointValue({ base: 'xs', md: 'sm', lg: 'lg' })}
+              size={sizeButton}
             >
               Más información
             </Button>
+            }
           </Stack>
         </Stack>
       </VStack>
