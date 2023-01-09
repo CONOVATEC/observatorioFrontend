@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://observatoriojovenperu.com.pe/peru/
+Host: https://observatoriojovenperu.com.pe/
 
 # Sitemaps
-Sitemap: https://observatoriojovenperu.com.pe/peru/sitemap.xml
+Sitemap: https://observatoriojovenperu.com.pe/sitemap.xml
