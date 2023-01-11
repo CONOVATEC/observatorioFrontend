@@ -6,10 +6,10 @@ let assetPrefix = ''
 let basePath = ''
 
 if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+  const repo = isProduction ? 'peru' : process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
  
   assetPrefix = `/${repo}/`
-  basePath =  isProduction ? '' : `/${repo}`
+  basePath =  isProduction ? 'peru' : `/${repo}`
 }
 
 const nextConfig = {
