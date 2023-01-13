@@ -4,7 +4,7 @@ import DefaultLayout from '../src/views/DefaultLayout'
 function National() {
   return (
     <DefaultLayout>
-     <TimelineSection /> 
+      <TimelineSection />
     </ DefaultLayout>
   )
 }
