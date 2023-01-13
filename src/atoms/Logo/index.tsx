@@ -2,7 +2,7 @@ import { Image, useColorModeValue } from '@chakra-ui/react'
 import Link from 'next/link'
 
 const Logo = () => {
-  const colorLogo = useColorModeValue('none', 'invert(1)')
+  const colorLogo = useColorModeValue('none', 'brightness(0) invert(1)')
 
   return (
     <Link href={'/'}>
