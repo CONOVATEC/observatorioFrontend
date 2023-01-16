@@ -3,10 +3,14 @@ import BannerAboutSection from '../src/containers/BannerAboutSection'
 import DirectiveSection from '../src/containers/DirectiveSection'
 import DefaultLayout from '../src/views/DefaultLayout'
 import GoalAboutSection from '../src/containers/GoalAboutSection'
+import Head from 'next/head'
 
 const About = () => {
   return (
     <DefaultLayout>
+      <Head>
+        <title>Observatorio de joven del Perú - Nosotros</title>
+      </Head>
       <BannerAboutSection />
       <GoalAboutSection />
       <VStack spacing={4} my={10}>
