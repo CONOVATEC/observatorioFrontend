@@ -4,13 +4,14 @@ import { HStack, Image, Text, VStack } from '@chakra-ui/react'
 import BannerAboutSection from '../src/containers/BannerAboutSection'
 import GoalAboutSection from '../src/containers/GoalAboutSection'
 import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 
 const Training = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio joven del Perú - Capacitaciones</title>
+        <title>{organizationName} - Capacitaciones</title>
       </Head>
       <HStack flexDir={{ base: 'column', md: 'row' }}>
         <VStack spacing={4} my={10}>

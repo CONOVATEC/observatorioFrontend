@@ -2,6 +2,7 @@ import CustomNavBar from '../../containers/CustomNavBar';
 import CustomFooter from '../../containers/CustomFooter';
 import { memo, PropsWithChildren } from 'react';
 import Head from 'next/head';
+import { organizationName } from '../../utils/constants';
 
 
 const keywords = ['Sociodemográfico',
@@ -21,15 +22,15 @@ const keywords = ['Sociodemográfico',
   'Estrategia metropolitana de lima',
   'Consejo Metropolitano de participación de la juventud de lima',
   'Fiscalización de políticas juveniles',
-  'Población joven del Perú'
+  'Población joven del Perú',
 ]
 
 const DefaultLayout = ({ children }: PropsWithChildren) => {
-  
+
   return (
     <>
       <Head>
-        <title>Observatorio joven del Perú</title>
+        <title>{organizationName}</title>
         <link
           rel="stylesheet"
           type="text/css"
@@ -41,12 +42,12 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <meta name="description" content="El Observatorio Joven es una plataforma virtual que nos permita recoger información sobre la realidad de las juventudes del Perú en diferentes temáticas y contextos de desarrollo, así como realizar un seguimiento a las políticas públicas en materia de juventud en el Perú." />
-        <meta name="keywords" content={String(keywords)}/>
+        <meta name="description" content={organizationName} />
+        <meta name="keywords" content={String(keywords)} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CustomNavBar />
-        {children}
+      {children}
       <CustomFooter />
     </>
   )

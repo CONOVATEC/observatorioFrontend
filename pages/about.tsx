@@ -4,12 +4,13 @@ import DirectiveSection from '../src/containers/DirectiveSection'
 import DefaultLayout from '../src/views/DefaultLayout'
 import GoalAboutSection from '../src/containers/GoalAboutSection'
 import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 const About = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio joven del Perú - Nosotros</title>
+        <title>{organizationName} - Nosotros</title>
       </Head>
       <BannerAboutSection />
       <GoalAboutSection />

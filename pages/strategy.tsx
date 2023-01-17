@@ -11,6 +11,7 @@ import {
 import { STRATEGY_YOUTUBE_URL } from '../src/config'
 import DefaultLayout from '../src/views/DefaultLayout'
 import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 const ejes = [
   [
@@ -59,9 +60,7 @@ const Strategy = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>
-          Observatorio joven del Perú - Estrategia metropolitana de Lima
-        </title>
+        <title>{organizationName} - Estrategia metropolitana de Lima</title>
       </Head>
       <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={8}>
         <VStack maxW={1200} gap={8}>

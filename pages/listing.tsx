@@ -2,16 +2,17 @@ import Head from 'next/head';
 import CustomHero from '../src/containers/CustomHero';
 import NewsSection from '../src/containers/NewsSection';
 import DefaultLayout from '../src/views/DefaultLayout';
+import { organizationName } from '../src/utils/constants';
 
 export default function Listing() {
 
   return (
-  <DefaultLayout>
+    <DefaultLayout>
       <Head>
-        <title>Observatorio de joven Perú - Boletín de noticias</title>
+        <title>{organizationName} - Boletín de noticias</title>
       </Head>
       <CustomHero />
-      <NewsSection/>
+      <NewsSection />
     </DefaultLayout>
   )
 }
