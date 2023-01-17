@@ -9,7 +9,7 @@ const About = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Nosotros</title>
+        <title>Observatorio joven del Perú - Nosotros</title>
       </Head>
       <BannerAboutSection />
       <GoalAboutSection />

@@ -8,7 +8,7 @@ export default function Listing() {
   return (
   <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Boletín de noticias</title>
+        <title>Observatorio de joven Perú - Boletín de noticias</title>
       </Head>
       <CustomHero />
       <NewsSection/>

@@ -10,7 +10,7 @@ const Training = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Capacitaciones</title>
+        <title>Observatorio joven del Perú - Capacitaciones</title>
       </Head>
       <HStack flexDir={{ base: 'column', md: 'row' }}>
         <VStack spacing={4} my={10}>

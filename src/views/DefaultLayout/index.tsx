@@ -9,7 +9,19 @@ const keywords = ['Sociodemográfico',
   'Educación',
   'Violencia de género',
   'Salud',
-  'Empleabilidad'
+  'Empleabilidad',
+  'Data de juventudes en el Perú',
+  'Data empleabilidad joven',
+  'Data de demografía juvenil',
+  'Data de violencia contra la mujer joven',
+  'Data de educación',
+  'Data de Salud joven',
+  'Data de participación Juvenil',
+  'Política nacional de juventudes',
+  'Estrategia metropolitana de lima',
+  'Consejo Metropolitano de participación de la juventud de lima',
+  'Fiscalización de políticas juveniles',
+  'Población joven del Perú'
 ]
 
 const DefaultLayout = ({ children }: PropsWithChildren) => {
@@ -17,7 +29,7 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Head>
-        <title>Observatorio de joven del Perú</title>
+        <title>Observatorio joven del Perú</title>
         <link
           rel="stylesheet"
           type="text/css"

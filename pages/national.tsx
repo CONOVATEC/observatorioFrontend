@@ -6,7 +6,7 @@ function National() {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Política nacional de juventudes</title>
+        <title>Observatorio joven del Perú - Política nacional de juventudes</title>
       </Head>
       <TimelineSection />
     </ DefaultLayout>

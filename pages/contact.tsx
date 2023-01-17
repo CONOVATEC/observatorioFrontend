@@ -33,7 +33,7 @@ const Contact = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Información de contacto</title>
+        <title>Observatorio joven del Perú - Información de contacto</title>
       </Head>
       <VStack as='main' maxWidth={1250} margin='auto'>
         <Stack width='100%' overflow='hidden'>

@@ -60,7 +60,7 @@ const Strategy = () => {
     <DefaultLayout>
       <Head>
         <title>
-          Observatorio de joven del Perú - Estrategia metropolitana de Lima
+          Observatorio joven del Perú - Estrategia metropolitana de Lima
         </title>
       </Head>
       <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={8}>

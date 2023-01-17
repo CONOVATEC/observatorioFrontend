@@ -9,7 +9,7 @@ const Cmpj = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>Observatorio de joven del Perú - Consejo Metropolitano de participación de la juventud de Lima</title>
+        <title>Observatorio joven del Perú - Consejo Metropolitano de participación de la juventud de Lima</title>
       </Head>  
       <BannerCmpjSection />   
       <CommissionSection />
