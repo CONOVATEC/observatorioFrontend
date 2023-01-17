@@ -66,25 +66,25 @@ export const POWER_BI_LINK = process.env.NEXT_PUBLIC_POWER_BI_LINK ||
 
 export const directiveData: SectionAboutCarouselProps[] = [
   {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/DIANA_DD_uxpjkh.png',
+    url_image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/DIANA_DD_uxpjkh.png',
     alt: 'directora-diana-image',
     fullName: 'Diana Calixto Lastra',
     position: 'Presidenta'
   },
   {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/angelo_dd_ihfif6.png',
+    url_image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/angelo_dd_ihfif6.png',
     alt: 'director-angelo-image',
     fullName: 'Angelo Vera Cerro',
     position: 'Director de producción de cursos'
   },
   {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/adrian-1_vbabkn.png',
+    url_image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/adrian-1_vbabkn.png',
     alt: 'director-adrian-image',
     fullName: 'Adrian Capcha Quispe',
     position: 'Director de Programación Web'
   },
   {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/KARLA_DD_ur7lmq.png',
+    url_image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/KARLA_DD_ur7lmq.png',
     alt: 'directora-karla-image',
     fullName: 'Karla Solari Peréz',
     position: 'Directora de investigación'

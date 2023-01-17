@@ -1,10 +1,14 @@
 import { HStack, Text, VStack } from '@chakra-ui/react'
-import { directiveData } from '../../config'
 import ResponsiveGalleryWithCarousel from '../../views/ResponsiveGalleryWithCarousel'
 import { useDirectiveHandleProps } from './hooks'
+import { useGetDirectiveApiQuery } from '../../redux/directive/slice';
 
 const DirectiveSection = () => {
+  
+  const { data, isLoading}  = useGetDirectiveApiQuery(null);
+  const directiveData = data.data;
   const [_handleRenderCarousel, _handleRenderStack] = useDirectiveHandleProps()
+
 
   return (
     <>
