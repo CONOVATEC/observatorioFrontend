@@ -4,6 +4,7 @@ import Form from '../src/containers/Form'
 import { usePostFormContactMutation } from '../src/redux/form/slice'
 import DefaultLayout from '../src/views/DefaultLayout'
 import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 const benefits = [
   {
