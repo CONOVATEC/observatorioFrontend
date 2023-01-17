@@ -14,7 +14,6 @@ function TimelineSection() {
   }, [data])
 
   const [firstValue] = nationalInfo ?? []
-  console.log('🚀 ~ file: index.tsx:17 ~ TimelineSection ~ firstValue', firstValue)
 
   const [_handleRenderCarousel] = useNationalHandleProps()
 

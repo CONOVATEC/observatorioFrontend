@@ -1,4 +1,4 @@
-import { Image, Text, VStack } from '@chakra-ui/react'
+import { CircularProgress, Image, Text, VStack } from '@chakra-ui/react'
 import BannerAboutSection from '../src/containers/BannerAboutSection'
 import DirectiveSection from '../src/containers/DirectiveSection'
 import DefaultLayout from '../src/views/DefaultLayout'
