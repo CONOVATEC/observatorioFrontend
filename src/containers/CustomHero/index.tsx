@@ -12,9 +12,9 @@ const Hero = () => {
   return (
     <Flex
       w={'full'}
-      h={{base: '50vh', md:'70vh', lg: '80vh'}}
+      h={{ base: '50vh', md: '70vh', lg: '80vh' }}
       backgroundImage={`url(${img_hero_url})`}
-      backgroundSize={'cover'}
+      backgroundSize={{ base: 'cover', md: '100% 100%' }}
       backgroundPosition={'center left'}
     >
       <VStack

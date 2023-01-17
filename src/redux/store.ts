@@ -5,6 +5,7 @@ import { formContactApi } from './form/slice';
 import { postsApi } from './posts/slice';
 import { sponsorImagesApi } from './sponsors/slice'
 import { nationalApi } from './national/slice';
+import { aboutObservatoryApi } from './aboutObservatory/slice';
 
 export const makeStore = () => configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const makeStore = () => configureStore({
     [formContactApi.reducerPath]: formContactApi.reducer,
     [postsApi.reducerPath]: postsApi.reducer,
     [aboutCmpjApi.reducerPath]: aboutCmpjApi.reducer,
-    [nationalApi.reducerPath]: nationalApi.reducer
+    [nationalApi.reducerPath]: nationalApi.reducer,
+    [aboutObservatoryApi.reducerPath]: aboutObservatoryApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
@@ -21,6 +23,7 @@ export const makeStore = () => configureStore({
       .concat(postsApi.middleware)
       .concat(aboutCmpjApi.middleware)
       .concat(nationalApi.middleware)
+      .concat(aboutObservatoryApi.middleware)
 })
 
 export type AppStore = ReturnType<typeof makeStore>;

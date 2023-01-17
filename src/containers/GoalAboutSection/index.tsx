@@ -1,6 +1,11 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react'
 
-function GoalAboutSection() {
+interface GoalAboutSectionProps {
+  mission: string;
+  vision: string;
+}
+
+function GoalAboutSection({ mission, vision }: GoalAboutSectionProps) {
   return (
     <HStack
       flexDir={{ base: 'column', md: 'row' }}
@@ -36,7 +41,7 @@ function GoalAboutSection() {
         <Text fontWeight={'bold'} fontSize={'2xl'}>Visión</Text>
         <Text
           textAlign={'center'}>
-          Ser el mejor proyecto informativo - educativo del Perú, reconocido por facilitar datos sociodemográficos, socioeconómicos y políticas de la población joven.
+          {vision}
         </Text>
       </VStack>
       <VStack
@@ -51,7 +56,7 @@ function GoalAboutSection() {
           Misión
         </Text>
         <Text textAlign={'center'}>
-          Generar espacios formativos, basados en datos y  asistir a las organizaciones juveniles a nivel nacional.
+          {mission}
         </Text>
       </VStack>
     </HStack >

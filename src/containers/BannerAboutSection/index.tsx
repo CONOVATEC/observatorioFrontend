@@ -1,7 +1,11 @@
 import { HStack, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 
-function BannerAboutSection() {
+interface BannerAboutSectionProps{
+  description: string
+}
+
+function BannerAboutSection({description}: BannerAboutSectionProps) {
   return (
     <HStack
       paddingX={'8px'}
@@ -15,7 +19,7 @@ function BannerAboutSection() {
           ¿Quiénes somos?
         </Text>
         <Text>
-          Somos un proyecto del Consejo Metropolitano Participación de la Juventud  de Lima, que busca promocionar datos actualizados sobre las condiciones sociodemográficas, socioeconómicas y realizar una vigilancia a la implementación de las políticas públicas en materia de juventud en el Péru.
+          {description}
         </Text>
       </VStack>
     </HStack>
