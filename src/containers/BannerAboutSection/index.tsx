@@ -1,11 +1,10 @@
 import { HStack, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
+import { useAboutObservatoryInfo } from './hooks'
 
-interface BannerAboutSectionProps{
-  description: string
-}
+function BannerAboutSection() {
+  const { description } = useAboutObservatoryInfo()
 
-function BannerAboutSection({description}: BannerAboutSectionProps) {
   return (
     <HStack
       paddingX={'8px'}

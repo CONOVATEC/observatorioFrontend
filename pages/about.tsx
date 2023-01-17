@@ -5,29 +5,15 @@ import DefaultLayout from '../src/views/DefaultLayout'
 import GoalAboutSection from '../src/containers/GoalAboutSection'
 import Head from 'next/head'
 import { organizationName } from '../src/utils/constants'
-import { useMemo } from 'react'
-import { useGetInfoAboutObservatoryQuery } from '../src/redux/aboutObservatory/slice'
 
 const About = () => {
-  const { data, isLoading } = useGetInfoAboutObservatoryQuery(null)
-  const observatoryInfo = useMemo(() => {
-    const [firstItem] = [data?.data]
-    return firstItem
-  }, [data])
-
-  const [firstValue] = observatoryInfo ?? []
-
   return (
     <DefaultLayout>
       <Head>
         <title>{organizationName} - Nosotros</title>
       </Head>
-      {isLoading ? <CircularProgress /> :
-        <>
-          <BannerAboutSection description={firstValue.about} />
-          <GoalAboutSection mission={firstValue.mission} vision={firstValue.vision} />
-        </>
-      }
+      <BannerAboutSection />
+      <GoalAboutSection />
       <VStack spacing={4} my={10}>
         <Text fontWeight={'bold'} fontSize={'2xl'}>
           Organigrama

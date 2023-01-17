@@ -1,11 +1,9 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react'
+import { useAboutObservatoryInfo } from '../BannerAboutSection/hooks';
 
-interface GoalAboutSectionProps {
-  mission: string;
-  vision: string;
-}
+function GoalAboutSection() {
+  const { mission, vision } = useAboutObservatoryInfo()
 
-function GoalAboutSection({ mission, vision }: GoalAboutSectionProps) {
   return (
     <HStack
       flexDir={{ base: 'column', md: 'row' }}
