@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react'
 import { STRATEGY_YOUTUBE_URL } from '../src/config'
 import DefaultLayout from '../src/views/DefaultLayout'
+import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 const ejes = [
   [
@@ -57,6 +59,9 @@ const ejes = [
 const Strategy = () => {
   return (
     <DefaultLayout>
+      <Head>
+        <title>{organizationName} - Estrategia metropolitana de Lima</title>
+      </Head>
       <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={8}>
         <VStack maxW={1200} gap={8}>
           <Heading textAlign='center'>Estrategia Metropolitana de Juventudes</Heading>
