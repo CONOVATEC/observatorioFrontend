@@ -34,7 +34,7 @@ export interface FunctionsCardProps {
 }
 
 export interface SectionAboutCarouselProps {
-  image: string;
+  url_image: string;
   alt: string;
   fullName: string;
   position: string;
