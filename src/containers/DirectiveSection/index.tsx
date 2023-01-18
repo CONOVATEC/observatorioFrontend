@@ -4,20 +4,25 @@ import { useDirectiveHandleProps } from './hooks'
 import { useGetDirectiveApiQuery } from '../../redux/directive/slice';
 import { useMemo } from 'react';
 
-interface DirectiveApi{
-  name: string;
-  url_image: string;
-  
+interface IDirectiveResponse{
+  name?: string;
+  url_image?: string;
+  position?: string;
+  status?: boolean;
+  created?: string;
 }
 
 const DirectiveSection = () => {
   
-  const { data, isLoading}  = useGetDirectiveApiQuery(null);
+  const { data, isLoading} = useGetDirectiveApiQuery(null);
 
   const directiveData = useMemo(() => {
-    const [directiveData] = [data?.data];
+    if(!data)
+      return data
+
+    const { data: responseDirectiveData } = data;
     
-    return directiveData?.map((directive: DirectiveApi )=>{
+    return responseDirectiveData?.map((directive: IDirectiveResponse )=>{
       const { url_image, name , ...rest } = directive
       return {
         urlImage: url_image,
@@ -25,7 +30,7 @@ const DirectiveSection = () => {
         ...rest
     }
     })
-  }, [data])
+  }, [ data ])
   
 
   const [_handleRenderCarousel, _handleRenderStack] = useDirectiveHandleProps()
