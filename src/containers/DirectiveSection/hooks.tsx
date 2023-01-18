@@ -2,7 +2,7 @@ import { Box, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react'
 import { SectionAboutCarouselProps } from '../../types'
 
 export const useDirectiveHandleProps = () => {
-  const handleRenderCarousel = ({ image, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
+  const handleRenderCarousel = ({ urlImage, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
     <HStack
       as={Box}
       key={`directiva-carousel-${index}`}
@@ -17,7 +17,7 @@ export const useDirectiveHandleProps = () => {
         <Image
           alt={alt}
           boxSize={200}
-          src={image} />
+          src={urlImage} />
         <Stack justifyContent='center' textAlign='center'>
           <Text>{fullName}</Text>
           <Text>{position}</Text>
@@ -26,7 +26,7 @@ export const useDirectiveHandleProps = () => {
     </HStack>
   )
 
-  const handleRenderStack = ({ image, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
+  const handleRenderStack = ({ urlImage, alt, fullName, position }: SectionAboutCarouselProps, index: number) => (
     <HStack
       as={Box}
       key={`directiva-stask-${index}`}
@@ -37,7 +37,7 @@ export const useDirectiveHandleProps = () => {
         <Image
           alt={alt}
           boxSize={200}
-          src={image} />
+          src={urlImage} />
         <Stack justifyContent='start' mt={3} width={'full'}>
           <Text>{fullName}</Text>
           <Text>{position}</Text>
