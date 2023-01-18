@@ -17,10 +17,14 @@ const DirectiveSection = () => {
   const { data, isLoading} = useGetDirectiveApiQuery(null);
 
   const directiveData = useMemo(() => {
+<<<<<<< Updated upstream
     if(!data)
       return data
 
     const { data: responseDirectiveData } = data;
+=======
+    const directiveData = data?.data;
+>>>>>>> Stashed changes
     
     return responseDirectiveData?.map((directive: IDirectiveResponse )=>{
       const { url_image, name , ...rest } = directive
