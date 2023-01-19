@@ -79,8 +79,6 @@ export const comisionesCmpj = [
 ]
 export const joinUsImage = 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/%C3%9Anete_al_cmpj_infograf%C3%ADa_i8uetu.png'
 
-export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
-
 export const nationalData: SectionNationalCarouselProps[] = [
   {
     image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075066/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/POL%C3%8DTICA%20NACIONAL%20DE%20LA%20JUVENTUD/1_kwdgu1.jpg',
