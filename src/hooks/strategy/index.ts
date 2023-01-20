@@ -1,18 +1,14 @@
-import { useMemo } from 'react'
 import { useGetInfoStrategyQuery } from '../../redux/strategy/slice'
 
 export const useStrategyInfo = () => {
   const { data } = useGetInfoStrategyQuery(null)
-  const strategyInfo = useMemo(() => {
-    const [firstItem] = [data?.data]
-    return firstItem
-  }, [data])
-
+  const strategyInfo = data?.data
+  
   const [firstValue] = strategyInfo ?? []
 
   return {
-    name: firstValue?.name,
-    linkYoutube: firstValue?.link_youtube,
+    name: firstValue?.name || 'Estrategia Metropolitana de Juventudes',
+    linkYoutube: firstValue?.link_youtube || process.env.NEXT_PUBLIC_STRATEGY,
     linkDrive: firstValue?.link_drive,
     urlImage: firstValue?.url_image,
   }
