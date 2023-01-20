@@ -3,6 +3,8 @@ import { FieldValue, FieldValues, SubmitHandler } from 'react-hook-form'
 import Form from '../src/containers/Form'
 import { usePostFormContactMutation } from '../src/redux/form/slice'
 import DefaultLayout from '../src/views/DefaultLayout'
+import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
 
 const benefits = [
   {
@@ -31,6 +33,9 @@ const Contact = () => {
 
   return (
     <DefaultLayout>
+      <Head>
+        <title>{organizationName} - Información de contacto</title>
+      </Head>
       <VStack as='main' maxWidth={1250} margin='auto'>
         <Stack width='100%' overflow='hidden'>
           <Center

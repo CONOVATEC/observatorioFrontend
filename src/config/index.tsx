@@ -64,32 +64,6 @@ interface ITematic {
 export const POWER_BI_LINK = process.env.NEXT_PUBLIC_POWER_BI_LINK ||
   'https://app.powerbi.com/view?r=eyJrIjoiNThlMjRhNzItYzAwOC00YjAyLWI2ZmYtNWI3ZTk4MDQxNmM2IiwidCI6ImY1ZWQ0MGI1LTk0ZGItNGFmMy1iNTliLThkOGM1MmFjZmYzOSJ9';
 
-export const directiveData: SectionAboutCarouselProps[] = [
-  {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/DIANA_DD_uxpjkh.png',
-    alt: 'directora-diana-image',
-    fullName: 'Diana Calixto Lastra',
-    position: 'Presidenta'
-  },
-  {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/angelo_dd_ihfif6.png',
-    alt: 'director-angelo-image',
-    fullName: 'Angelo Vera Cerro',
-    position: 'Director de producción de cursos'
-  },
-  {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075068/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/adrian-1_vbabkn.png',
-    alt: 'director-adrian-image',
-    fullName: 'Adrian Capcha Quispe',
-    position: 'Director de Programación Web'
-  },
-  {
-    image: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS/FOTOS%20DIRECTORES/KARLA_DD_ur7lmq.png',
-    alt: 'directora-karla-image',
-    fullName: 'Karla Solari Peréz',
-    position: 'Directora de investigación'
-  }
-]
 
 
 export const comisionesCmpj = [
@@ -104,8 +78,6 @@ export const comisionesCmpj = [
   { label: 'Participación Ciudadana', href: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/COMISIONES/%C3%8Dcono_Participaci%C3%B3n_ciudadana_u3u9ew.png' }
 ]
 export const joinUsImage = 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOSOTROS%20CMPJ/%C3%9Anete_al_cmpj_infograf%C3%ADa_i8uetu.png'
-
-export const STRATEGY_YOUTUBE_URL = process.env.NEXT_PUBLIC_STRATEGY || ''
 
 export const nationalData: SectionNationalCarouselProps[] = [
   {

@@ -1,6 +1,6 @@
 import React from 'react'
 //import Link from 'next/link'
-import { Link } from '@chakra-ui/react'
+import { Box, Link } from '@chakra-ui/react'
 import {
   AspectRatio, Button,
   Center, Grid,
@@ -8,8 +8,10 @@ import {
   Image, Text,
   VStack
 } from '@chakra-ui/react'
-import { STRATEGY_YOUTUBE_URL } from '../src/config'
 import DefaultLayout from '../src/views/DefaultLayout'
+import Head from 'next/head'
+import { organizationName } from '../src/utils/constants'
+import { useStrategyInfo } from '../src/hooks/strategy'
 
 const ejes = [
   [
@@ -55,13 +57,18 @@ const ejes = [
 ]
 
 const Strategy = () => {
+  const { name, linkYoutube, linkDrive, urlImage } = useStrategyInfo()
+
   return (
     <DefaultLayout>
+      <Head>
+        <title>{organizationName} - Estrategia metropolitana de Lima</title>
+      </Head>
       <VStack as='main' maxW={1250} margin='auto' p={4} gap={8} my={8}>
         <VStack maxW={1200} gap={8}>
-          <Heading textAlign='center'>Estrategia Metropolitana de Juventudes</Heading>
+          <Heading textAlign='center'>{name}</Heading>
           <Center overflow='hidden' width='95vw'>
-            <Image alt='portada estategia' minWidth={600} src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075060/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/%20EMP/Rectangle_63_gy93vl.png' />
+            <Image alt='portada estategia' minWidth={600} src={urlImage} />
           </Center>
           <VStack textAlign='justify' gap={4} p={4}>
             <Text>
@@ -93,18 +100,26 @@ const Strategy = () => {
             </GridItem>)}
           </Grid>
         </VStack>
-        <AspectRatio w='80%' ratio={10 / 5}>
-          <iframe
-            title='naruto'
-            src={STRATEGY_YOUTUBE_URL}
-            allowFullScreen
-          />
-        </AspectRatio>
+        <Box
+          width={'100%'}>
+          <AspectRatio
+            minW='250px' maxH={'500px'}
+            ratio={{ base: 16 / 9 }}>
+            <iframe
+              title='Conoce qué es la Estrategia Metropolitana de Juventudes'
+              src={linkYoutube}
+              allowFullScreen
+            />
+          </AspectRatio>
+        </Box>
         <VStack >
-          <Heading>Rendición de cuentas</Heading>
+          <Heading
+            paddingBottom={2}>
+            Rendición de cuentas
+          </Heading>
           <Image
             alt='rendicion de cuentas'
-            src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075069/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/%20EMP/Infograf%C3%ADa_de_EMJ_-01_dudove.jpg'
+            src={linkDrive}
           />
         </VStack>
         <Center height={150}>

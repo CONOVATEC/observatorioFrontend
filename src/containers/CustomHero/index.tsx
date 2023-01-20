@@ -7,14 +7,14 @@ import { memo } from 'react';
 
 import { hero } from './config';
 
-const { title, content, img_hero_url } = hero;
+const { title, content, imgHero } = hero;
 const Hero = () => {
   return (
     <Flex
       w={'full'}
-      h={{base: '50vh', md:'70vh', lg: '80vh'}}
-      backgroundImage={`url(${img_hero_url})`}
-      backgroundSize={'cover'}
+      h={{ base: '50vh', md: '70vh', lg: '80vh' }}
+      backgroundImage={`url(${imgHero})`}
+      backgroundSize={{ base: 'cover', md: '100% 100%' }}
       backgroundPosition={'center left'}
     >
       <VStack
