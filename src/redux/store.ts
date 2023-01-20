@@ -7,6 +7,7 @@ import { directiveApi } from './directive/slice';
 import { sponsorImagesApi } from './sponsors/slice'
 import { nationalApi } from './national/slice';
 import { aboutObservatoryApi } from './aboutObservatory/slice';
+import { strategyApi } from './strategy/slice';
 
 export const makeStore = () => configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const makeStore = () => configureStore({
     [aboutCmpjApi.reducerPath]: aboutCmpjApi.reducer,
     [nationalApi.reducerPath]: nationalApi.reducer,
     [aboutObservatoryApi.reducerPath]: aboutObservatoryApi.reducer,
+    [strategyApi.reducerPath]: strategyApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
@@ -27,6 +29,7 @@ export const makeStore = () => configureStore({
       .concat(aboutCmpjApi.middleware)
       .concat(nationalApi.middleware)
       .concat(aboutObservatoryApi.middleware)
+      .concat(strategyApi.middleware)
 })
 
 export type AppStore = ReturnType<typeof makeStore>;
