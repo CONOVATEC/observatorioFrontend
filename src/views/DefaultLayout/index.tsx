@@ -2,7 +2,7 @@ import CustomNavBar from '../../containers/CustomNavBar';
 import CustomFooter from '../../containers/CustomFooter';
 import { memo, PropsWithChildren } from 'react';
 import Head from 'next/head';
-import { organizationName } from '../../utils/constants';
+import { descriptionOrganization, organizationName } from '../../utils/constants';
 
 
 const keywords = ['Sociodemográfico',
@@ -19,8 +19,8 @@ const keywords = ['Sociodemográfico',
   'Data de Salud joven',
   'Data de participación Juvenil',
   'Política nacional de juventudes',
-  'Estrategia metropolitana de lima',
-  'Consejo Metropolitano de participación de la juventud de lima',
+  'Estrategia metropolitana de Lima',
+  'Consejo Metropolitano de participación de la juventud de Lima',
   'Fiscalización de políticas juveniles',
   'Población joven del Perú',
 ]
@@ -42,7 +42,7 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <meta name="description" content={organizationName} />
+        <meta name="description" content={descriptionOrganization} />
         <meta name="keywords" content={String(keywords)} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
