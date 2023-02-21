@@ -46,7 +46,7 @@ const Contact = () => {
             backgroundSize='cover'
             backgroundPosition='center'
           >
-            <Heading>Contacto</Heading>
+            <Heading textColor={'whiteAlpha.900'}>Contacto</Heading>
           </Center>
         </Stack>
         <HStack

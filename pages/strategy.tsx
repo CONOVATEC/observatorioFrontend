@@ -78,7 +78,7 @@ const Strategy = () => {
               En su desarrollo participaron las tres instancias del Sistema Metropolitano las cuales fueron: el .Comité Metropolitano de Políticas de Juventud,  la Coordinadora Metropolitana de Programas Municipales de Juventud y el Consejo Metropolitano de Participación de la Juventud.
             </Text>
             <Text display={{ base: 'none', md: 'block' }}>
-              La EMJ tiene  8 ejes estratégicos , los cuales cuentan con  : indicadores,  expectativas  de futuro y servicios públicos validados . Las principales problemáticas en cada eje, fueron identificadas a partir de los encuentros interdistritales por mancomunidades  de lima Norte , lima este, lima sur y lima centro , en las cuales participaron jóvenes de 15 a 29 años.
+              La EMJ tiene  8 ejes estratégicos, los cuales cuentan con: indicadores,  expectativas  de futuro y servicios públicos validados. Las principales problemáticas en cada eje, fueron identificadas a partir de los encuentros interdistritales por mancomunidades  de Lima Norte, Lima Este, Lima sur y Lima Centro, en las cuales participaron las juventudes  de 15 a 29 años.
             </Text>
           </VStack>
         </VStack>

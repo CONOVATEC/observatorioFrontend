@@ -10,12 +10,12 @@ export const functions = [
   },
   {
     primary: 'Fiscalización',
-    secondary: 'Realizar el seguimiento a la Política Nacional de juventudes y las diferentes estrategias de implementación a nivel nacional.',
+    secondary: 'Realizar el seguimiento a la Política Nacional de Juventudes y las diferentes estrategias de implementación a nivel nacional.',
     src: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/FUNCIONES/Fiscalizaci%C3%B3n_jiusky.png'
   },
   {
     primary: 'Formación',
-    secondary: 'Realizar cursos formativos para idear soluciones innovadoras a las problemáticas en la población Joven.',
+    secondary: 'Realizar cursos  para idear soluciones innovadoras a las problemáticas en la población Juvenil.',
     src: 'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075061/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/INDEX/FUNCIONES/FORMACI%C3%93N_xnxo6v.png'
   },
 ]
