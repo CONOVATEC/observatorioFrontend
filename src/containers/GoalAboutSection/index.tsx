@@ -27,7 +27,7 @@ function GoalAboutSection() {
         <Text
           pr={{ base: '0%', lg: '30%' }}
           textAlign={{ base: 'center', lg: 'start' }}>
-          Nuestro próposito es informar sobre los retos de las juventudes, buscando incetivar acciones para transformar la sociedad hacia un bien común.
+          Informar sobre los  retos de las juventudes, buscando incentivar  acciones para transformar la sociedad hacia un bien común.
         </Text>
       </VStack>
       <VStack
