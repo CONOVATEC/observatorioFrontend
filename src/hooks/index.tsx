@@ -26,15 +26,19 @@ export const useRenderPropsLogosCards = () => {
       backgroundImage={`url(${url_image})`} />
     , [])
 
-  const handleStackRender = useCallback(({ url_image }: ILogoData, index: number, array: ILogoData[]) =>
-    <Box
-      key={`sponsor-${index}`}
-      width={`calc(96%/${array.length})`}
-      height='50vh'
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize='contain'
-      backgroundImage={`url(${url_image})`} />
+  const handleStackRender = useCallback(({ url_image,social_media}: ILogoData, index: number, array: ILogoData[]) =>
+    <a href={social_media} target="_blank" style={{ width: '100%'}} rel="noreferrer">
+      <Box
+        key={`sponsor-${index}`}
+        //width={`calc(96%/${array.length})`} 
+        height='50vh'
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize='contain'
+        backgroundImage={`url(${url_image})`}
+        onClick={() => {console.log(social_media)}} 
+      />
+    </a>
     , [])
 
 
