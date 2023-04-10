@@ -1,8 +1,5 @@
-// import DirectiveSection from '../src/containers/DirectiveSection'
 import DefaultLayout from '../src/views/DefaultLayout'
 import { HStack, Image, Text, VStack } from '@chakra-ui/react'
-// import BannerAboutSection from '../src/containers/BannerAboutSection'
-// import GoalAboutSection from '../src/containers/GoalAboutSection'
 import Head from 'next/head'
 import { organizationName } from '../src/utils/constants'
 
@@ -16,30 +13,31 @@ const Training = () => {
 
       <HStack
         flexDir={{ base: 'column', md: 'row' }}
-        px={10}
-        pb={10}
-        height={{ base: 'auto', md: '86vh'}}
-        gap={{ base: '0rem', md: '3rem', xl: '3rem' }}
-        maxWidth='1400px'
-        margin='0 auto'
-        justifyContent='space-around'
+        px={8}
+        pb={{base: 16, sm: 0}}
+        minHeight='calc(100vh - var(--height-header))'
+        flexGrow={1}
+        gap={{ md: '3rem' }}
+        justifyContent='space-evenly'
+      >
+        <VStack
+          spacing={10}
+          my={10}
+          width={{md: '50%'}}
         >
-        <VStack spacing={10} my={10}>
           <Text
             fontWeight={'extrabold'}
-            textAlign="center"
-            maxWidth='700px'
-            fontSize={{ base: '2.4rem', sm: '2.7rem', md: '3.5rem', xl: '4rem' }}
+            textAlign='center'
+            fontSize={{ base: '2.4rem', sm: '2.7rem', md: '3.5rem', xl: '4.5rem' }}
             lineHeight={{ base: '2.5rem', md: '3.5rem', xl: '4.5rem' }}
-            >
+          >
             Esta sección está en construcción
           </Text>
           <Text
-            maxWidth='700px'
             fontWeight={'semibold'}
-            textAlign="center"
-            fontSize={{ base: '1.2rem', sm: '1.4rem' , md: '1.6rem', xl: '2rem' }}
-            >
+            textAlign='center'
+            fontSize={{ base: '1.2rem', sm: '1.4rem', md: '1.6rem', xl: '1.8rem' }}
+          >
             Muy pronto tendrás mayor información sobre los cursos del Observatorio Joven
           </Text>
         </VStack>
@@ -47,7 +45,7 @@ const Training = () => {
           src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075059/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/CAPACITACIONES/Imagen_Capacitaciones_exzw9t.png'
           alt='image-trainings'
           width='100%'
-          maxWidth={{ base: '300px', md: '300px', xl: '380px' }}
+          maxWidth={{ base: '250', md: '300', xl: '380' }}
         />
       </HStack>
 
