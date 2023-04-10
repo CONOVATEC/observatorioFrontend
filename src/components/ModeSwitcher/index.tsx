@@ -10,7 +10,7 @@ const ModeSwitcher = ()=>{
     <IconButton
       borderRadius='50%'
       variant='ghost'
-      aria-label='change color mode' 
+      aria-label='change color mode'
       icon={<Icon/>}
       onClick={toggleColorMode} />
 

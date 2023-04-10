@@ -14,7 +14,7 @@ const LogosSection = () => {
   const [_handleRenderLogosCarousuel, _handleRenderLogosStack] = useRenderPropsLogosCards();
 
   return (
-    <Stack as="section">
+    <Stack as='section'>
       <ResponsiveGalleryWithCarousel
         stackProps={{ px: 8 }}
         data={logosData}

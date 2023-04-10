@@ -7,7 +7,7 @@ let basePath = ''
 
 if (isGithubActions) {
   const repo = isProduction ? 'peru' : process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
- 
+
   assetPrefix = `/${repo}/`
   basePath =  isProduction ? '/peru' : `/${repo}`
 }

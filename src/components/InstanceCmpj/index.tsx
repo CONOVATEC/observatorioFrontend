@@ -10,18 +10,18 @@ export default function InstanceCmpj ({title_assembly,description_assembly,title
     return (
       <Box>
         <Heading textAlign='center' as='h2' size='lg'>
-          Instancias de direccion     
+          Instancias de direccion
         </Heading>
-    
+
         <Text textAlign='center' p='6' as='h2' size='lg' >CMPJ se organiza mediante dos instancias de direccion</Text>    
-       
+
         <Stack
           flexDir={{ base: 'column', md: 'row' }}
           justifyContent={{ base: 'center', md: 'space-evenly' }}
           alignItems='center'
-          p={8}      
+          p={8}
           gap={{ base: 4, md: 0 }}
-        >      
+        >
             <VStack
               width={{ base: 'full', md: '60%', lg: '35%' }}
               height={{ base: 'full', md: '300', sm: 'full' }}

@@ -9,7 +9,7 @@ const HeaderSection = () => {
   const [_handleMainCardsRender, _handleMainCardsCarouselRender] = useRenderPropsMainCards()
 
   return (
-    <Stack as="header">
+    <Stack as='header'>
       <CustomHero />
       <ResponsiveGalleryWithCarousel
         data={dataCards}

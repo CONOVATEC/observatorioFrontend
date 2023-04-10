@@ -52,7 +52,7 @@ function BannerCmpjSection() {
                   objectFit='cover'
                   height='100%'
                   alt='logo cmpj'
-                  src="https://res.cloudinary.com/df5nwnlnu/image/upload/v1671317038/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/logo_cmpj_vezma4.png"
+                  src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671317038/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/logo_cmpj_vezma4.png'
                 />
 
                 <Stack color='black'

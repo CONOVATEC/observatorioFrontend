@@ -13,14 +13,14 @@ const CustomMenu = ({menuItems}: CustomMenuProps)=>{
         height='4rem'
         width='4em'
         icon={
-          <HamburgerIcon 
+          <HamburgerIcon
             height='3rem'
             width='3rem'
             />
           }
         variant='outline'
-        aria-label='Options' 
-        as={IconButton} 
+        aria-label='Options'
+        as={IconButton}
       />
       <MenuList
         display={{md:'none'}} width='100vw'

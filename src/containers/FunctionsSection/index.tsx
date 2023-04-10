@@ -15,7 +15,7 @@ const FuntionsSection = () => {
         gap={8}
         p={8}
       >
-        { 
+        {
           functions
             .map((functionData, index) => (<FunctionsCard key={`function-${index}`} {...functionData} />))
         }

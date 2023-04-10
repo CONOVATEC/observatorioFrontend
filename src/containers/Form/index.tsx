@@ -14,7 +14,7 @@ const Form = ({ onSubmit }: FormProps )=>{
     <Card width={'80%'} >
       <CardBody>
         {isSubmitting && <Spinner />}
-        {!isSubmitting && 
+        {!isSubmitting &&
           <VStack as='form' onSubmit={handleSubmit(onSubmit)} alignItems='start' gap={4} >
           {
             config
@@ -26,8 +26,8 @@ const Form = ({ onSubmit }: FormProps )=>{
                     if(!options)
                       throw new Error('not enough options to render')
                     return <CustomSelect
-                      key={`select-${index}`} 
-                      {...basicProps} 
+                      key={`select-${index}`}
+                      {...basicProps}
                       options={options}
                       inputProps={register(name)}
                     />
@@ -41,15 +41,15 @@ const Form = ({ onSubmit }: FormProps )=>{
                     return <>
                       <FormLabel>{label}</FormLabel>
                       <Textarea placeholder={placeHolder} {...register(name)} />
-                    </> 
+                    </>
                   }
                   default:{
-                    return <CustomInput 
+                    return <CustomInput
                       key={`input-${index}`}
-                      {...basicProps} 
+                      {...basicProps}
                       type={type}
                       inputProps={register(name)}
-                    /> 
+                    />
                   }
                 }
               })

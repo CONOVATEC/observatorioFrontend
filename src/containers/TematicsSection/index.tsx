@@ -22,11 +22,11 @@ const TematicsSection = () => {
                 <HStack key={index} width='100%' justifyContent={{ base: 'space-evenly', md: 'space-around' }} >
                   <VStack>
                     <Image boxSize='75' alt={firstItem.title} src={firstItem.src} />
-                    <Heading as='h5' size='md' color='#9537D3C9' textAlign="center">{firstItem.title}</Heading >
+                    <Heading as='h5' size='md' color='#9537D3C9' textAlign='center'>{firstItem.title}</Heading >
                   </VStack>
                   <VStack>
                     <Image boxSize='75' alt={secondItem.title} src={secondItem.src} />
-                    <Heading as='h5' size='md' color='#9537D3C9' textAlign="center">{secondItem.title}</Heading >
+                    <Heading as='h5' size='md' color='#9537D3C9' textAlign='center'>{secondItem.title}</Heading >
                   </VStack>
                 </HStack>
               )

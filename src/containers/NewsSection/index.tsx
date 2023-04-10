@@ -2,14 +2,14 @@ import { memo, useMemo } from 'react'
 import {
     Card,
     CardBody,
-    CircularProgress, 
-    Grid, 
-    GridItem, 
-    Heading, 
-    Image, 
-    Stack, 
-    Text, 
-    useBreakpointValue 
+    CircularProgress,
+    Grid,
+    GridItem,
+    Heading,
+    Image,
+    Stack,
+    Text,
+    useBreakpointValue
   } from '@chakra-ui/react';
 import Link from 'next/link';
 import { MouseEvent } from 'react';
@@ -24,7 +24,7 @@ const NewsSection = () => {
   });
 
   return (
-    <Stack as="section">
+    <Stack as='section'>
        <Heading as='h3' size='lg'> Noticias relacionadas</Heading>
       {isLoading && <CircularProgress />}
       {!isLoading &&
@@ -36,13 +36,13 @@ const NewsSection = () => {
 
             return (
               <GridItem key={id} w='100%'>
-                <Link 
+                <Link
                   key={`post-${index}`}
                   href={{
                     pathname: '/post/[id]',
                     query: { id }
                   }}>
-                  <Card h="100%">
+                  <Card h='100%'>
                     <CardBody>
                       <Image
                         src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png'
@@ -61,7 +61,7 @@ const NewsSection = () => {
                 </Link>
               </GridItem>
             )
-          })  
+          })
          } </Grid>}
     </Stack>
   )

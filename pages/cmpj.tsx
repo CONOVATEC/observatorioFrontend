@@ -14,7 +14,7 @@ const Cmpj = () => {
       </Head>
       <BannerCmpjSection />
       <CommissionSection />
-      <CustomButton text="Mas informacion" />
+      <CustomButton text='Mas informacion' />
       <JoinUsSection />
     </ DefaultLayout>
   )

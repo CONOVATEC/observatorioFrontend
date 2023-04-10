@@ -3,7 +3,7 @@ import { useGetInfoStrategyQuery } from '../../redux/strategy/slice'
 export const useStrategyInfo = () => {
   const { data } = useGetInfoStrategyQuery(null)
   const strategyInfo = data?.data
-  
+
   const [firstValue] = strategyInfo ?? []
 
   return {

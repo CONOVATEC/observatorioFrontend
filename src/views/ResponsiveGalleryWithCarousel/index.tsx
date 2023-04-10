@@ -16,7 +16,7 @@ function ResponsiveGallery<T>({data, carouselRenderItems, stackRenderItems, stac
       <CaptionCarousel carouselProps={carouselProps} cards={
         data?.map(carouselRenderItems)
       }/>
-     <HStack display={{base:'none', lg:'flex'}} justifyContent="space-between" {...stackProps}>
+     <HStack display={{base:'none', lg:'flex'}} justifyContent='space-between' {...stackProps}>
         {
          data?.map(stackRenderItems)
         }

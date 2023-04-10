@@ -13,7 +13,7 @@ interface IDirectiveResponse{
 }
 
 const DirectiveSection = () => {
-  
+
   const { data, isLoading} = useGetDirectiveApiQuery(null);
 
   const directiveData = useMemo(() => {
@@ -21,7 +21,7 @@ const DirectiveSection = () => {
       return data
 
     const { data: responseDirectiveData } = data;
-    
+
     return responseDirectiveData?.map((directive: IDirectiveResponse )=>{
       const { url_image, name , ...rest } = directive
       return {
@@ -31,7 +31,7 @@ const DirectiveSection = () => {
     }
     })
   }, [ data ])
-  
+
 
   const [_handleRenderCarousel, _handleRenderStack] = useDirectiveHandleProps()
 
@@ -45,7 +45,7 @@ const DirectiveSection = () => {
         </Text>
       </VStack>
       <ResponsiveGalleryWithCarousel
-        // TODO: crearte render propsd for desktopView 
+        // TODO: crearte render propsd for desktopView
         stackRenderItems={_handleRenderStack}
         stackProps={{
           height: '60vh',

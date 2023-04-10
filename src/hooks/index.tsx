@@ -20,9 +20,9 @@ export const useRenderPropsLogosCards = () => {
       key={`carousel-image-${index}`}
       height={{ base: '50vh', md: '1xl' }}
       backgroundSize='50%'
-      position="relative"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
+      position='relative'
+      backgroundPosition='center'
+      backgroundRepeat='no-repeat'
       backgroundImage={`url(${url_image})`} />
     , [])
 
@@ -31,8 +31,8 @@ export const useRenderPropsLogosCards = () => {
       key={`sponsor-${index}`}
       width={`calc(96%/${array.length})`}
       height='50vh'
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
+      backgroundPosition='center'
+      backgroundRepeat='no-repeat'
       backgroundSize='contain'
       backgroundImage={`url(${url_image})`} />
     , [])
@@ -54,13 +54,13 @@ export const useRenderPropsMainCards = () => {
         backgroundColor='Background'
         >
         <CardBody backgroundColor='Background' paddingX={'15px'}>
-          <Image src={image} alt={alt_image} borderRadius="lg" boxSize="100px" />
-          <Stack mt="6" spacing="3">
-            <Heading size="md">{title}</Heading>
-            <Text size="xs">{content_body} </Text>
+          <Image src={image} alt={alt_image} borderRadius='lg' boxSize='100px' />
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>{title}</Heading>
+            <Text size='xs'>{content_body} </Text>
           </Stack>
         </CardBody>
-        <Box bg="purple.500" h="5px" />
+        <Box bg='purple.500' h='5px' />
       </Card>
     )
   }, [])
@@ -74,13 +74,13 @@ export const useRenderPropsMainCards = () => {
           rounded={0}
           backgroundColor='Background'>
           <CardBody backgroundColor='Background'>
-            <Image src={image} alt={alt_image} borderRadius="lg" boxSize="100px" />
-            <Stack mt="6" spacing="3">
-              <Heading size="md">{title}</Heading>
-              <Text size="xs">{content_body} </Text>
+            <Image src={image} alt={alt_image} borderRadius='lg' boxSize='100px' />
+            <Stack mt='6' spacing='3'>
+              <Heading size='md'>{title}</Heading>
+              <Text size='xs'>{content_body} </Text>
             </Stack>
           </CardBody>
-          <Box bg="purple.500" h="5px" />
+          <Box bg='purple.500' h='5px' />
         </Card>
       </Box>
     )
