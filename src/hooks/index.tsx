@@ -30,13 +30,11 @@ export const useRenderPropsLogosCards = () => {
     <a href={social_media} target="_blank" style={{ width: '100%'}} rel="noreferrer">
       <Box
         key={`sponsor-${index}`}
-        //width={`calc(96%/${array.length})`} 
         height='50vh'
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize='contain'
         backgroundImage={`url(${url_image})`}
-        onClick={() => {console.log(social_media)}} 
       />
     </a>
     , [])
