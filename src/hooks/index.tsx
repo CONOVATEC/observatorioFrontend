@@ -34,7 +34,7 @@ export const useRenderPropsLogosCards = () => {
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize='contain'
-        backgroundImage={`url(${url_image})`}
+        backgroundImage={`url(${url_image})`} 
       />
     </Link>
     , [])
