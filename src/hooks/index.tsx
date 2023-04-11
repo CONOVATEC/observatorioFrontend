@@ -27,7 +27,7 @@ export const useRenderPropsLogosCards = () => {
     , [])
 
   const handleStackRender = useCallback(({ url_image,social_media}: ILogoData, index: number, array: ILogoData[]) =>
-    <Link href={social_media} style={{ width: `calc(96%/${array.length})`}} isExternal key={`sponsor-${index}`}>
+    <Link href={social_media} cursor={social_media ? 'pointer' : 'default'} style={{ width: `calc(96%/${array.length})`}} isExternal key={`sponsor-${index}`}>
       <Box
         height='50vh'
         backgroundPosition="center"
