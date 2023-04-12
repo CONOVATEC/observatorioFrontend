@@ -1,12 +1,12 @@
 import { MouseEventHandler, useCallback } from 'react'
-import Link from 'next/link'
+
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import {
   Accordion, AccordionButton,
   AccordionIcon, AccordionItem,
   AccordionPanel, Box, Card,
   CardBody, Divider, Heading,
-  Image, Menu, MenuButton,
+  Image, Link, Menu, MenuButton,
   MenuItem, MenuList,
   Stack, Text
 } from '@chakra-ui/react'
@@ -26,15 +26,16 @@ export const useRenderPropsLogosCards = () => {
       backgroundImage={`url(${url_image})`} />
     , [])
 
-  const handleStackRender = useCallback(({ url_image }: ILogoData, index: number, array: ILogoData[]) =>
-    <Box
-      key={`sponsor-${index}`}
-      width={`calc(96%/${array.length})`}
-      height='50vh'
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize='contain'
-      backgroundImage={`url(${url_image})`} />
+  const handleStackRender = useCallback(({ url_image,social_media}: ILogoData, index: number, array: ILogoData[]) =>
+    <Link href={social_media} cursor={social_media ? 'pointer' : 'default'} style={{ width: `calc(96%/${array.length})`}} isExternal key={`sponsor-${index}`}>
+      <Box
+        height='50vh'
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize='contain'
+        backgroundImage={`url(${url_image})`} 
+      />
+    </Link>
     , [])
 
 
