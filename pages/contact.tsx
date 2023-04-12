@@ -5,7 +5,6 @@ import { usePostFormContactMutation } from '../src/redux/form/slice'
 import DefaultLayout from '../src/views/DefaultLayout'
 import Head from 'next/head'
 import { organizationName } from '../src/utils/constants'
-import { Box,Flex } from "@chakra-ui/react";
 
 const benefits = [
   {
@@ -74,12 +73,8 @@ const Contact = () => {
         </HStack>
         <VStack minH={'80vh'} w={'100%'} justifyContent='center'>
           <Heading>Contáctenos</Heading>
-               {isLoading && <CircularProgress />}
-            <Box mb="8" width="100%">
-              <Flex justifyContent="center" alignItems="center" height="100%">
-               {!isLoading && <Form  onSubmit={_handleSubmit} />}  
-              </Flex>
-            </Box>
+          {isLoading && <CircularProgress />}
+          {!isLoading && <Form onSubmit={_handleSubmit} />}
         </VStack>
       </VStack>
     </DefaultLayout>
