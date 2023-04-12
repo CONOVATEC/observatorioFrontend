@@ -11,7 +11,7 @@ const Form = ({ onSubmit }: FormProps )=>{
   const { handleSubmit, register, formState: {isSubmitting} } =  useForm<FieldValues>()
 
   return (
-    <Card width={'80%'} >
+    <Card width={'80%'}  mb={'8'}>
       <CardBody>
         {isSubmitting && <Spinner />}
         {!isSubmitting && 
@@ -54,7 +54,7 @@ const Form = ({ onSubmit }: FormProps )=>{
                 }
               })
           }
-            <Button type='submit'>Enviar</Button>
+            <Button  type='submit'>Enviar</Button>
           </VStack>
         }
       </CardBody>

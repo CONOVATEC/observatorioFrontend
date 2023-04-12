@@ -1,16 +1,5 @@
 import { memo, useMemo } from 'react'
-import {
-    Card,
-    CardBody,
-    CircularProgress, 
-    Grid, 
-    GridItem, 
-    Heading, 
-    Image, 
-    Stack, 
-    Text, 
-    useBreakpointValue 
-  } from '@chakra-ui/react';
+import { Card, CardBody, CircularProgress, Grid, GridItem, Heading, Image, Stack, Text, useBreakpointValue } from '@chakra-ui/react';
 import Link from 'next/link';
 import { MouseEvent } from 'react';
 import { useGetPostsApiQuery } from '../../redux/posts/slice';
@@ -42,7 +31,7 @@ const NewsSection = () => {
                     pathname: '/post/[id]',
                     query: { id }
                   }}>
-                  <Card h="100%">
+                  <Card mb="8" h="100%">
                     <CardBody>
                       <Image
                         src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png'
