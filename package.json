@@ -9,7 +9,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",
@@ -36,9 +37,16 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
-    "json-server": "^0.17.1"
+    "husky": ">=6",
+    "json-server": "^0.17.1",
+    "lint-staged": ">=10",
+    "prettier": "2.8.7"
   },
   "engines": {
     "node": "^16"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,html,css,md}": "prettier --write",
+    "*.{tsx}": "eslint --cache --fix"
   }
 }
