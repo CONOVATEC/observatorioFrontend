@@ -4,6 +4,6 @@
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-single"],
     "indent": ["error", 2],
-    "complexity": ["error", 2]
+    "complexity": ["error", 10]
   }
 }
