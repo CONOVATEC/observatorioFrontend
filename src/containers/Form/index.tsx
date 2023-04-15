@@ -24,7 +24,7 @@ const Form = ({ onSubmit }: FormProps) => {
   } = useForm<FieldValues>();
 
   return (
-    <Card width={'80%'}>
+    <Card width={'80%'} mb="8">
       <CardBody>
         {isSubmitting && <Spinner />}
         {!isSubmitting && (
