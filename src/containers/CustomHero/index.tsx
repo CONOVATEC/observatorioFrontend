@@ -1,10 +1,14 @@
 import {
-  Stack, Flex,
-  Button, Text,
-  VStack, useBreakpointValue,
+  Button,
+  Flex,
+  Stack,
+  Text,
+  VStack,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { memo } from 'react';
 
+import Link from 'next/link';
 import { hero } from './config';
 
 const { title, content, imgHero } = hero;
@@ -46,6 +50,8 @@ const Hero = () => {
           </Stack>
           <Stack direction={'row'}>
             <Button
+              as={Link}
+              href={'/post/1/'}
               bg={'purple.600'}
               color={'black'}
               position={'static'}
