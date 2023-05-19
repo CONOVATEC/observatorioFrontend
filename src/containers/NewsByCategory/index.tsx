@@ -1,19 +1,16 @@
 import {
-	Box,
-	Button,
-	Flex,
 	Grid,
 	useBreakpointValue,
 	Link,
 	Text,
-	VStack,
 	Image,
 	Card,
 	CardBody,
 	Stack,
 	Heading,
+	GridItem,
+	Button,
 } from '@chakra-ui/react';
-import { off } from 'process';
 import { memo, useEffect, useState } from 'react';
 interface PokemonInfo {
   name: string;
@@ -55,9 +52,9 @@ export const Cards: React.FC<PokemonCardProps> = ({ url }) => {
 		return null;
 	}
 	return (
-		<Link href={'news'}>
-			<Card h='100%' w='369px'>
-				<CardBody>
+		<Link h='400' sx={{'&:hover': { textDecoration: 'none' } }}>
+			<Card h='100%'>
+				<CardBody p='20px'>
 					<Image
 						borderRadius='lg'
 						src={
@@ -65,6 +62,7 @@ export const Cards: React.FC<PokemonCardProps> = ({ url }) => {
               pokemonInfo.sprites.other.home.front_default
 						}
 						alt={pokemonInfo.name}
+						h='40%'
 					/>
 					<Stack mt='6' spacing={3}>
 						<Text fontSize={'md'}>{pokemonInfo.name}</Text>
@@ -109,7 +107,7 @@ export const NewsByCategory = () => {
 	}, [offset]);
 
 	return (
-		<Box maxW='1280' w='100%' m='0 auto'>
+		<GridItem maxW='1280' w='100%' m='0 auto'>
 			<Grid
 				templateColumns={`repeat(${comlumnCount},minmax(0,1fr))`}
 				gap={6}
@@ -119,7 +117,7 @@ export const NewsByCategory = () => {
 					<Cards key={pokemon.name} url={pokemon.url} />
 				))}
 			</Grid>
-		</Box>
+		</GridItem>
 	);
 };
 
