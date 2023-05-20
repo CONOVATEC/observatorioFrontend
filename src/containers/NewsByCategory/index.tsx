@@ -1,20 +1,19 @@
 import {
-	Box,
-	Button,
-	Flex,
 	Grid,
 	useBreakpointValue,
 	Link,
 	Text,
-	VStack,
 	Image,
 	Card,
 	CardBody,
 	Stack,
 	Heading,
+	GridItem,
+	Button,
+	Box,
 } from '@chakra-ui/react';
-import { off } from 'process';
 import { memo, useEffect, useState } from 'react';
+import { PaginationWrapper } from '../../components/PaginationWrapper';
 interface PokemonInfo {
   name: string;
   sprites: {
@@ -55,9 +54,9 @@ export const Cards: React.FC<PokemonCardProps> = ({ url }) => {
 		return null;
 	}
 	return (
-		<Link href={'news'}>
-			<Card h='100%' w='369px'>
-				<CardBody>
+		<Link h='400' sx={{ '&:hover': { textDecoration: 'none' } }}>
+			<Card h='100%'>
+				<CardBody p='20px' h='100%'>
 					<Image
 						borderRadius='lg'
 						src={
@@ -65,15 +64,17 @@ export const Cards: React.FC<PokemonCardProps> = ({ url }) => {
               pokemonInfo.sprites.other.home.front_default
 						}
 						alt={pokemonInfo.name}
+						h='40%'
 					/>
 					<Stack mt='6' spacing={3}>
-						<Text fontSize={'md'}>{pokemonInfo.name}</Text>
-						<Heading size={'15'}>TextoNormalon</Heading>
-						{pokemonInfo.abilities.map((ability) => (
-							<Text fontSize='sm' key={ability.ability.name}>
-								{ability.ability.name}
-							</Text>
-						))}
+						<Text fontSize={'sm'}>Autor | dd-MM-yyyy</Text>
+						<Heading size='md'>Titulo Noticia</Heading>
+						<Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+              officia qui velit corrupti. Reprehenderit dolor sequi vitae ab, id
+              dolore quas sed enim quisquam sint! Consectetur earum assumenda
+              impedit deleniti.
+						</Text>
 					</Stack>
 				</CardBody>
 			</Card>
@@ -91,6 +92,12 @@ export const NewsByCategory = () => {
 	const [numberItems, setNumberItems] = useState(0);
 	const pageSize = 12;
 	const [offset, setOffset] = useState<number>(0);
+	const [currentPage, setCurrentPage] = useState<number>(1);
+
+	const handlePageChange = (current: number) => {
+		const newOffset = (current - 1) * pageSize;
+		setOffset(newOffset);
+	};
 
 	const comlumnCount = useBreakpointValue({ base: 1, sm: 2, md: 3 });
 	useEffect(() => {
@@ -106,10 +113,11 @@ export const NewsByCategory = () => {
 			}
 		};
 		obtenerPokemones();
+		setCurrentPage(offset / pageSize + 1);
 	}, [offset]);
 
 	return (
-		<Box maxW='1280' w='100%' m='0 auto'>
+		<GridItem maxW='1280' w='100%' m='0 auto' p='2'>
 			<Grid
 				templateColumns={`repeat(${comlumnCount},minmax(0,1fr))`}
 				gap={6}
@@ -119,7 +127,13 @@ export const NewsByCategory = () => {
 					<Cards key={pokemon.name} url={pokemon.url} />
 				))}
 			</Grid>
-		</Box>
+			<PaginationWrapper
+				total={numberItems}
+				pageSize={pageSize}
+				current={currentPage}
+				onChange={handlePageChange}
+			/>
+		</GridItem>
 	);
 };
 
