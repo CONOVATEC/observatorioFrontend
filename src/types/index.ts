@@ -47,3 +47,9 @@ export interface SectionNationalCarouselProps {
   title: string;
   description: string;
 }
+
+export interface PostFilter {
+  category: string
+  page?: string
+  limit?: string
+}

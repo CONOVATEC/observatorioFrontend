@@ -8,7 +8,7 @@ import theme from '../src/utils/theme';
 
 export function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Head>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       </Head>
