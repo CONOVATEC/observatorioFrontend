@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
+    "eslint-config-prettier": "8.8.0",
     "husky": ">=6",
     "json-server": "^0.17.1",
     "lint-staged": ">=10",
@@ -46,7 +47,7 @@
     "node": "^16"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx,html,css,md}": "prettier --write",
-    "*.{tsx}": "eslint --cache --fix"
+    "*.js,ts,jsx,tsx,html,css,md": "prettier --write",
+    "*.tsx": "eslint --cache --fix"
   }
 }
