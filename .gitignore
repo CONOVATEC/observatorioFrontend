@@ -7,6 +7,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintcache
 
 # testing
 /coverage
@@ -42,3 +43,12 @@ next-env.d.ts
 public/sitemap*.xml
 
 .vscode
+/.idea/.gitignore
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/modules.xml
+/.idea/observatorioFrontend.iml
+/.idea/codeStyles/Project.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
+/.idea/prettier.xml
+/.idea/jsLinters/eslint.xml
