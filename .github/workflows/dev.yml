@@ -1,23 +1,22 @@
+name: development
 on:
   push:
     tags:
       - dev-v*
 env:
-  ENVIROMENT_SLUG: production
+  ENVIROMENT_SLUG: development
   NEXT_PUBLIC_SUPA_BASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPA_BASE_ANON_KEY }}
   NEXT_PUBLIC_FORM_API: ${{ secrets.NEXT_PUBLIC_FORM_API }}
 jobs:
   deploy-dev:
-    name: deploy dev
+    name: deploy-dev
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 16.14
           cache: npm
-
       - run: npm install -g yarn
 
       - name: Build
