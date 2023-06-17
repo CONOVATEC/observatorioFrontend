@@ -51,5 +51,37 @@ export interface SectionNationalCarouselProps {
 export interface PostFilter {
   category: string
   page?: string
-  limit?: string
+}
+
+export interface Posts {
+  id:         number;
+  title:      string;
+  imagen:     string;
+  slug:       string;
+  extract:    string;
+  content:    string;
+  url_image:  null;
+  status:     string;
+  news_cover: string;
+  tendencia:  string;
+  category:   Category;
+  tags:       Category[];
+  user:       User;
+  created_at: string;
+}
+
+export interface Category {
+  id:   number;
+  name: string;
+  slug: string;
+}
+
+export interface User {
+  id:                 number;
+  name:               string;
+  email:              string;
+  username:           string;
+  phone:              string;
+  biography:          string;
+  profile_photo_path: string;
 }

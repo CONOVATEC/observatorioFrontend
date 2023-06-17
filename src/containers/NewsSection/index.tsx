@@ -1,22 +1,14 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useState } from 'react';
 import {
-  Box,
-  Card,
-  CardBody,
-  CircularProgress,
   Flex,
-  Grid,
-  GridItem,
   Heading,
-  Image,
   Stack,
-  Text,
-  useBreakpointValue,
 } from '@chakra-ui/react';
-import Link from 'next/link';
-import { MouseEvent } from 'react';
 import { useGetPostsApiQuery } from '../../redux/posts/slice';
 import { Button } from '@chakra-ui/react'
+import { PostFilter } from '../../types';
+import ListPosts from '../../components/ListPosts';
+
 
 const categoryButtons = [
   { id: 1, category: 'Tecnología' },
@@ -27,86 +19,52 @@ const categoryButtons = [
 ]
 
 const NewsSection = () => {
-  const { data, isLoading } = useGetPostsApiQuery(undefined);
-  const grid = useBreakpointValue({
-    base: 'repeat(1, 1fr)',
-    sm: 'repeat(2, 1fr)',
-    md: 'repeat(3, 1fr)',
-  });
-
   const [clickedButton, setClickedButton] = useState<number|null>(1);
+  const [selectedCategory, setSelectedCategory] = useState<PostFilter | undefined>({ category: categoryButtons[0].category });
+  
+  const { data: lastNews, isLoading: loadingLastNews } = useGetPostsApiQuery(undefined);
+  
+  //const { data, isLoading } = useGetPostsApiQuery(selectedCategory);
 
   const handleClick = (id: number, category: string) => {
     setClickedButton(id);
+    setSelectedCategory({category});
   };
 
   return (
-    <Stack as='section'>
+    <Stack as='section' padding="30px">
       <Heading as='h3' size='lg'>
-        {' '}
-        Noticias relacionadas
+        Últimas noticias
       </Heading>
-      {isLoading && <CircularProgress />}
-      {!isLoading && (
-        <>
-          <Grid templateColumns={grid} gap={6}>
-            {data?.data
-              ?.filter(({ status }: { status: boolean }) => status)
-              ?.map((item: any, index: number) => {
-                const { title, id, extract, user, created } = item;
-
-                return (
-                  <GridItem key={id} w='100%'>
-                    <Link
-                      key={`post-${index}`}
-                      href={{
-                        pathname: '/post/[id]',
-                        query: { id },
-                      }}
-                    >
-                      <Card h='100%'>
-                        <CardBody>
-                          <Image
-                            src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png'
-                            alt='Green double couch with wooden legs'
-                            borderRadius='lg'
-                          />
-                          <Stack mt='6' spacing='3'>
-                            <Text fontSize='sm'>{`${user.name} | ${created}`}</Text>
-                            <Heading size='md'>{title}</Heading>
-                            <Text>{extract}</Text>
-                          </Stack>
-                        </CardBody>
-                      </Card>
-                    </Link>
-                  </GridItem>
-                );
-              })}{' '}
-          </Grid>
-          <Flex
-            alignItems="center"
-            justifyContent="center"
-            flexWrap="wrap"
-            width="100%" 
-            gap="15px"
-            mt="20px"
-            mb="20px"
+      <ListPosts data={lastNews?.data} isLoading={loadingLastNews} />
+      <Flex
+        alignItems='center'
+        justifyContent="center"
+        flexWrap='wrap'
+        width='100%' 
+        gap='15px'
+        p="20px"
+      >
+        {categoryButtons.map((e) => (
+          <Button
+            key={e.id}
+            variant={clickedButton === e.id ? 'solid' : 'outline'}
+            onClick={() => handleClick(e.id, e.category)}
+            colorScheme='brand'
+            borderRadius={'3xl'}
+            width={{ base: '90%', sm: 'max-content' }}
+            _dark={{
+              bg: clickedButton === e.id ? '#2D3748' : undefined,
+              color: clickedButton === e.id ? 'white' : undefined,
+              border: "1px solid #2D3748"
+            }}
           >
-            {categoryButtons.map((e) => (
-              <Button
-                key={e.id}
-                variant={clickedButton === e.id ? "solid" : "outline"}
-                onClick={() => handleClick(e.id, e.category)}
-                colorScheme="brand"
-                borderRadius={"3xl"}
-                width={{ base: "90%", sm: "max-content" }}
-              >
-                {e.category}
-              </Button>
-            ))}
-          </Flex>
-        </>
-      )}
+            {e.category}
+          </Button>
+        ))}
+      </Flex>
+      //cambiar data por lastNews?.data cuando esté el filtro de category
+      <ListPosts data={lastNews?.data} isLoading={loadingLastNews} />
     </Stack>
   );
 };
