@@ -1,17 +1,23 @@
 import { Box, CircularProgress, Flex } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useGetPostsApiQuery } from '../../../src/redux/posts/slice';
 import DefaultLayout from '../../../src/views/DefaultLayout';
 
-import { getInfoData } from '../adapters/getInfoData';
 import styles from './styles.module.css';
+import fetcher from '../../../src/utils/fetcher';
+import useSWR from 'swr';
+
 export default function Post() {
   const { query } = useRouter();
+  const {
+    data: response,
+    error,
+    isLoading,
+  } = useSWR(`/api/post/${query.id}`, fetcher);
+  const data = response?.data ?? false;
 
-  const { data, isLoading } = useGetPostsApiQuery(null);
-
-  const postBody = getInfoData(data, query, 'content');
-  /* 	const backgroundImage = getInfoData(data, query,'imagen') */
+  if (error || (data === false && !isLoading)) {
+    return <>Error a cargar Post</>;
+  }
 
   const backgroundImage =
     'url(https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png)';
@@ -32,7 +38,7 @@ export default function Post() {
           <Box
             className={styles.postContainer}
             dangerouslySetInnerHTML={{
-              __html: postBody,
+              __html: data.content,
             }}
           />
         </>
