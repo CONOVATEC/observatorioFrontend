@@ -1,73 +1,77 @@
-import { memo, useMemo } from 'react';
-import {
-  Card,
-  CardBody,
-  CircularProgress,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Stack,
-  Text,
-  useBreakpointValue,
-} from '@chakra-ui/react';
-import Link from 'next/link';
-import { MouseEvent } from 'react';
+import { memo, useState } from 'react';
+import { Flex, Heading, Stack } from '@chakra-ui/react';
 import { useGetPostsApiQuery } from '../../redux/posts/slice';
+import { Button } from '@chakra-ui/react';
+import { PostFilter } from '../../types';
+import ListPosts from '../../components/ListPosts';
+import useSWR from 'swr';
+import fetcher from '../../utils/fetcher';
+
+const categoryButtons = [
+	{ id: 1, category: 'Tecnología' },
+	{ id: 2, category: 'Educación' },
+	{ id: 3, category: 'Politica' },
+	{ id: 4, category: 'Nacionales' },
+	{ id: 5, category: 'Internacionales' },
+];
 
 const NewsSection = () => {
-  const { data, isLoading } = useGetPostsApiQuery(null);
-  const grid = useBreakpointValue({
-    base: 'repeat(1, 1fr)',
-    sm: 'repeat(2, 1fr)',
-    md: 'repeat(3, 1fr)',
-  });
+	const [clickedButton, setClickedButton] = useState<number | null>(1);
+	const [selectedCategory, setSelectedCategory] = useState<
+    PostFilter | undefined
+  >({ category: categoryButtons[0].category });
 
-  return (
-    <Stack as='section'>
-      <Heading as='h3' size='lg'>
-        {' '}
-        Noticias relacionadas
-      </Heading>
-      {isLoading && <CircularProgress />}
-      {!isLoading && (
-        <Grid templateColumns={grid} gap={6}>
-          {data?.data
-            ?.filter(({ status }: { status: boolean }) => status)
-            ?.map((item: any, index: number) => {
-              const { title, id, extract, user, created } = item;
+	//const { data: lastNews, isLoading: loadingLastNews } = useGetPostsApiQuery(undefined);
+	const {
+		data: lastNewsData,
+		error,
+		isLoading: loadingLastNews,
+	} = useSWR('/api/posts', fetcher);
+	//const { data, isLoading } = useGetPostsApiQuery(selectedCategory);
 
-              return (
-                <GridItem key={id} w='100%'>
-                  <Link
-                    key={`post-${index}`}
-                    href={{
-                      pathname: '/post/[id]',
-                      query: { id },
-                    }}
-                  >
-                    <Card h='100%'>
-                      <CardBody>
-                        <Image
-                          src='https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png'
-                          alt='Green double couch with wooden legs'
-                          borderRadius='lg'
-                        />
-                        <Stack mt='6' spacing='3'>
-                          <Text fontSize='sm'>{`${user.name} | ${created}`}</Text>
-                          <Heading size='md'>{title}</Heading>
-                          <Text>{extract}</Text>
-                        </Stack>
-                      </CardBody>
-                    </Card>
-                  </Link>
-                </GridItem>
-              );
-            })}{' '}
-        </Grid>
-      )}
-    </Stack>
-  );
+	const lastNews = lastNewsData?.data ?? [];
+	console.log({ lastNews, error, loadingLastNews });
+	const handleClick = (id: number, category: string) => {
+		setClickedButton(id);
+		setSelectedCategory({ category });
+	};
+
+	return (
+		<Stack as='section' padding='30px'>
+			<Heading as='h3' size='lg'>
+        Últimas noticias
+			</Heading>
+			<ListPosts data={lastNews} isLoading={loadingLastNews} />
+			<Flex
+				alignItems='center'
+				justifyContent='center'
+				flexWrap='wrap'
+				width='100%'
+				gap='15px'
+				p='20px'
+			>
+				{categoryButtons.map((e) => (
+					<Button
+						key={e.id}
+						variant={clickedButton === e.id ? 'solid' : 'outline'}
+						onClick={() => handleClick(e.id, e.category)}
+						colorScheme='brand'
+						borderRadius={'3xl'}
+						width={{ base: '90%', sm: 'max-content' }}
+						_dark={{
+							bg: clickedButton === e.id ? '#2D3748' : undefined,
+							color: clickedButton === e.id ? 'white' : undefined,
+							border: '1px solid #2D3748',
+						}}
+					>
+						{e.category}
+					</Button>
+				))}
+			</Flex>
+      //cambiar data por lastNews?.data cuando esté el filtro de category
+			<ListPosts data={lastNews} isLoading={loadingLastNews} />
+		</Stack>
+	);
 };
 
 export default memo(NewsSection);

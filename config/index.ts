@@ -1,10 +1,10 @@
 export const APIS = {
   development: {
-    OBSERVATORIO_BACK: 'https://admin.observatoriojovenperu.com.pe/api',
+    OBSERVATORIO_BACK: 'https://admin.observatoriodev.xyz',
     FORM_API: ''
   },
   test: {
-    OBSERVATORIO_BACK: 'https://admin.observatoriojovenperu.com.pe/api'
+    OBSERVATORIO_BACK: 'https://admin.observatoriodev.xyz'
   },
   production: {
     OBSERVATORIO_BACK: 'https://admin.observatoriojovenperu.com.pe/api',
