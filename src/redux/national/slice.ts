@@ -1,14 +1,16 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { APIS_URLS } from '../../../config'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { APIS_URLS } from '../../../config';
 
 export const nationalApi = createApi({
   reducerPath: 'nationalApi',
-  baseQuery: fetchBaseQuery({ baseUrl: APIS_URLS.OBSERVATORIO_BACK }),
-  endpoints: builder => ({
+  baseQuery: fetchBaseQuery({
+    baseUrl: APIS_URLS.OBSERVATORIO_BACK.replace('/api', ''),
+  }),
+  endpoints: (builder) => ({
     getNationalApi: builder.query({
-      query: () => '/youthPolicy'
-    })
-  })
-})
+      query: () => '/api/youthPolicy',
+    }),
+  }),
+});
 
-export const { useGetNationalApiQuery, reducer } = nationalApi
+export const { useGetNationalApiQuery, reducer } = nationalApi;

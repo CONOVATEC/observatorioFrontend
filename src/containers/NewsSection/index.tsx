@@ -41,8 +41,6 @@ const NewsSection = () => {
     );
   }
 
-  console.log({ lastNews, categorySelected });
-
   return (
     <Stack as='section' padding='30px'>
       <Heading as='h3' size='lg'>

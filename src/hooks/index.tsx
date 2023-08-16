@@ -159,7 +159,7 @@ export const useRenderPropsMenuItems = () => {
           <MenuButton>
             {label} <ChevronDownIcon />{' '}
           </MenuButton>
-          <MenuList as='ul'>
+          <MenuList>
             {menuItem.subLabels?.map(({ label, href }, index) => (
               <MenuItem
                 as='li'
