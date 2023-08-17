@@ -11,7 +11,6 @@ export default async function handler(
 ) {
   const domain = process.env.BACKEND_URL ?? 'https://admin.observatoriodev.xyz';
   const url = domain + '/api/v1/posts';
-  console.log({ url });
   const { status, data } = await axios.get(url);
   res.status(status).json({ ...data });
 }

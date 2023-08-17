@@ -33,17 +33,6 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
     <>
       <Head>
         <title>{organizationName}</title>
-        <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
-        />
-        <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
-        />
         <meta name='description' content={descriptionOrganization} />
         <meta name='keywords' content={String(keywords)} />
         <link
@@ -63,7 +52,7 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
           sizes='16x16'
           href='./favicon-16x16.png'
         />
-        <link rel='manifest' href='./site.webmanifest' />
+        {/* <link rel="manifest" href="./site.webmanifest" /> */}
       </Head>
       <CustomNavBar />
       {children}
