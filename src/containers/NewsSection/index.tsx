@@ -7,15 +7,6 @@ import ListPosts from '../../components/ListPosts';
 import useSWR from 'swr';
 import fetcher from '../../utils/fetcher';
 
-// const categoryButtons = [
-//   { id: null, category: 'Todos' },
-//   { id: 1, category: 'Tecnología' },
-//   { id: 2, category: 'Educación' },
-//   { id: 3, category: 'Politica' },
-//   { id: 4, category: 'Nacionales' },
-//   { id: 5, category: 'Internacionales' },
-// ];
-
 const NewsSection = () => {
   const [categorySelected, setCatergorySelected] = useState<number | null>(
     null
