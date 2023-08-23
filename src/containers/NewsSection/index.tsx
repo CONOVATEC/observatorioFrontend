@@ -7,15 +7,6 @@ import ListPosts from '../../components/ListPosts';
 import useSWR from 'swr';
 import fetcher from '../../utils/fetcher';
 
-const categoryButtons = [
-  { id: null, category: 'Todos' },
-  { id: 1, category: 'Tecnología' },
-  { id: 2, category: 'Educación' },
-  { id: 3, category: 'Politica' },
-  { id: 4, category: 'Nacionales' },
-  { id: 5, category: 'Internacionales' },
-];
-
 const NewsSection = () => {
   const [categorySelected, setCatergorySelected] = useState<number | null>(
     null
@@ -27,17 +18,26 @@ const NewsSection = () => {
     isLoading: loadingLastNews,
   } = useSWR('/api/posts', fetcher);
 
+  const { data: categoriesData, error: errorCategories } = useSWR(
+    '/api/categories',
+    fetcher
+  );
+
   const handlerCategorySelected = (id: number) => {
     setCatergorySelected(id);
   };
 
+  console.log({ categorySelected });
+
   let lastNews = lastNewsData?.data?.slice(0, 3) ?? [];
 
-  let newsOfCategory = lastNewsData?.data?.slice(0, 3) ?? [];
+  let newsOfCategory = lastNewsData?.data ?? [];
+
+  let categories = categoriesData?.data ?? [];
 
   if (categorySelected) {
     newsOfCategory = newsOfCategory.filter(
-      (row: any) => row.category === categorySelected
+      (row: any) => row.categoryId === categorySelected
     );
   }
 
@@ -53,7 +53,7 @@ const NewsSection = () => {
         gap={3}
         direction={{ base: 'column', sm: 'row' }}
       >
-        {categoryButtons.map((e) => (
+        {categories.map((e: any) => (
           <Button
             key={e.id}
             variant={categorySelected === e.id ? 'solid' : 'outline'}
@@ -68,11 +68,14 @@ const NewsSection = () => {
               border: '1px solid #2D3748',
             }}
           >
-            {e.category}
+            {e.name}
           </Button>
         ))}
       </Flex>
-      <ListPosts data={newsOfCategory} isLoading={loadingLastNews} />
+      <ListPosts
+        data={newsOfCategory.slice(0, 3)}
+        isLoading={loadingLastNews}
+      />
     </Stack>
   );
 };
