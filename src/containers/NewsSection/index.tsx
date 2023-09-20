@@ -35,6 +35,10 @@ const NewsSection = () => {
 
   let categories = categoriesData?.data ?? [];
 
+  newsOfCategory = newsOfCategory.filter(
+    (row: any) => row.status === 'PUBLICADO'
+  );
+
   if (categorySelected) {
     newsOfCategory = newsOfCategory.filter(
       (row: any) => row.categoryId === categorySelected
