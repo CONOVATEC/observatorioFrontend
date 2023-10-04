@@ -1,21 +1,17 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Flex, Heading, Stack } from '@chakra-ui/react';
-import { useGetPostsApiQuery } from '../../redux/posts/slice';
 import { Button } from '@chakra-ui/react';
-import { PostFilter } from '../../types';
+import { Posts } from '../../types';
 import ListPosts from '../../components/ListPosts';
 import useSWR from 'swr';
 import fetcher from '../../utils/fetcher';
+import Pagination from './../../components/Pagination/index';
 
 const NewsSection = () => {
-  const [categorySelected, setCatergorySelected] = useState<number | null>(
-    null
-  );
-
   const {
     data: lastNewsData,
     error,
-    isLoading: loadingLastNews,
+    isLoading,
   } = useSWR('/api/posts', fetcher);
 
   const { data: categoriesData, error: errorCategories } = useSWR(
@@ -23,34 +19,48 @@ const NewsSection = () => {
     fetcher
   );
 
+  const [categorySelected, setCatergorySelected] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+  const [categoryFilter, setCategoryFilter] = useState<Posts[][]>([]);
+
   const handlerCategorySelected = (id: number) => {
     setCatergorySelected(id);
   };
 
-  console.log({ categorySelected });
+  let categories = [
+    {
+      id: 0,
+      name: 'Todos',
+      description: '',
+    },
+    ...(categoriesData?.data ?? []),
+  ];
 
-  let lastNews = lastNewsData?.data?.slice(0, 3) ?? [];
+  useEffect(() => {
+    setPage(1);
+    if (lastNewsData?.data) {
+      const categoryPerPage = [];
+      let auxNews =
+        categorySelected === 0
+          ? lastNewsData.data
+          : lastNewsData.data.filter(
+            (row: any) => row.categoryId === categorySelected
+          );
 
-  let newsOfCategory = lastNewsData?.data ?? [];
+      for (let i = 0; i < auxNews?.length; i += 3) {
+        categoryPerPage.push(auxNews?.slice(i, i + 3));
+      }
 
-  let categories = categoriesData?.data ?? [];
-
-  newsOfCategory = newsOfCategory.filter(
-    (row: any) => row.status === 'PUBLICADO'
-  );
-
-  if (categorySelected) {
-    newsOfCategory = newsOfCategory.filter(
-      (row: any) => row.categoryId === categorySelected
-    );
-  }
+      setCategoryFilter(categoryPerPage);
+    }
+  }, [lastNewsData, categorySelected]);
 
   return (
     <Stack as='section' padding='30px'>
       <Heading as='h3' size='lg'>
         Últimas noticias
       </Heading>
-      <ListPosts data={lastNews} isLoading={loadingLastNews} />
+      <ListPosts data={lastNewsData?.data?.slice(0, 3)} isLoading={isLoading} />
       <Flex
         alignItems='center'
         justifyContent='center'
@@ -76,9 +86,12 @@ const NewsSection = () => {
           </Button>
         ))}
       </Flex>
-      <ListPosts
-        data={newsOfCategory.slice(0, 3)}
-        isLoading={loadingLastNews}
+      <ListPosts data={categoryFilter[page - 1]} isLoading={isLoading} />
+      <Pagination
+        totalPosts={categoryFilter.flat().length}
+        postsPerPage={3}
+        currentPage={page}
+        setPage={setPage}
       />
     </Stack>
   );
