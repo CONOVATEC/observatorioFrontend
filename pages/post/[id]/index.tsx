@@ -5,6 +5,7 @@ import DefaultLayout from '../../../src/views/DefaultLayout';
 import styles from './styles.module.css';
 import fetcher from '../../../src/utils/fetcher';
 import useSWR from 'swr';
+import { relative } from 'path';
 
 export default function Post() {
   const { query } = useRouter();
@@ -30,10 +31,18 @@ export default function Post() {
           <Flex
             w={'full'}
             h={{ base: '50vh', md: '70vh', lg: '80vh' }}
-            backgroundImage={backgroundImage}
+            backgroundImage={data.url_image || backgroundImage}
             backgroundSize={{ base: 'cover', md: '100% 100%' }}
             backgroundPosition={'center left'}
-          />
+            position={'relative'}
+          >
+            <div className={styles.postShadow}>
+              <Box className={styles.postHeader}>
+                <h1 dangerouslySetInnerHTML={{ __html: data.title }} />
+                <p>{data.extract}</p>
+              </Box>
+            </div>
+          </Flex>
 
           <Box
             className={styles.postContainer}
