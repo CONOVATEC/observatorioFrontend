@@ -1,10 +1,10 @@
 import React from 'react';
 import {
+  Box,
   Card,
   CardBody,
   CircularProgress,
-  Grid,
-  GridItem,
+  Flex,
   Heading,
   Image,
   Skeleton,
@@ -24,67 +24,68 @@ const defaultImg =
   'https://res.cloudinary.com/df5nwnlnu/image/upload/v1671075063/observatorio/PIEZAS%20GR%C3%81FICAS%20-%20OBSERVATORIO%20JOVEN/NOTICIAS/PORTADA_PRINCIPAL_DE_NOTICIAS_velaqw.png';
 
 const ListPosts = ({ data, isLoading }: ListPostsProps) => {
-  const grid = useBreakpointValue({
-    base: 'repeat(1, 1fr)',
-    sm: 'repeat(2, 1fr)',
-    md: 'repeat(3, 1fr)',
-  });
-
   return (
-    <>
+    <Flex
+      flexWrap='wrap'
+      justifyContent='flex-start' // Alinea los elementos a la izquierda y a la derecha
+      alignItems='center'
+      width='80%'
+      mx='auto'
+      gap={5}
+      my={5}
+    >
       {isLoading ? (
-        <Grid templateColumns={grid} gap={6} p='15px'>
-          <GridItem w='100%'>
-            <Skeleton height='250px' />
-          </GridItem>
-          <GridItem w='100%'>
-            <Skeleton height='250px' />
-          </GridItem>
-          <GridItem w='100%'>
-            <Skeleton height='250px' />
-          </GridItem>
-        </Grid>
+        <>
+          <Skeleton height='400px' />
+          <Skeleton height='400px' />
+          <Skeleton height='400px' />
+        </>
       ) : (
-        <Grid templateColumns={grid} gap={6} p='15px'>
-          {data?.map((item: Posts, index: number) => {
-            const {
-              title,
-              id,
-              extract,
-              username = 'admin',
-              created_at,
-              url_image,
-            } = item;
-            return (
-              <GridItem key={id} w='100%'>
-                <Link
-                  key={`post-${id}`}
-                  href={{
-                    pathname: '/post/[id]',
-                    query: { id },
-                  }}
-                >
-                  <Card h='100%'>
-                    <CardBody>
-                      <Image
-                        src={url_image || defaultImg}
-                        alt='Green double couch with wooden legs'
-                        borderRadius='lg'
-                      />
-                      <Stack mt='6' spacing='3'>
-                        <Text fontSize='sm'>{`${username} | ${created_at}`}</Text>
-                        <Heading size='md'>{title}</Heading>
-                        <Text>{extract}</Text>
-                      </Stack>
-                    </CardBody>
-                  </Card>
-                </Link>
-              </GridItem>
-            );
-          })}
-        </Grid>
+        data?.map((item: Posts) => {
+          const { title, id, extract, user, created_at, url_image } = item;
+          return (
+            <Card
+              as={Link}
+              href={{
+                pathname: '/post/[id]',
+                query: { id },
+              }}
+              key={`post-${id}`}
+              width={{ sm: '80vw', md: '45%', lg: '30%' }}
+              maxWidth='100%'
+              marginBottom='20px'
+              alignSelf={'flex-start'}
+              mx='auto'
+            >
+              <CardBody>
+                <Image
+                  src={url_image || defaultImg}
+                  alt={title}
+                  borderRadius='lg'
+                  maxH='400px'
+                  width='100%'
+                  display={'flex'}
+                  minH={{ md: 'auto', lg: '305px' }}
+                  objectFit='cover'
+                />
+                <Stack mt='6' spacing='3'>
+                  <Text fontSize='sm'>{`${user.name} | ${created_at}`}</Text>
+                  <Heading size='md'>{title}</Heading>
+                  <Text
+                    overflow='hidden'
+                    whiteSpace='nowrap'
+                    textOverflow='ellipsis'
+                    maxWidth='100%'
+                  >
+                    {extract}
+                  </Text>
+                </Stack>
+              </CardBody>
+            </Card>
+          );
+        })
       )}
-    </>
+    </Flex>
   );
 };
 
