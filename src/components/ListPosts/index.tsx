@@ -1,16 +1,13 @@
 import React from 'react';
 import {
-  Box,
   Card,
   CardBody,
-  CircularProgress,
   Flex,
   Heading,
   Image,
   Skeleton,
   Stack,
   Text,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Posts } from '../../types';
@@ -27,18 +24,33 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
   return (
     <Flex
       flexWrap='wrap'
-      justifyContent='flex-start' // Alinea los elementos a la izquierda y a la derecha
+      justifyContent='center'
       alignItems='center'
-      width='80%'
+      w='80%'
       mx='auto'
       gap={5}
       my={5}
     >
       {isLoading ? (
         <>
-          <Skeleton height='400px' />
-          <Skeleton height='400px' />
-          <Skeleton height='400px' />
+          <Skeleton
+            height='400px'
+            w={{ sm: '80vw', md: '45%', lg: '30%' }}
+            alignSelf={'flex-start'}
+            mx='auto'
+          />
+          <Skeleton
+            height='400px'
+            w={{ sm: '80vw', md: '45%', lg: '30%' }}
+            alignSelf={'flex-start'}
+            mx='auto'
+          />
+          <Skeleton
+            height='400px'
+            w={{ sm: '80vw', md: '45%', lg: '30%' }}
+            alignSelf={'flex-start'}
+            mx='auto'
+          />
         </>
       ) : (
         data?.map((item: Posts) => {
@@ -51,11 +63,7 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
                 query: { id },
               }}
               key={`post-${id}`}
-              width={{ sm: '80vw', md: '45%', lg: '30%' }}
-              maxWidth='100%'
-              marginBottom='20px'
-              alignSelf={'flex-start'}
-              mx='auto'
+              w={{ sm: '80vw', md: '45%', lg: '30%' }}
             >
               <CardBody>
                 <Image
@@ -63,9 +71,9 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
                   alt={title}
                   borderRadius='lg'
                   maxH='400px'
-                  width='100%'
+                  w='100%'
                   display={'flex'}
-                  minH={{ md: 'auto', lg: '305px' }}
+                  h={{ sm: 'auto', md: '230px', lg: '300px' }}
                   objectFit='cover'
                 />
                 <Stack mt='6' spacing='3'>

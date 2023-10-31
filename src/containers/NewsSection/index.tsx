@@ -102,8 +102,8 @@ const NewsSection = () => {
           }}
           as={Link}
           href={{
-            pathname: `/listing/${categories[categorySelected].name}`,
-            query: { category: categorySelected },
+            pathname: '/listing/[category]',
+            query: { category: categories[categorySelected].name },
           }}
         >
           Ver más
