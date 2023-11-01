@@ -53,7 +53,8 @@ const NewsSection = () => {
       <Heading
         as='h3'
         size='lg'
-        width={'80%'}
+        width='80%'
+        px='15px'
         mx='auto'
         mt={8}
         sx={{
@@ -78,7 +79,7 @@ const NewsSection = () => {
               handlerCategorySelected(e.id!);
             }}
             colorScheme='brand'
-            borderRadius={'3xl'}
+            borderRadius='3xl'
             _dark={{
               bg: categorySelected === e.id ? '#2D3748' : undefined,
               color: 'white',
@@ -92,8 +93,8 @@ const NewsSection = () => {
       <ListPosts data={categoryFilter?.slice(0, 3)} isLoading={isLoading} />
       {!isLoading && categoryFilter?.length > 3 && (
         <Button
-          sx={{ mx: 'auto', mb: 8 }}
-          w={{ base: '100%', sm: '20%' }}
+          sx={{ mx: 'auto', mb: 5 }}
+          w={{ base: '80%', sm: '20%' }}
           colorScheme='brand'
           _dark={{
             bg: '#2D3748',
