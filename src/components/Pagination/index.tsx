@@ -23,7 +23,7 @@ const Pagination = ({
   }
 
   return (
-    <Flex align='center' justify='center' mt={4} gap={3}>
+    <Flex align='center' justify='center' mb={8} gap={3}>
       <IconButton
         variant={currentPage === 1 ? 'solid' : 'outline'}
         isDisabled={currentPage === 1}

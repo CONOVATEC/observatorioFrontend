@@ -17,7 +17,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const domain = process.env.BACKEND_URL ?? 'https://admin.observatoriodev.xyz';
-  const url = domain + '/api/v1/posts';
+  const url = domain + '/api/v1/posts?included=category,user';
   const { status, data } = await axios.get(url, config);
   res.status(status).json({ ...data });
 }

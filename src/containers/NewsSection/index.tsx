@@ -6,6 +6,7 @@ import ListPosts from '../../components/ListPosts';
 import useSWR from 'swr';
 import fetcher from '../../utils/fetcher';
 import Pagination from './../../components/Pagination/index';
+import Link from 'next/link';
 
 const NewsSection = () => {
   const {
@@ -20,8 +21,8 @@ const NewsSection = () => {
   );
 
   const [categorySelected, setCatergorySelected] = useState<number>(0);
-  const [page, setPage] = useState<number>(1);
-  const [categoryFilter, setCategoryFilter] = useState<Posts[][]>([]);
+
+  const [categoryFilter, setCategoryFilter] = useState<Posts[]>([]);
 
   const handlerCategorySelected = (id: number) => {
     setCatergorySelected(id);
@@ -37,27 +38,29 @@ const NewsSection = () => {
   ];
 
   useEffect(() => {
-    setPage(1);
-    if (lastNewsData?.data) {
-      const categoryPerPage = [];
-      let auxNews =
-        categorySelected === 0
-          ? lastNewsData.data
-          : lastNewsData.data.filter(
-            (row: any) => row.categoryId === categorySelected
-          );
+    let auxNews =
+      categorySelected === 0
+        ? lastNewsData?.data
+        : lastNewsData?.data.filter(
+          (row: any) => row.categoryId === categorySelected
+        );
 
-      for (let i = 0; i < auxNews?.length; i += 3) {
-        categoryPerPage.push(auxNews?.slice(i, i + 3));
-      }
-
-      setCategoryFilter(categoryPerPage);
-    }
-  }, [lastNewsData, categorySelected]);
+    setCategoryFilter(auxNews);
+  }, [categorySelected, lastNewsData]);
 
   return (
-    <Stack as='section' padding='30px'>
-      <Heading as='h3' size='lg'>
+    <Stack as='section'>
+      <Heading
+        as='h3'
+        size='lg'
+        width='80%'
+        px='15px'
+        mx='auto'
+        mt={8}
+        sx={{
+          textAlign: 'start',
+        }}
+      >
         Últimas noticias
       </Heading>
       <ListPosts data={lastNewsData?.data?.slice(0, 3)} isLoading={isLoading} />
@@ -65,6 +68,7 @@ const NewsSection = () => {
         alignItems='center'
         justifyContent='center'
         gap={3}
+        wrap={'wrap'}
         direction={{ base: 'column', sm: 'row' }}
       >
         {categories.map((e: any) => (
@@ -75,7 +79,7 @@ const NewsSection = () => {
               handlerCategorySelected(e.id!);
             }}
             colorScheme='brand'
-            borderRadius={'3xl'}
+            borderRadius='3xl'
             _dark={{
               bg: categorySelected === e.id ? '#2D3748' : undefined,
               color: 'white',
@@ -86,13 +90,26 @@ const NewsSection = () => {
           </Button>
         ))}
       </Flex>
-      <ListPosts data={categoryFilter[page - 1]} isLoading={isLoading} />
-      <Pagination
-        totalPosts={categoryFilter.flat().length}
-        postsPerPage={3}
-        currentPage={page}
-        setPage={setPage}
-      />
+      <ListPosts data={categoryFilter?.slice(0, 3)} isLoading={isLoading} />
+      {!isLoading && categoryFilter?.length > 3 && (
+        <Button
+          sx={{ mx: 'auto', mb: 5 }}
+          w={{ base: '80%', sm: '20%' }}
+          colorScheme='brand'
+          _dark={{
+            bg: '#2D3748',
+            color: 'white',
+            border: '1px solid #2D3748',
+          }}
+          as={Link}
+          href={{
+            pathname: '/listing/[category]',
+            query: { category: categories[categorySelected].name },
+          }}
+        >
+          Ver más
+        </Button>
+      )}
     </Stack>
   );
 };
