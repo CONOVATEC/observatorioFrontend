@@ -1,14 +1,14 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { APIS_URLS } from '../../../config'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { APIS_URLS } from '../../../config';
 
 export const strategyApi = createApi({
   reducerPath: 'strategyApi',
   baseQuery: fetchBaseQuery({ baseUrl: APIS_URLS.OBSERVATORIO_BACK }),
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getInfoStrategy: builder.query({
-      query: () => '/youthStrategy'
-    })
-  })
-})
+      query: () => '/api/youthStrategy',
+    }),
+  }),
+});
 
-export const { useGetInfoStrategyQuery, reducer } = strategyApi
+export const { useGetInfoStrategyQuery, reducer } = strategyApi;

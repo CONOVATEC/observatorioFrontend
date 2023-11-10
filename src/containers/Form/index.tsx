@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -55,17 +56,21 @@ const Form = ({ onSubmit }: FormProps) => {
                   );
                 }
                 case 'checkbox': {
-                  return <Checkbox {...register(name)}>{label}</Checkbox>;
+                  return (
+                    <Checkbox key={`checkbox${index}`} {...register(name)}>
+                      {label}
+                    </Checkbox>
+                  );
                 }
                 case 'textarea': {
                   return (
-                    <>
+                    <Box key={`textarea${index}`}>
                       <FormLabel>{label}</FormLabel>
                       <Textarea
                         placeholder={placeHolder}
                         {...register(name)}
                       />
-                    </>
+                    </Box>
                   );
                 }
                 default: {

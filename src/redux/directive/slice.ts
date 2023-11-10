@@ -1,14 +1,14 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { APIS_URLS } from '../../../config'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { APIS_URLS } from '../../../config';
 
 export const directiveApi = createApi({
   reducerPath: 'directiveApi',
   baseQuery: fetchBaseQuery({ baseUrl: APIS_URLS.OBSERVATORIO_BACK }),
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getDirectiveApi: builder.query({
-      query: () => '/directive'
-    })
-  })
-})
+      query: () => '/api/directive',
+    }),
+  }),
+});
 
-export const { useGetDirectiveApiQuery, reducer } = directiveApi
+export const { useGetDirectiveApiQuery, reducer } = directiveApi;
