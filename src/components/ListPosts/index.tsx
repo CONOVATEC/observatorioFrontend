@@ -1,16 +1,11 @@
 import React from 'react';
 import {
-  Avatar,
-  Button,
   Card,
   CardBody,
-  CardFooter,
-  CardHeader,
   Grid,
   GridItem,
   Heading,
   Image,
-  SimpleGrid,
   Skeleton,
   Stack,
   Text,
