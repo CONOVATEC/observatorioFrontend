@@ -3,7 +3,7 @@ import { Stack } from '@chakra-ui/react';
 import { dataCards } from '../../config';
 import { useRenderPropsMainCards } from '../../hooks';
 import ResponsiveGalleryWithCarousel from '../../views/ResponsiveGalleryWithCarousel';
-import CustomHero from '../CustomHero';
+import CustomHero from '../MainNewsTrend';
 
 const HeaderSection = () => {
   const [_handleMainCardsRender, _handleMainCardsCarouselRender] =

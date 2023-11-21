@@ -42,7 +42,8 @@ const NewsSection = () => {
       categorySelected === 0
         ? lastNewsData?.data
         : lastNewsData?.data.filter(
-          (row: any) => row.categoryId === categorySelected
+          (row: any) =>
+            row.categoryId === categorySelected && row.news_cover === 'cover'
         );
 
     setCategoryFilter(auxNews);
