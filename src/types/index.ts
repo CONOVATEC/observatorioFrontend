@@ -19,10 +19,10 @@ export interface IMenuItem {
   }[];
 }
 export interface SectionProps {
-  title: string;
-  image: string;
+  name: string;
+  url_icono: string;
   alt_image: string;
-  content_body: string;
+  description: string;
 }
 
 export type textProp = string | JSX.Element;
