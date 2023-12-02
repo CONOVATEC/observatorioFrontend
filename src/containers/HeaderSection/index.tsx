@@ -4,16 +4,19 @@ import { dataCards } from '../../config';
 import { useRenderPropsMainCards } from '../../hooks';
 import ResponsiveGalleryWithCarousel from '../../views/ResponsiveGalleryWithCarousel';
 import CustomHero from '../CustomHero';
+import useSWR from 'swr';
+import fetcher from '../../utils/fetcher';
 
 const HeaderSection = () => {
   const [_handleMainCardsRender, _handleMainCardsCarouselRender] =
     useRenderPropsMainCards();
+  const { data: datosPS, error, isLoading } = useSWR('/api/tematics', fetcher);
 
   return (
     <Stack as='header'>
       <CustomHero />
       <ResponsiveGalleryWithCarousel
-        data={dataCards}
+        data={datosPS?.data.slice(0, 4)}
         carouselRenderItems={_handleMainCardsCarouselRender}
         stackRenderItems={_handleMainCardsRender}
         carouselProps={{
