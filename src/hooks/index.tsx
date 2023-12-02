@@ -71,26 +71,41 @@ export const useRenderPropsLogosCards = () => {
 export const useRenderPropsMainCards = () => {
   const _handleMainCardsRender = useCallback(
     (data: SectionProps, index: number) => {
-      const { title, image, content_body, alt_image } = data;
+      const { name, url_icono, description, alt_image } = data;
 
       return (
         <Card
           key={`card-carousel-first-${index}`}
           maxW={'250px'}
+          minW={'200px'}
           rounded={0}
-          height={'200%'}
+          height={'auto'}
           backgroundColor='Background'
         >
-          <CardBody backgroundColor='Background' paddingX={'15px'}>
+          <CardBody
+            backgroundColor='Background'
+            paddingX={'15px'}
+            height='450px'
+          >
             <Image
-              src={image}
+              src={url_icono}
               alt={alt_image}
               borderRadius='lg'
               boxSize='100px'
+              width='100%'
+              height='auto'
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>{title}</Heading>
-              <Text size='xs'>{content_body} </Text>
+              <Heading size='md'>{name}</Heading>
+              <Text
+                size='xs'
+                textOverflow={'ellipsis'}
+                height='120px'
+                overflow={'hidden'}
+                noOfLines={5}
+              >
+                {description}{' '}
+              </Text>
             </Stack>
           </CardBody>
           <Box bg='purple.500' h='5px' />
@@ -102,7 +117,7 @@ export const useRenderPropsMainCards = () => {
 
   const _handleStackMainCardsRender = useCallback(
     (data: SectionProps, index: number) => {
-      const { title, image, content_body, alt_image } = data;
+      const { name, url_icono, description, alt_image } = data;
       return (
         <Box
           height={{ base: '50vh', md: '40vh' }}
@@ -111,14 +126,14 @@ export const useRenderPropsMainCards = () => {
           <Card height={'100%'} rounded={0} backgroundColor='Background'>
             <CardBody backgroundColor='Background'>
               <Image
-                src={image}
+                src={url_icono}
                 alt={alt_image}
                 borderRadius='lg'
                 boxSize='100px'
               />
               <Stack mt='6' spacing='3'>
-                <Heading size='md'>{title}</Heading>
-                <Text size='xs'>{content_body} </Text>
+                <Heading size='md'>{name}</Heading>
+                <Text size='xs'>{description} </Text>
               </Stack>
             </CardBody>
             <Box bg='purple.500' h='5px' />
