@@ -159,10 +159,6 @@ export const useRenderPropsMenuItems = () => {
             href={href}
             style={{
               height: '22px',
-              borderBottom:
-                router.asPath.slice(0, -1) === href
-                  ? '1px solid white'
-                  : 'none',
             }}
           >
             {label}
@@ -171,7 +167,20 @@ export const useRenderPropsMenuItems = () => {
 
       return (
         <Menu key={`menu-item-${index}`}>
-          <MenuButton>
+          <MenuButton
+            sx={{
+              color: menuItem.subLabels?.some(({ href }) =>
+                router.asPath.includes(href)
+              )
+                ? '#9537d3'
+                : 'inherit',
+              fontWeight: menuItem.subLabels?.some(({ href }) =>
+                router.asPath.includes(href)
+              )
+                ? 'bold'
+                : 'normal',
+            }}
+          >
             {label} <ChevronDownIcon />{' '}
           </MenuButton>
           <MenuList>
@@ -180,8 +189,9 @@ export const useRenderPropsMenuItems = () => {
                 as='li'
                 key={`sub-menu-item-${index}`}
                 style={{
+                  color: router.asPath.slice(0, -1) === href ? 'white' : 'none',
                   backgroundColor:
-                    router.asPath.slice(0, -1) === href ? 'purple' : 'none',
+                    router.asPath.slice(0, -1) === href ? '#9537d3' : 'none',
                 }}
               >
                 <Link href={href}>{label}</Link>
