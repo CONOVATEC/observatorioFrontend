@@ -172,7 +172,7 @@ export const useRenderPropsMenuItems = () => {
               color: menuItem.subLabels?.some(({ href }) =>
                 router.asPath.includes(href)
               )
-                ? '#9537D3'
+                ? '#9537d3'
                 : 'inherit',
               fontWeight: menuItem.subLabels?.some(({ href }) =>
                 router.asPath.includes(href)
@@ -191,7 +191,7 @@ export const useRenderPropsMenuItems = () => {
                 style={{
                   color: router.asPath.slice(0, -1) === href ? 'white' : 'none',
                   backgroundColor:
-                    router.asPath.slice(0, -1) === href ? 'purple' : 'none',
+                    router.asPath.slice(0, -1) === href ? '#9537d3' : 'none',
                 }}
               >
                 <Link href={href}>{label}</Link>
