@@ -29,7 +29,7 @@ const MainNewsTrend = () => {
       return 0;
     })[0];
 
-  const { url_image, title, content, category, id } = trend ?? {};
+  const { url_image, title, extract, category, id } = trend ?? {};
 
   return (
     <Flex
@@ -72,7 +72,7 @@ const MainNewsTrend = () => {
               width: '100%',
             }}
           >
-            {content}
+            {extract}
           </Text>
           <Button
             bg={'purple.600'}
