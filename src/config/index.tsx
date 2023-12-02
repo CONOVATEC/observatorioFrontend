@@ -3,8 +3,6 @@ import {
   SectionNationalCarouselProps,
 } from '../types';
 
-export { dataCards } from './Header';
-
 export const functions = [
   {
     primary: 'Brindar Data regional',
