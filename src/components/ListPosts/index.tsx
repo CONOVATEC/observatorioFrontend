@@ -49,6 +49,7 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
           gap={6}
           p='15px'
           w='80%'
+          maxW='80vw'
           templateColumns={{
             base: 'repeat(1, 1fr)',
             md: 'repeat(2, 1fr)',
@@ -59,17 +60,26 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
           mx='auto'
         >
           {data?.map((item: Posts, index: number) => {
-            const { title, id, extract, user, created_at, url_image } = item;
+            const {
+              title,
+              id,
+              extract,
+              user,
+              created_at,
+              url_image,
+              category,
+            } = item;
             return (
-              <GridItem key={id} w='100%' maxW='482px'>
+              <GridItem key={id} w='100%'>
                 <Card
                   as={Link}
                   h='100%'
                   key={`post-${id}`}
                   href={{
-                    pathname: '/post/[id]',
-                    query: { id },
+                    pathname: '/listing/[category]/[name]',
+                    query: { category: category.name, name: title, id },
                   }}
+                  w='100%'
                 >
                   <CardBody>
                     <Image
@@ -81,14 +91,20 @@ const ListPosts = ({ data, isLoading }: ListPostsProps) => {
                       h={{ sm: 'auto', md: '230px', lg: '270px' }}
                       objectFit='cover'
                     />
-                    <Stack mt='6' spacing='3'>
+                    <Stack mt='6' spacing='3' w='100%'>
                       <Text fontSize='sm'>{`${user.name} | ${created_at}`}</Text>
                       <Heading size='md'>{title}</Heading>
                       <Text
-                        overflow='hidden'
-                        whiteSpace='nowrap'
-                        textOverflow='ellipsis'
+                        sx={{
+                          display: '-webkit-box',
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          WebkitLineClamp: 1,
+                          textOverflow: 'ellipsis',
+                          width: '100%',
+                        }}
                         maxWidth='100%'
+                        w='100%'
                       >
                         {extract}
                       </Text>

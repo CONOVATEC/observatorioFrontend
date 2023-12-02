@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import CustomHero from '../../src/containers/CustomHero';
+import CustomHero from '../../src/containers/MainNewsTrend';
 import NewsSection from '../../src/containers/NewsSection';
 import DefaultLayout from '../../src/views/DefaultLayout';
 import { organizationName } from '../../src/utils/constants';
