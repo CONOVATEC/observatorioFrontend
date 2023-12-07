@@ -2,7 +2,7 @@ import { ParsedUrlQuery } from 'querystring';
 
 /* Filtrar el post de la api.Devuelve el la imagen o el contendido  */
 
-export const getInfoData = (data: any, query: ParsedUrlQuery, type: string) => {
+const getInfoData = (data: any, query: ParsedUrlQuery, type: string) => {
   const post = (data?.data as Array<any>)?.find(
     ({ id }) => String(id) === String(query.id)
   );
@@ -11,3 +11,5 @@ export const getInfoData = (data: any, query: ParsedUrlQuery, type: string) => {
   else if (type === 'content') return post.content;
   else return 'no se encuentra disponible el dato';
 };
+
+export default getInfoData;
