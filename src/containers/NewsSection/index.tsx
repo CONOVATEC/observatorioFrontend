@@ -7,18 +7,26 @@ import useSWR from 'swr';
 import fetcher from '../../utils/fetcher';
 import Pagination from './../../components/Pagination/index';
 import Link from 'next/link';
+import { useGetPostsApiQuery } from '../../redux/posts/slice';
+import { useGetPostsCategoriesApiQuery } from '../../redux/postsCategories/slice';
 
 const NewsSection = () => {
-  const {
-    data: lastNewsData,
-    error,
-    isLoading,
-  } = useSWR('/api/posts', fetcher);
+  // const {
+  //   data: lastNewsData,
+  //   error,
+  //   isLoading,
+  // } = useSWR('/api/posts', fetcher);
 
-  const { data: categoriesData, error: errorCategories } = useSWR(
-    '/api/categories',
-    fetcher
-  );
+  // const { data: categoriesData, error: errorCategories } = useSWR(
+  //   '/api/categories',
+  //   fetcher
+  // );
+
+  const { data: lastNewsData, isLoading } = useGetPostsApiQuery();
+
+  const { data: categoriesData } = useGetPostsCategoriesApiQuery();
+
+  console.log(lastNewsData);
 
   const [categorySelected, setCatergorySelected] = useState<number>(0);
 
