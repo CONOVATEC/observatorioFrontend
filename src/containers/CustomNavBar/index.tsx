@@ -21,7 +21,7 @@ const CustomNavBar = () => {
       <HStack display={{ base: 'none', md: 'flex' }} spacing={3}>
         {menuItems.map((menuItem, index) => (
           <Box
-            key={menuItem.href}
+            key={menuItem.href + index}
             className={router.pathname === menuItem.href ? style.active : ''}
           >
             {handlerRenderMenuItems(menuItem, index)}
