@@ -6,7 +6,7 @@ let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActions) {
-  const repo = isProduction ? 'peru' : 'dev';
+  const repo = isProduction ? 'peru' : 'perudev';
 
   assetPrefix = `/${repo}/`;
   basePath = isProduction ? '/peru' : `/${repo}`;
