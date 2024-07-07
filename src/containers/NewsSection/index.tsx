@@ -3,9 +3,9 @@ import { Flex, Heading, Stack } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react';
 import { Posts } from '../../types';
 import ListPosts from '../../components/ListPosts';
-import useSWR from 'swr';
-import fetcher from '../../utils/fetcher';
-import Pagination from './../../components/Pagination/index';
+// import useSWR from 'swr';
+// import fetcher from '../../utils/fetcher';
+// import Pagination from './../../components/Pagination/index';
 import Link from 'next/link';
 import { useGetPostsApiQuery } from '../../redux/posts/slice';
 import { useGetPostsCategoriesApiQuery } from '../../redux/postsCategories/slice';
@@ -26,7 +26,7 @@ const NewsSection = () => {
 
   const { data: categoriesData } = useGetPostsCategoriesApiQuery();
 
-  console.log(lastNewsData);
+  console.log({ lastNewsData });
 
   const [categorySelected, setCatergorySelected] = useState<number>(0);
 
