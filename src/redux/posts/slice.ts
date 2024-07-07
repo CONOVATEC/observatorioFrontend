@@ -5,7 +5,7 @@ import { PostFilter } from '../../types';
 export const postsApi = createApi({
   reducerPath: 'postsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: APIS_URLS.OBSERVATORIO_BACK,
+    baseUrl: 'https://admindev.observatoriojovenperu.com.pe/api/v1/',
     prepareHeaders: (headers) => {
       const token = 'AuthorizationObservatorio2024';
       if (token) {
