@@ -6,12 +6,10 @@ let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActions) {
-  const repo = isProduction
-    ? 'perudev'
-    : process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  const repo = isProduction ? 'peru' : 'perudev';
 
   assetPrefix = `/${repo}/`;
-  basePath = isProduction ? '/perudev' : `/${repo}`;
+  basePath = isProduction ? '/peru' : `/${repo}`;
 }
 
 const nextConfig = {
