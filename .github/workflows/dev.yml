@@ -3,7 +3,7 @@ on:
     tags:
       - dev-v*
 env:
-  ENVIROMENT_SLUG: production
+  ENVIROMENT_SLUG: development
   NEXT_PUBLIC_SUPA_BASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPA_BASE_ANON_KEY }}
   NEXT_PUBLIC_FORM_API: ${{ secrets.NEXT_PUBLIC_FORM_API }}
 jobs:
