@@ -43,3 +43,4 @@ public/sitemap*.xml
 
 .vscode
 .eslintcache
+.next.zip
