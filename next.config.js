@@ -12,6 +12,10 @@ if (isGithubActions) {
   basePath = isProduction ? '/peru' : `/${repo}`;
 }
 
+const siteUrl = isProduction
+  ? 'https://observatoriojovenperu.com.pe/peru/'
+  : 'https://observatoriojovenperu.com.pe/perudev/';
+
 const nextConfig = {
   images: {
     unoptimized: true,
@@ -21,6 +25,9 @@ const nextConfig = {
   assetPrefix: assetPrefix === '' ? undefined : assetPrefix,
   basePath,
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_SITE_URL: siteUrl,
+  },
 };
 
 module.exports = nextConfig;
