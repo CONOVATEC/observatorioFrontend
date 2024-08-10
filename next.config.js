@@ -27,6 +27,7 @@ const nextConfig = {
   trailingSlash: true,
   env: {
     NEXT_PUBLIC_SITE_URL: siteUrl,
+    NEXT_PUBLIC_API_URL: 'https://admindev.observatoriojovenperu.com.pe/api/',
   },
 };
 

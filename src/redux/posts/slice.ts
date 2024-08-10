@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { APIS_URLS } from '../../../config';
 import { PostFilter } from '../../types';
 
 export const postsApi = createApi({
   reducerPath: 'postsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://admindev.observatoriojovenperu.com.pe/api/v1/',
+    baseUrl: process.env.NEXT_PUBLIC_API_URL,
     prepareHeaders: (headers) => {
       const token = 'AuthorizationObservatorio2024';
       if (token) {
